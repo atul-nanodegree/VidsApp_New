@@ -1,0 +1,661 @@
+<resources>
+    <string name="app_name">VidsApp</string>
+    <string name="app_tagline">Cool videos for you!</string>
+    <string name="playlist">PlayList</string>
+
+    <string name="action_favorite">My favorites</string>
+    <string name="action_watchlist">My watch list</string>
+    <string name="action_feedback">Feedback</string>
+    <string name="action_share">Share App</string>
+    <string name="action_rate">Rate App</string>
+    <string name="action_about">About</string>
+    <string name="empty">empty</string>
+    <string name="videos">Videos</string>
+    <string name="play_all">Play all</string>
+    <string name="add_favorite">Added to favorite</string>
+    <string name="remove_favorite">Removed from favorite</string>
+
+    <string-array name="vids_category">
+        <item>Home remedies</item>
+        <item>Beauty tips</item>
+        <item>Motivational</item>
+        <item>Mythological</item>
+        <item>Bollywood songs</item>
+        <item>Tamil special</item>
+        <item>Telugu special</item>
+        <item>Shayari/Poetry</item>
+        <item>Bollywood movies</item>
+        <item>Kids</item>
+        <item>Food recipes</item>
+        <item>News channels</item>
+    </string-array>
+
+    <string-array name="home_remedies_list">
+        <item>High blood pressure</item>
+        <item>Diabetes</item>
+        <item>Obesity</item>
+        <item>High cholesterol</item>
+        <item>Heart diseases</item>
+        <item>Dengue / Fever</item>
+        <item>Headache / Migraine</item>
+        <item>Liver disorders</item>
+        <item>Improving eye sights</item>
+        <item>Cough and cold</item>
+        <item>Sinusitis</item>
+        <item>Gastric</item>
+        <item>Giddiness</item>
+        <item>Loose motion</item>
+        <item>Vomiting</item>
+        <item>Constipation</item>
+        <item>Dandruff</item>
+        <item>Hair fall</item>
+    </string-array>
+
+
+    <string-array name="high_bp_vids">
+        <item>FA7bjZsMmo</item>
+        <item>gyPplSxbHwY</item>
+        <item>Ju4XMdu8Iwk</item>
+        <item>6HGnizDUugE</item>
+        <item>n5BQ1sJ3exo</item>
+        <item>K77FavcJaA0</item>
+        <item>KKQXFDFbg0o</item>
+        <item>jAHtk5t5h74</item>
+        <item>qMQP53wroFk</item>
+        <item>HKuQM8ZzJDI</item>
+        <item>RQNAa-tqr8</item>
+        <item>h_lIuEZeKoo</item>
+        <item>Gastric</item>
+        <item>Fever</item>
+        <item>Giddiness</item>
+        <item>FCk1agpTPTk</item>
+        <item>hcKOpv5-8rI</item>
+        <item>7tNnHW47gqA</item>
+        <item>cM6yWrQLmjM</item>
+        <item>LaTtxLxBquM</item>
+        <item>6KqkkSJ3cMk</item>
+        <item>Gz84wcP-f5o</item>
+        <item>L0lQk9T_t2A</item>
+    </string-array>
+
+    <string-array name="diabetes_vids">
+        <item>jHRfDTqPzj4</item>
+        <item>_OOWhuC_9Lw</item>
+        <item>pcVYYnXXz_c</item>
+        <item>fH-pwqi_adA</item>
+        <item>2Jx6aoRF4aA</item>
+        <item>Yk7Vqsv8lzU</item>
+        <item>KD-13vWVegc</item>
+        <item>PU1f81fR2P8</item>
+        <item>TvmNJkyffJg</item>
+        <item>Mw60rgNDxDc</item>
+        <item>TrpdKkUR7YY</item>
+        <item>za93oH40zUg</item>
+        <item>nPxEQq17SC0</item>
+        <item>th0ioxMIXkI</item>
+        <item>TSweTl3IuU8</item>
+        <item>e_uug35a6uU</item>
+        <item>uUCDXpKSWa4</item>
+        <item>E0QZAxiuXbA</item>
+        <item>GY53PCa4GEI</item>
+        <item>3RR-WCr7CKI</item>
+        <item>vzsQkUFHrdg</item>
+        <item>kgCh1KNV7YQ</item>
+        <item>YbbRikJM6Jk</item>
+    </string-array>
+
+    <string-array name="obesity_vids">
+        <item>N5GCCcWqtZ8</item>
+        <item>DY7wKeM2RT4</item>
+        <item>mIX0gA05SNU</item>
+        <item>iPGcAaDQYA8</item>
+        <item>0Iz_f_d4Xks</item>
+        <item>zPH1LxbVyeM</item>
+        <item>SqcIS6M4xRU</item>
+        <item>rTiV2QWDhFI</item>
+        <item>jRgmKDpm6LA</item>
+        <item>cNCnG_H6V6Q</item>
+        <item>pbkdSES7eFg</item>
+        <item>pQGLY28h1eY</item>
+        <item>TqSfgz_Qlo8</item>
+        <item>w_Cq1P_8XrA</item>
+        <item>nuzNANp2m9o</item>
+        <item>qhxTDaBLQ9U</item>
+        <item>FRmYPb8hpos</item>
+        <item>pPzooDdGpWo</item>
+        <item>ysHbgRrTbi0</item>
+        <item>HaT1E7Vis4A</item>
+        <item>kqwlHHBDtzI</item>
+        <item>cw__9cfeqCA</item>
+        <item>5aD8ILdMU_g</item>
+        <item>eHrKQhEDIak</item>
+        <item>vq6-E-BJDjs</item>
+        <item>Wstrgv6kV5s</item>
+        <item>Ff6npdeP5RY</item>
+        <item>P6C9K1EyRZ4</item>
+        <item>dkd_DSPI71M</item>
+        <item>ot3eK4X3xKc</item>
+        <item>DcliUnLiiZI</item>
+        <item>T36U4SgyYL4</item>
+        <item>fcN37TxBE_s</item>
+        <item>WZwnnHKikWU</item>
+        <item>LUrrN6cEBRQ</item>
+        <item>X1TuhAn6C-g</item>
+    </string-array>
+
+    <string-array name="cholesterol_vids">
+        <item>0U7YHRW5dyc</item>
+        <item>Cxi361Wzxug</item>
+        <item>BBdMpu3VOCM</item>
+        <item>hsHRnKWmmhQ</item>
+        <item>OBe23AstJsA</item>
+        <item>UAQFrTrElzw</item>
+        <item>0fA-ibsLmZc</item>
+        <item>VTjGRigr1wo</item>
+        <item>mThRoHm4mlg</item>
+        <item>wZtTPyTgBfI</item>
+        <item>RKZ1Wk8tIZo</item>
+        <item>e0LqR87jkkM</item>
+        <item>rIHRmDjsvh4</item>
+        <item>c-CoZ1HgCEk</item>
+        <item>u18cH4WZWGo</item>
+        <item>8N-Gpyb70nw</item>
+        <item>BmDDD2arYoo</item>
+        <item>Sv_gu4rxN5o</item>
+        <item>K69HF4JPNVQ</item>
+        <item>yvCbwey35_U</item>
+        <item>loyKV3-S9MA</item>
+        <item>hJ8-zPL_qCg</item>
+        <item>mvgR3qBN4SE</item>
+        <item>MdSz0AiSqeE</item>
+        <item>BGA12BPYgt4</item>
+        <item>gsu8zkjcfDQ</item>
+        <item>5drNFzcT33g</item>
+        <item>mJXsjWGEx28</item>
+        <item>SZSi1Z6tsrU</item>
+        <item>PVpe3sRAm6k</item>
+        <item>Z9E4oBXFJ-Q</item>
+        <item>WT6yjejD5Hw</item>
+        <item>2ISBB2lKXyI</item>
+    </string-array>
+
+    <string-array name="heart_vids">
+        <item>hJZ4iPzR-Zo</item>
+        <item>hCl5MEczixk</item>
+        <item>VGM_IJ9CUJ4</item>
+        <item>iP5Fq23jQDQ</item>
+        <item>EncJ7HNLg7Q</item>
+        <item>es48YDU0wnU</item>
+        <item>NtR3615tg4</item>
+        <item>xwOwCYInn8s</item>
+        <item>0BdZVvqaXZk</item>
+        <item>hcflN_lZKMU</item>
+        <item>G29k5pLXF10</item>
+        <item>F4A6_Ku59Tw</item>
+        <item>0APKNnzRsGM</item>
+        <item>xLS06na4QBA</item>
+        <item>KWYs2pTui3M</item>
+        <item>tzOeyj_XA-o</item>
+        <item>kryFOoeVO3E</item>
+        <item>QmgNktQryeI</item>
+        <item>W3lsC5zfEkk</item>
+        <item>hj5fjvkefUg</item>
+        <item>rD3X7j3ZErA</item>
+        <item>doGPrDkt4Sk</item>
+        <item>iIZDlu8wLjA</item>
+        <item>5t2DUk94pgc</item>
+        <item>URN6ZW81v8U</item>
+        <item>XcFkjnXJWWU</item>
+        <item>mU3DqaJuzIw</item>
+        <item>IxTR5h-Dh9M</item>
+        <item>29qes9BlpEk</item>
+    </string-array>
+
+    <string-array name="beauty_tips_list">
+        <item>Arushi Jain</item>
+        <item>Sneha</item>
+        <item>Rani</item>
+        <item>Trisha</item>
+        <item>Herbal beauty tips</item>
+    </string-array>
+
+    <string-array name="motivational_list">
+        <item>Sandeep Maheshwari</item>
+        <item>Him-eesh Madaan</item>
+        <item>Ujjwal Patni</item>
+        <item>TS Madaan</item>
+        <item>Other motivational</item>
+    </string-array>
+
+    <string-array name="motiv_sandeep_m_vids">
+        <item>VG-5gKQoG2o</item>
+        <item>8kobG40CPYw</item>
+        <item>AV37vcRBPhs</item>
+        <item>NeGWwIxyKKQ</item>
+        <item>eF2FST6my_Q</item>
+        <item>eG2X_wYSi_U</item>
+        <item>EVNNzwHWq78</item>
+        <item>RwxC5J8LI4Q</item>
+        <item>Moek1mBNZUg</item>
+        <item>2ZAlNpfQ5sU</item>
+        <item>n4Q1GM_lr94</item>
+        <item>sXHSugsbW28</item>
+        <item>CdolLmN6OSI</item>
+        <item>lQ9pHFFDqAA</item>
+        <item>QkKDeMmcjaA</item>
+        <item>dD_fk9ELJ24</item>
+        <item>KBkmHRpC-bw</item>
+        <item>wZSjyCXCSeU</item>
+        <item>gXJ0gdU-Gv4</item>
+        <item>wvjqFy33HVA</item>
+        <item>tqvSHqR7pjU</item>
+        <item>KcUfiGgTkbw</item>
+        <item>xL3kwFppezc</item>
+        <item>7cZDRM28LgM</item>
+        <item>AH7k3P6W7V8</item>
+        <item>SLgvJfwn-ZM</item>
+        <item>n49ki7qUXmg</item>
+        <item>ijhJjve1bgU</item>
+        <item>HeAcRFIrKFY</item>
+    </string-array>
+
+    <string-array name="motiv_ujjwal_patni_vids">
+        <item>zLyE9MC-B0g</item>
+        <item>gAuc1qzKaqc</item>
+        <item>oxU91PMflp8</item>
+        <item>mlWa2sf7ISU</item>
+        <item>_b857EicE3M</item>
+        <item>qna16wI-dM8</item>
+        <item>IHM4ObptFrQ</item>
+        <item>lkgmXTnuaR4</item>
+        <item>4lw2GO_xeag</item>
+        <item>zcB947KAO5Q</item>
+        <item>Gw5r9Eihgmg</item>
+        <item>3uW1skTf0K4</item>
+        <item>HnKqp8mxdv0</item>
+        <item>qppjPglxpVc</item>
+        <item>n57CLqNHJCA</item>
+        <item>jAXxbDwniEA</item>
+        <item>TD8meaW65EA</item>
+        <item>IHM4ObptFrQ</item>
+        <item>9iKlR7tdQTc</item>
+        <item>NhauyDSKoLQ</item>
+        <item>eZK70Fv7SdY</item>
+        <item>702YEGKCHOg</item>
+        <item>YA0mUH8LWTI</item>
+        <item>YEjnpoggzPU</item>
+        <item>Pnu1Tplkhpo</item>
+        <item>9ozfTvhZDd8</item>
+        <item>hqBZ0tdkKFg</item>
+        <item>vHbP_3Guslg</item>
+        <item>qRBdci7ZbKE</item>
+        <item>mOOnguX5VmQ</item>
+        <item>80nVeVYtSK4</item>
+        <item>WFIIC_4q2cY</item>
+        <item>tnxswn1-nAQ</item>
+        <item>7wD1s3mbIkA</item>
+        <item>edNhBxQNr4M</item>
+        <item>EvILRYizlZY</item>
+        <item>-66vTStoswc</item>
+        <item>7r-gw2XGLPM</item>
+        <item>FGzuX1FKrJ0</item>
+    </string-array>
+
+    <string-array name="motiv_others_vids">
+        <item>8lV5dhPHaR0</item>
+        <item>VdLqkn1itJ4</item>
+        <item>UB0kc7Fxn48</item>
+        <item>vNnxoOzQc-A</item>
+        <item>mBL5MHik0kY</item>
+        <item>dcSjkCQeVSs</item>
+        <item>1STttwsQbsY</item>
+        <item>4tT0QpiWrhY</item>
+        <item>0jfzN5J19NM</item>
+        <item>UeiBF0somEo</item>
+        <item>nnFX0Pr3-Zs</item>
+        <item>ObiwayK7kro</item>
+        <item>FVVxGqOMjTM</item>
+        <item>X4U0pIr-IHw</item>
+        <item>z1JfpHYugQU</item>
+        <item>V3cwnh1nwG0</item>
+        <item>dpkS61Dsnwc</item>
+        <item>0jp3REDZ9CA</item>
+        <item>IzOXkmnFiwI</item>
+        <item>CE10fRIBw3M</item>
+        <item>E9kzRPDAFCU</item>
+        <item>XaUHfzDUvH4</item>
+        <item>NJvUv2bPKB4</item>
+        <item>wNiM1xc0oNY</item>
+        <item>HPf3hxZSJD8</item>
+        <item>Rp49YEL_ing</item>
+        <item>I160oqy8Tpc</item>
+        <item>Z0DlnvZJiDc</item>
+        <item>tjAd4JnyJdE</item>
+        <item>mk1Cv6kid30</item>
+        <item>mk1Cv6kid30</item>
+        <item>Q0J4l9WzqBM</item>
+        <item>R0wF5W0XqvA</item>
+        <item>guXkoXga0Qs</item>
+        <item>TckGcxwknYU</item>
+        <item>7kRQlYSqw_g</item>
+        <item>EVoWrM73sKA</item>
+        <item>jfQsOOHTrGA</item>
+        <item>v3xZ_wpn_Sk</item>
+        <item>HMpWXQpogqI</item>
+        <item>eHzAtxW3TzY</item>
+        <item>wq-gba5nMrc</item>
+        <item>ExKp9e14Xmc</item>
+        <item>3pW2TE_U9_A</item>
+        <item>zSZUFr26H7M</item>
+        <item>2dSs2CeYH2Y</item>
+        <item>38ejk8Kl1c8</item>
+    </string-array>
+
+    <string-array name="songs_list">
+        <item>Romantic melodies</item>
+        <item>Sad melodies</item>
+        <item>Soft melodies</item>
+        <item>Wedding special</item>
+        <item>Choice of Punjabi</item>
+        <item>Singers collection</item>
+        <item>Rock the dance floor</item>
+        <item>Latest jukebox</item>
+        <item>Sune ansune gaane</item>
+        <item>Remix jukebox</item>
+        <item>Filmi melody</item>
+        <item>Pop Chartbusters</item>
+        <item>Hits of the week</item>
+        <item>Ghazals</item>
+        <item>Sharaabi songs</item>
+        <item>Hindi Hot Item Songs</item>
+    </string-array>
+
+    <string-array name="tamil_list">
+        <item>A. R. Rahman Hit Tamil Songs</item>
+        <item>Ilayaraja Hit Tamil Songs</item>
+        <item>RajniKant Special</item>
+        <item>Kamal Hasan Special</item>
+        <item>Tamil Movies</item>
+        <item>Tamil Hot Item Songs</item>
+    </string-array>
+
+    <string-array name="telugu_list">
+        <item>S. P. Balasubrahmanyam Songs</item>
+        <item>Telugu Songs</item>
+        <item>Telugu Movies</item>
+        <item>Telugu Dance Special Songs</item>
+        <item>Telugu Hot Item Songs</item>
+    </string-array>
+
+    <string-array name="movies_list">
+        <item>Romantic</item>
+        <item>Action</item>
+        <item>Comedy</item>
+        <item>Thriller / suspense</item>
+        <item>Horror</item>
+        <item>Hindi dubbed</item>
+    </string-array>
+
+    <string-array name="live_news_channels">
+        <item>Live News</item>
+    </string-array>
+
+    <string-array name="food_recepies">
+        <item>FoodFood</item>
+        <item>Sanjeev Kapoor Khazana</item>
+        <item>Nisha Madhulika</item>
+        <item>Kabita Kitchen</item>
+        <item>Tarla Dalal</item>
+        <item>Rajshri Food</item>
+        <item>Vikas Khanna</item>
+        <item>Pankaj Bhadouria</item>
+        <item>Vahchef</item>
+
+    </string-array>
+
+    <string-array name="kids_section">
+        <item>ChuChu TV</item>
+        <item>Animation Movies</item>
+        <item>Tom and Jerry</item>
+        <item>Doraemon</item>
+        <item>Disney Junior</item>
+        <item>Chhota Bheem</item>
+        <item>Very Funny Cartoons</item>
+        <item>Motu Patlu</item>
+        <item>Oggy And The Cockroaches</item>
+        <item>Baby TV</item>
+        <item>Bob The Builder Hindi</item>
+        <item>Bob The Builder English</item>
+        <item>NODDY in Hindi</item>
+        <item>NODDY in English</item>
+        <item>Parenting tips/guidelines</item>
+
+    </string-array>
+
+    <string-array name="news_vids">
+        <item>oMETNh3Tr0Q</item>
+        <item>yCWbiLZqTyM</item>
+        <item>nAFBhWQPMU8</item>
+        <item>vdBesFFdgDs</item>
+        <item>Msgo-R3zZuM</item>
+        <item>1YnlX4CkPDY</item>
+        <item>kZZIdA0TsBo</item>
+        <item>kuY_VoVbAgA</item>
+        <item>y60wDzZt8yg</item>
+    </string-array>
+
+    <string-array name="ghazals_vids">
+        <item>vhGSdBH_HEs</item>
+        <item>FtWlYgG7qBQ</item>
+        <item>vmItxPZOVok</item>
+        <item>3WAHlzTAkPA</item>
+        <item>c3Wq4q7Yygg</item>
+        <item>DYsOIjw8Emg</item>
+        <item>9BQYgA75P2w</item>
+        <item>UUOn3IIy7G0</item>
+        <item>nJrysmaxUOE</item>
+        <item>phlGi6CyVA8</item>
+        <item>Wv0_QldgpkQ</item>
+        <item>szPmR9rZwh0</item>
+        <item>Muq56V5jwAA</item>
+        <item>u9NI_dhQ3sg</item>
+        <item>xUR1i_NY1pI</item>
+        <item>eIkrAyepuPM</item>
+        <item>G0gnSHIyhfE</item>
+        <item>lEAJj0js4ug</item>
+        <item>TXZZvt6uIaM</item>
+        <item>WJ1HyylpqCw</item>
+        <item>TnWnaVO0P60</item>
+        <item>DLyKuOEUVpk</item>
+        <item>dbDNt9Oll0A</item>
+        <item>E08DZkSc0S8</item>
+        <item>GqFr8Z7O2oI</item>
+        <item>sTZBQAwemwo</item>
+        <item>GBF2RsgDMFA</item>
+        <item>LVet1u-HeZQ</item>
+        <item>XnNso1wsk7g</item>
+    </string-array>
+
+    <string-array name="sharaabi_vids">
+        <item>kML8nanUH_U</item>
+        <item>ID9qQv78tzg</item>
+        <item>STQGNalWcoc</item>
+        <item>OKpq6oJFwww</item>
+        <item>ZHq-pNYQ3gI</item>
+        <item>g0w40gAKISk</item>
+        <item>imZQhVkmu4Y</item>
+        <item>adOgxemdB38</item>
+        <item>-uwZyjl_Jj8</item>
+        <item>wTDOlOV2Z14</item>
+        <item>xLHuzj-UXrc</item>
+        <item>f6nxeIKBNv8</item>
+        <item>E7U3wSqKvec</item>
+        <item>IVqTiuvX99Y</item>
+        <item>pWV75xDH43I</item>
+        <item>2DuMLl9SCG4</item>
+        <item>C6RN5Lvjt8w</item>
+        <item>SLTjimXAHQo</item>
+        <item>PbT5Bs7qNKc</item>
+        <item>IFTGi_BU39g</item>
+        <item>uwtE7PXsXG4</item>
+        <item>QXT-49Jlb5c</item>
+        <item>xB4KHda-fk</item>
+        <item>NSti6kJ8tjU</item>
+        <item>MDFm7jl1WMk</item>
+        <item>wooUVhiozl0</item>
+        <item>bauboaA_ejc</item>
+        <item>qfdecxtdm6s</item>
+        <item>kLVL7hJwupQ</item>
+        <item>V2Fmot1oKGM</item>
+        <item>FT4LQHMGj0o</item>
+        <item>t1p9QWyVNP0</item>
+        <item>azbrgGSZH4M</item>
+        <item>XGG1famGvLY</item>
+    </string-array>
+
+    <string-array name="mythological_list">
+        <item>Bhajans</item>
+        <item>Chalisa</item>
+        <item>Aarti</item>
+        <item>Mantr</item>
+        <item>TV serials</item>
+    </string-array>
+
+    <string-array name="bhajans_playlist">
+        <item>PL31CDAC33BDD61B09</item>
+        <item>PLn5XCPzTVSYarZ8VoTHBrA1GCVw26DjiX</item>
+        <item>PL0vj7O8wvGCqT85AzAISiRUSzZkNuWKxS</item>
+        <item>PLliWtuhJQOC0DhjVzS-A0guSXnVGdXE7n</item>
+        <item>PL1B348706BD18331C</item>
+        <item>PLM3TSQaW_spMU84Jl6QzXejUdZcQcZbEI</item>
+        <item>PLBDDA9B58A10CCD89</item>
+        <item>PLhG-EP3OHRZ0siPXBWz9IJvnXiGHiP0ZI</item>
+        <item>PLLEP0IdOrmU7fkB8pnUVi6106ILfsNjrP</item>
+        <item>PLzRbcbIdYvQGyrW950FuuFGSdvTbmqYQ6</item>
+        <item>PLtaAHAUiQaL-imwCEx9Mz34pUEobJFLsv</item>
+        <item>PLmEovP2uO2C-VBHekzVuwSMNP9kkPr3_7</item>
+        <item>PL0600361D46AF47E7</item>
+        <item>PLU2Xb_bLX9dpF1FbAuIw_gp2JD72fBil8</item>
+        <item>PL20B425742CB4BCCD</item>
+        <item>PLC02AE23647951CFC</item>
+        <item>PLC131322D22FE814D</item>
+        <item>PL7mJQOHGnaYI52quOZiq86l6DVKJgTqXs</item>
+        <item>PLeVyAfp9wkhFJ2v9fZodMMznvLUL_wPL5</item>
+        <item>PL04A61D087C4AEF6F</item>
+        <item>PL9F6297F621E87D11</item>
+        <item>PL-4scAD7lQBznf6H7UgdVKZpE-XFDI9gr</item>
+        <item>PL4424C67A766E6C08</item>
+        <item>PL6VRWt7_anac6ZMKiCwbACbvdSoa4dtzx</item>
+        <item>PLF34BA3A19DB96FE9</item>
+        <item>PLFD8E7E3C0F1D8478</item>
+        <item>PL7951BF6E959F4F95</item>
+        <item>PL74AC69874C1AE70E</item>
+        <item>PLC174CB059566ACC4</item>
+        <item>PLF5CD1684AA5767CA</item>
+        <item>PLdOHwWWJhcjf0QbkWY6ZOLV51-Geax9AS</item>
+        <item>PLYhK5iekh44K5-yL2XkVbqlD-KUK31CB6</item>
+        <item>PLEqBALZ4udy7C5RgbeX5KjZcBT6KSupNU</item>
+        <item>PL80BB72682317E0F9</item>
+        <item>PLyXHXSHxLqKyv8rSxcsOTDfEjQKPjEQeG</item>
+        <item>PL589DF3AE9E9BA8BF</item>
+        <item>PLlTH1xX-WsRBjUpUg2wqvMy6j9ejxGbyY</item>
+        <item>PLTJTrUlvoBd3ohYXGdLLlnQOp3IFg71-f</item>
+        <item>PLBF7840E086B3397C</item>
+        <item>PLfQYB8bnCHmnP5TI4OH0SCbfkZb_Jeys0</item>
+        <item>PL8A6B8BBF38044894</item>
+        <item>PL3182F43571690DF3</item>
+        <item>PLyXHXSHxLqKxRfzapnTTep7_umTgVYM9N</item>
+        <item>PLVlEjHOw-X5Gm8Fk1g1Y6zO4BDlj8lfDO</item>
+        <item>PLC3070032CA79405E</item>
+        <item>PLCinEgs-Q02e-gmzcc8eTWm_4_3WwZM7i</item>
+        <item>PL5bGpMcXz3RJzxizl3J7Xjt4EH1TMNpzW</item>
+
+    </string-array>
+
+    <string-array name="serials_playlist">
+        <item>PL-nbe4FPvDBElyW0Iww5suxJqqmuGBgIH</item>
+        <item>PLWT5l3utuKIO0YKWc8kl1OdimlycmxnAH</item>
+        <item>PL-NRrjK61OD38i9X7KO5qrFKrWvpHubM5</item>
+        <item>PLWT5l3utuKIO0YKWc8kl1OdimlycmxnAH/00026index=5</item>
+        <item>PL57F01972FF119B66</item>
+        <item>PLtaXzx-VKKfF-BCfR4xhJHu4YmuPVKkMf</item>
+        <item>PLAIeZwZeLusQD_9Uh5kqORfowVBsUwLAm</item>
+        <item>PLjIBk4WSQlY5nAR8j_u12NNtXZpCtG3xU</item>
+        <item>PLYDXIBIOjPJM2e4mO_NBzb--EMhK9KHAF</item>
+
+    </string-array>
+
+    <string-array name="dance_florr_playlist">
+        <item>ytQMzNdD3tc</item>
+        <item>H5LQq4MPIao</item>
+        <item>oCD6A0n-fP8</item>
+        <item>QZy4CUjpA10</item>
+        <item>NZs1YdewZKU</item>
+        <item>PvyzEvbaXMk</item>
+        <item>ImwmMUVyoT8</item>
+        <item>2qdQfTohxyk</item>
+        <item>Dj__ZfjFrco</item>
+        <item>UDgxxIOsVFo</item>
+        <item>Q1cHyZwhXcc</item>
+        <item>9Qf4wE2W-As</item>
+        <item>WY0RznJOBy0</item>
+        <item>QZy4CUjpA10</item>
+
+    </string-array>
+
+    <string-array name="shayari_poetry_list">
+        <item>Kavi sammelan</item>
+        <item>Hindi-urdu shayari</item>
+    </string-array>
+
+    <string-array name="kavi_sammelan_vids">
+        <item>PLA2A98E0BE58396CB</item>
+        <item>PLRZwUbTF-YkZTM-h4GI6cPwwKapcnbNyc</item>
+        <item>PLwjXQSniYJtJ68bZynEMOE_6kAfQTZo-h</item>
+        <item>PL-XbLxfa0fSurPg_tbKfAvKwx57A3Cz_I</item>
+        <item>PLEn7IxnSefurNbKk2QZEvhE1CvFHii6MP</item>
+        <item>PLpIdXviqZm9_6H3B-VOkVTVIzGPQcW2Dw</item>
+        <item>PLpIdXviqZm991-buG3neTWTyWn6-hRH9v</item>
+        <item>PLb3FBpx4sNP2CjnbafTBkh4GV4-oZAC2k</item>
+        <item>PLMyBfDMULf-qV1HYE26rZ9GqgOMEOyycz</item>
+        <item>PLxqqaGzPcT333WeE1M986NfZhFhNoTTsd</item>
+        <item>PLdsd2shqzhg_SjIGeIC_QoI9Vn6uGrFjs</item>
+        <item>PLrH8WWVYffmKD2m4-o4fxyijwxd4_fWJt</item>
+        <item>PLRZwUbTF-YkZ_Oj1VVlSIpUZsj3rTIS3B</item>
+        <item>PLasLwvWgv0UgWNvhGC2XQc88AlNGzwk8C</item>
+        <item>PL4Lg0-essiw1d5vBja0Ua2PXmcCYrWhez</item>
+        <item>PL1GlBKFsNzwDfFwcwyEBV8nJTq9fKG9KO</item>
+        <item>PLW2U16DvmuMHiX7tqZadS_sfo55WbDjuR</item>
+        <item>PLDrTk4igkG0WAMlHgJIk3bRdZp5M51bUI</item>
+        <item>PLu9WLu2vEEefgCe_9qfHR1YtpGj23ApHr</item>
+    </string-array>
+
+    <string-array name="shayari_vids">
+        <item>PLpe8Pk7zfp0UU3qepJLtRw-q1VUg2p6qx</item>
+        <item>PL70qqzD0jmok1BMEwFGpFaVlp_KKqXxZ7</item>
+        <item>PLxsNGP3A9EbSru5RU7ySa2DbH2TO_c83e</item>
+        <item>PLLZE5RT3GZ2xdEcMA4GfcnFwgztyCubHG</item>
+        <item>PLVLpQSJJETuZVY23ES-Y6iO2mHwwFVbHh</item>
+        <item>PLU6PdeCfcSvQBSQgjYwPrBLiKl3FngFv8</item>
+        <item>PLVarVRFOGsyQha-a8fMY_ZebcnS8w8Vgd</item>
+        <item>PLFdItitCzc0J09quiMwGHlf7O_Bcn4lMU</item>
+        <item>PLLZE5RT3GZ2zd07Uxdd8ndj_zwMjmwkkX</item>
+        <item>PL52ED3EE1CA130DE3</item>
+    </string-array>
+
+    <string-array name="dandruff_vids">
+        <item>NOlo71CDklQ</item>
+        <item>g64g4OriyQw</item>
+        <item>j9RdgEAiWbo</item>
+        <item>rIkSzdqNarU</item>
+        <item>mYwIntAlGVs</item>
+        <item>I0lOsrty5t8</item>
+        <item>chKreZrBU7I</item>
+        <item>eD3-4rLPq8k</item>
+    </string-array>
+
+    <string name="banner_home_footer_video">ca-app-pub-3233306799941518/2558410588</string>
+    <string name="banner_home_footer_playlistvideo">ca-app-pub-3233306799941518/2921350587</string>
+    <string name="banner_home_footer_favouritevideo">ca-app-pub-3233306799941518/4398083781</string>
+    <string name="interstitial_full_screen">ca-app-pub-3233306799941518/9512940982</string>
+</resources>
