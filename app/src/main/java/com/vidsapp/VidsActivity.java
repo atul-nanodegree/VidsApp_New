@@ -3,8 +3,12 @@ package com.vidsapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
@@ -22,7 +26,7 @@ import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.vidsapp.util.VidsApplUtil;
 
-public class VidsActivity extends AppCompatActivity {
+public class VidsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private Spinner categorySpinner, subCategorySpinner;
     private  CoordinatorLayout mMainCoordinatorLayout;
@@ -34,7 +38,7 @@ public class VidsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vids);
+        setContentView(R.layout.activity_main);
 
 
         //Displaying banner ads at bottom of screen
@@ -62,6 +66,16 @@ public class VidsActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
 //        toolbar.setLogo(R.drawable.icon);
         mMainCoordinatorLayout=(CoordinatorLayout)findViewById(R.id.coordinatelayout);
 
@@ -595,6 +609,16 @@ public class VidsActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_vids, menu);
@@ -633,10 +657,57 @@ public class VidsActivity extends AppCompatActivity {
         this.listenerPl = fvListener;
     }
 
+
+
     public interface FetchVidsListener {
         public void onFetchVideo(String vidsType, String vidsIds);
         public void onFetchPl(String vidsType, String plIds);
 
     }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.homeremedies) {
+            // Handle the camera action
+        }  else if (id == R.id.beutytips) {
+
+        } else if (id == R.id.motivational) {
+
+        } else if (id == R.id.mythological) {
+
+        } else if (id == R.id.bollysongs) {
+
+        }
+        else if (id == R.id.tamilspecial) {
+
+        }
+        else if (id == R.id.teluguspecial) {
+
+        }
+        else if (id == R.id.shayari) {
+
+        }
+        else if (id == R.id.bollymovie) {
+
+        }
+        else if (id == R.id.kids) {
+
+        }
+        else if (id == R.id.foodrecipes) {
+
+        }
+        else if (id == R.id.newschannels) {
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
 
 }

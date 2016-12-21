@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/homeremedies"
+            android:title="Home remedies" />
+        <item
+            android:id="@+id/beutytips"
+            android:title="Beauty tips" />
+        <item
+            android:id="@+id/motivational"
+            android:title="Motivational" />
+        <item
+            android:id="@+id/mythological"
+            android:title="Mythological" />
+
+        <item
+            android:id="@+id/bollysongs"
+            android:title="Bollywood songs" />
+        <item
+            android:id="@+id/tamilspecial"
+            android:title="Tamil specialer" />
+        <item
+            android:id="@+id/teluguspecial"
+            android:title="Telugu special" />
+        <item
+            android:id="@+id/shayari"
+            android:title="Shayari/Poetry" />
+        <item
+            android:id="@+id/bollymovie"
+            android:title="Bollywood movies" />
+        <item
+            android:id="@+id/kids"
+            android:title="Kids" />
+        <item
+            android:id="@+id/foodrecipes"
+            android:title="Food recipes" />
+        <item
+            android:id="@+id/newschannels"
+            android:title="News channels" />
+
+
+    </group>
+
+    <!--<item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:title="Send" />
+        </menu>
+    </item>-->
+
+</menu>

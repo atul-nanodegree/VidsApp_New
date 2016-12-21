@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">VidsApp</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="app_tagline">Cool videos for you!</string>
     <string name="playlist">PlayList</string>
 
