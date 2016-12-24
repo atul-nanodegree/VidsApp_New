@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.vidsapp.util.VidsAppAds;
 import com.vidsapp.util.VidsApplUtil;
 
 import org.w3c.dom.Text;
@@ -45,7 +46,6 @@ public class VidsFavoriteActivity extends BaseActivity {
     private CoordinatorLayout mMainCoordinatorLayout;
     private String vidsIds;
     private RelativeLayout no_fav_layout;
-    private AdView mAdView;
 
 
     @Override
@@ -53,27 +53,9 @@ public class VidsFavoriteActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.favorite);
 
-        //Displaying banner ads at bottom of screen
-
-                //  mAdView = (AdView) findViewById(R.id.adView);
-
-        mAdView=new AdView(this);
-        mAdView.setAdSize(AdSize.BANNER);
-        mAdView.setAdUnitId(getResources().getString(R.string.banner_home_footer_favouritevideo));
-
-        final FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(
-                FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
-        layoutParams.gravity = Gravity.BOTTOM;
-        // layoutParams.gravity = isTopPosition ? Gravity.TOP : Gravity.BOTTOM;
-
-        this.addContentView(mAdView, layoutParams);
-
-        AdRequest adRequest = new AdRequest.Builder()
-                // Add a test device to show Test Ads
-                //.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                //.addTestDevice("501CA82BA12681A250E422CC4BF70A13") //Random Text
-                .build();
-        mAdView.loadAd(adRequest);
+       //Displaying banner ads at bottom of screen
+        VidsAppAds vidsAppAds=new VidsAppAds(this);
+        vidsAppAds.bannerAds(getResources().getString(R.string.banner_home_footer_favouritevideo));
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
