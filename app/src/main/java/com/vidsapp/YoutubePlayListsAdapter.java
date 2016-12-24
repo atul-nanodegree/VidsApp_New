@@ -15,7 +15,7 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.squareup.picasso.Picasso;
-
+import com.vidsapp.util.VidsAppAds;
 
 
 import java.util.List;
@@ -36,7 +36,7 @@ public class YoutubePlayListsAdapter extends RecyclerView.Adapter<YoutubePlayLis
     private final LayoutInflater mLayoutInflater;
 
     private List<YoutubePlayListItemEntity> mYoutubePlaylistsList;
-    private InterstitialAd mInterstitialAd;
+    private VidsAppAds mVidsAppAds;
 
 
     public YoutubePlayListsAdapter(Context mContext) {
@@ -47,20 +47,8 @@ public class YoutubePlayListsAdapter extends RecyclerView.Adapter<YoutubePlayLis
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mLayoutInflater.inflate(R.layout.youtube_playlists_item, null, false);
-        mInterstitialAd = new InterstitialAd(mContext);
-
-        // set the ad unit ID
-        //Real Ads
-        mInterstitialAd.setAdUnitId(mContext.getString(R.string.interstitial_full_screen));
-        //Test Ads
-        // mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
-
-        mInterstitialAd.setAdListener(new AdListener() {
-            public void onAdLoaded() {
-                showInterstitial();
-            }
-        });
-
+        mVidsAppAds=new VidsAppAds(mContext);
+        mVidsAppAds.initInterstialAds(mContext.getResources().getString(R.string.interstitial_full_screen));
         return new ViewHolder(view);
     }
 
@@ -114,11 +102,9 @@ public class YoutubePlayListsAdapter extends RecyclerView.Adapter<YoutubePlayLis
         @Override
         public void onClick(View v) {
             if (v.getId() == R.id.play_all) {
-                AdRequest adRequest = new AdRequest.Builder()
-                        .build();
-                // Load ads into Interstitial Ads
-                mInterstitialAd.loadAd(adRequest);
-
+                if (mVidsAppAds != null) {
+                    mVidsAppAds.loadInterstialAds();
+                }
                 Intent intent = new Intent(mContext, YoutubePlaylistActivity.class);
                 intent.putExtra(APITags.ID, mYoutubePlaylistsList.get(getAdapterPosition()).getId());
                 intent.putExtra(APITags.NAME, mYoutubePlaylistsList.get(getAdapterPosition()).getTitle());
@@ -140,11 +126,6 @@ public class YoutubePlayListsAdapter extends RecyclerView.Adapter<YoutubePlayLis
             mYoutubePlaylistsList.addAll(docsList);
         }
         notifyDataSetChanged();
-    }
-    private void showInterstitial() {
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-        }
     }
 }
 

@@ -16,6 +16,7 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.squareup.picasso.Picasso;
+import com.vidsapp.util.VidsAppAds;
 import com.vidsapp.util.VidsApplUtil;
 
 import java.util.List;
@@ -36,7 +37,8 @@ public class YoutubeNewTOldVideosListAdapter extends RecyclerView.Adapter<Youtub
     private final LayoutInflater mLayoutInflater;
 
     private List<YoutubeNtOVideosListItemEntity> mYoutubePlaylistsList;
-    private InterstitialAd mInterstitialAd;
+
+    private VidsAppAds mVidsAppAds;
 
     public YoutubeNewTOldVideosListAdapter(Context mContext) {
         this.mContext = mContext;
@@ -46,19 +48,8 @@ public class YoutubeNewTOldVideosListAdapter extends RecyclerView.Adapter<Youtub
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mLayoutInflater.inflate(R.layout.yt_videolist_item, null, false);
-        mInterstitialAd = new InterstitialAd(mContext);
-
-        // set the ad unit ID
-        //Real Ads
-        mInterstitialAd.setAdUnitId(mContext.getString(R.string.interstitial_full_screen));
-        //Test Ads
-       // mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
-
-        mInterstitialAd.setAdListener(new AdListener() {
-            public void onAdLoaded() {
-                showInterstitial();
-            }
-        });
+        mVidsAppAds=new VidsAppAds(mContext);
+        mVidsAppAds.initInterstialAds(mContext.getResources().getString(R.string.interstitial_full_screen));
         return new ViewHolder(view);
     }
 
@@ -117,15 +108,10 @@ public class YoutubeNewTOldVideosListAdapter extends RecyclerView.Adapter<Youtub
         public void onClick(View v) {
             if (v.getId() == R.id.play) {
 
-                if(getAdapterPosition()%2!=0){
-                    AdRequest adRequest = new AdRequest.Builder()
-                            .build();
-                    // Load ads into Interstitial Ads
-                    mInterstitialAd.loadAd(adRequest);
-                    //Adding Ads on Odd click
-                   // showInterstitial();
-
-
+                if (getAdapterPosition() % 2 != 0) {
+                    if (mVidsAppAds != null) {
+                        mVidsAppAds.loadInterstialAds();
+                    }
                 }
 
                 Intent intent = new Intent(mContext, YoutubePlayerActivity.class);
@@ -136,14 +122,9 @@ public class YoutubeNewTOldVideosListAdapter extends RecyclerView.Adapter<Youtub
 
             } else  if (v.getId() == R.id.share) {
                 if(getAdapterPosition()%2!=0){
-                    AdRequest adRequest = new AdRequest.Builder()
-                            .build();
-                    // Load ads into Interstitial Ads
-                    mInterstitialAd.loadAd(adRequest);
-                    //Adding Ads on Odd click
-                   // showInterstitial();
-
-
+                    if (mVidsAppAds != null) {
+                        mVidsAppAds.loadInterstialAds();
+                    }
                 }
                 Intent shareIntent = new Intent();
                 shareIntent.setAction(Intent.ACTION_SEND);
@@ -153,19 +134,17 @@ public class YoutubeNewTOldVideosListAdapter extends RecyclerView.Adapter<Youtub
 
             } else  if (v.getId() == R.id.fav_no) {
                 if(getAdapterPosition()%2==0){
-                    AdRequest adRequest = new AdRequest.Builder()
-                            .build();
-                    // Load ads into Interstitial Ads
-                    mInterstitialAd.loadAd(adRequest);
+                    if (mVidsAppAds != null) {
+                        mVidsAppAds.loadInterstialAds();
+                    }
                 }
                 // persist the video id in internal file storage
                 addToFavorite();
             } else  if (v.getId() == R.id.fav_yes) {
                 if(getAdapterPosition()%2==0){
-                    AdRequest adRequest = new AdRequest.Builder()
-                            .build();
-                    // Load ads into Interstitial Ads
-                    mInterstitialAd.loadAd(adRequest);
+                    if (mVidsAppAds != null) {
+                        mVidsAppAds.loadInterstialAds();
+                    }
                 }
                 // remove the video from internal file storage
                 removeFromFavorite();
@@ -218,12 +197,6 @@ public class YoutubeNewTOldVideosListAdapter extends RecyclerView.Adapter<Youtub
             mYoutubePlaylistsList.addAll(docsList);
         }
         notifyDataSetChanged();
-    }
-
-    private void showInterstitial() {
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-        }
     }
 }
 
