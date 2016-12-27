@@ -82,6 +82,16 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 String title = ((TextView) v.findViewById(R.id.item_text)).getText().toString();
                 Toast.makeText(VidsActivity.this, "" + position +" " + title, Toast.LENGTH_SHORT).show();
+
+                //Starting video/playlist as per sub categary requirement
+
+                /*Intent myIntent = new Intent(VidsActivity.this, VideoListActivity.class);
+                myIntent.putExtra("key", ""); //Optional parameters
+                startActivity(myIntent);*/
+
+                Intent myIntent = new Intent(VidsActivity.this, PlayListActivity.class);
+                myIntent.putExtra("key", ""); //Optional parameters
+                startActivity(myIntent);
             }
         });
     }

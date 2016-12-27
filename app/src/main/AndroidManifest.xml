@@ -41,6 +41,28 @@
         </activity>
 
         <activity
+            android:name="com.vidsapp.VideoListActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
+            android:parentActivityName="com.vidsapp.VidsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.vidsapp.VidsActivity" />
+        </activity>
+
+        <activity
+            android:name="com.vidsapp.PlayListActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
+            android:parentActivityName="com.vidsapp.VidsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.vidsapp.VidsActivity" />
+        </activity>
+
+        <activity
             android:name="com.vidsapp.YoutubePlaylistPlayerActivity"
             android:screenOrientation="landscape"
             android:configChanges="orientation"/>
