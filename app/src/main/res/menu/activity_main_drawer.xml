@@ -20,7 +20,7 @@
             android:title="Bollywood songs" />
         <item
             android:id="@+id/tamilspecial"
-            android:title="Tamil specialer" />
+            android:title="Tamil special" />
         <item
             android:id="@+id/teluguspecial"
             android:title="Telugu special" />
