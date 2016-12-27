@@ -11,28 +11,31 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
-import android.widget.Spinner;
+import android.widget.GridView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
 import com.vidsapp.util.VidsAppAds;
 import com.vidsapp.util.VidsApplUtil;
 
+import java.util.ArrayList;
+
 public class VidsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private Spinner categorySpinner, subCategorySpinner;
+//    private Spinner categorySpinner, subCategorySpinner;
     private  CoordinatorLayout mMainCoordinatorLayout;
     private VideosListFragment mVideoFragment;
     private Fragment mPlayListFragment;
+
+    // Grid view
+    private GridView gridView;
+    private ArrayList<VidsSubCategoryItem> gridArray = new ArrayList<VidsSubCategoryItem>();
+    private VidsSubCategoryGridAdapter gridAdapter;
+    private TextView catTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,7 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         
         //Displaying banner ads at bottom of screen
-        VidsAppAds vidsAppAds=new VidsAppAds(this);
+        VidsAppAds vidsAppAds = new VidsAppAds(this);
         vidsAppAds.bannerAds(getResources().getString(R.string.banner_home_footer_video));
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -62,15 +65,40 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
         mVideoFragment = new VideosListFragment();
         mPlayListFragment = new PlayListFragment();
 
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_frame, mPlayListFragment, mPlayListFragment.getClass().getSimpleName()).commit();
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_frame, mVideoFragment, mVideoFragment.getClass().getSimpleName()).commit();
+//        getSupportFragmentManager().beginTransaction()
+//                .add(R.id.fragment_frame, mPlayListFragment, mPlayListFragment.getClass().getSimpleName()).commit();
+//        getSupportFragmentManager().beginTransaction()
+//                .replace(R.id.fragment_frame, mVideoFragment, mVideoFragment.getClass().getSimpleName()).commit();
 
+        // init grid
+        initializeGridView();
+    }
+
+    private void initializeGridView() {
+        gridView = (GridView) findViewById(R.id.gridView);
+        catTitle = (TextView) findViewById(R.id.cat_title);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                String title = ((TextView) v.findViewById(R.id.item_text)).getText().toString();
+                Toast.makeText(VidsActivity.this, "" + position +" " + title, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void loadSubCategory(String[] subCategory) {
+        if (gridArray.size() > 0) {
+            gridArray.removeAll(gridArray);
+        }
+        for (int i = 0; i < subCategory.length; i++ ) {
+            gridArray.add(new VidsSubCategoryItem(null,subCategory[i]));
+        }
+        gridAdapter = new VidsSubCategoryGridAdapter(this, R.layout.row_grid, gridArray);
+        gridView.setAdapter(gridAdapter);
     }
 
     private void initializeVidsCategory() {
-        categorySpinner = (Spinner) findViewById(R.id.category);
+        /*categorySpinner = (Spinner) findViewById(R.id.category);
         ArrayAdapter<String> catAdapter = new ArrayAdapter<String>(this, R.layout.spinner_text,
                 getResources().getStringArray(R.array.vids_category));
         catAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -113,11 +141,11 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
                     }
                     public void onNothingSelected(AdapterView<?> parent) {
                     }
-                });
+                });*/
     }
 
     private void initializeVidsSubCategory(String[] subCategory) {
-        subCategorySpinner = (Spinner) findViewById(R.id.sub_category);
+        /*subCategorySpinner = (Spinner) findViewById(R.id.sub_category);
         ArrayAdapter<String> subCatAdapter = new ArrayAdapter<String>(this,
                 R.layout.spinner_text, subCategory);
         subCatAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -569,7 +597,7 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
                     }
                     public void onNothingSelected(AdapterView<?> parent) {
                     }
-                });
+                });*/
 
     }
 
@@ -649,38 +677,38 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        catTitle.setText(item.getTitle().toString());
         if (id == R.id.homeremedies) {
-            // Handle the camera action
+            loadSubCategory(getResources().getStringArray(R.array.home_remedies_list));
         }  else if (id == R.id.beutytips) {
-
+            loadSubCategory(getResources().getStringArray(R.array.beauty_tips_list));
         } else if (id == R.id.motivational) {
-
+            loadSubCategory(getResources().getStringArray(R.array.motivational_list));
         } else if (id == R.id.mythological) {
-
+            loadSubCategory(getResources().getStringArray(R.array.mythological_list));
         } else if (id == R.id.bollysongs) {
-
+            loadSubCategory(getResources().getStringArray(R.array.songs_list));
         }
         else if (id == R.id.tamilspecial) {
-
+            loadSubCategory(getResources().getStringArray(R.array.tamil_list));
         }
         else if (id == R.id.teluguspecial) {
-
+            loadSubCategory(getResources().getStringArray(R.array.telugu_list));
         }
         else if (id == R.id.shayari) {
-
+            loadSubCategory(getResources().getStringArray(R.array.shayari_poetry_list));
         }
         else if (id == R.id.bollymovie) {
-
+            loadSubCategory(getResources().getStringArray(R.array.movies_list));
         }
         else if (id == R.id.kids) {
-
+            loadSubCategory(getResources().getStringArray(R.array.kids_section));
         }
         else if (id == R.id.foodrecipes) {
-
+            loadSubCategory(getResources().getStringArray(R.array.food_recepies));
         }
         else if (id == R.id.newschannels) {
-
+            loadSubCategory(getResources().getStringArray(R.array.live_news_channels));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
