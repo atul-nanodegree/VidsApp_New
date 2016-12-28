@@ -44,8 +44,21 @@ public class PlayListActivity extends BaseActivity  {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        setActionbarTitle("PlayList",false,R.id.toolbar);
-        mContext = PlayListActivity.this;
+        if (getIntent().getStringExtra(APITags.TYPE) != null) {
+
+            vidsType=getIntent().getStringExtra(APITags.TYPE);
+        }
+        if (getIntent().getStringExtra(APITags.FORMATEDLIST) != null) {
+            vidsIds=getIntent().getStringExtra(APITags.FORMATEDLIST);
+        }
+        if (getIntent().getStringExtra(APITags.TITLE) != null) {
+
+            setActionbarTitle(getIntent().getStringExtra(APITags.TITLE),false,R.id.toolbar);
+        }
+        else{
+            setActionbarTitle("PlayList",false,R.id.toolbar);
+
+        }        mContext = PlayListActivity.this;
 
 
         mRecyclerView = (RecyclerView) findViewById(R.id.youtube_playlists_recyclerview);
@@ -99,17 +112,17 @@ public class PlayListActivity extends BaseActivity  {
             YoutubePlayListEntity youtubePlayListEntity=null;
 
             //for reference
-            youtubePlayListEntity = a.intiateAPICallPlayListCustom("playlistcustom","LLA34Z3lq8FozSQzDHsSLcmQ,PLbF9OWJ9PNmbx3Mzqd7re6hdaEWonx3wI" );
+           // youtubePlayListEntity = a.intiateAPICallPlayListCustom("playlistcustom","LLA34Z3lq8FozSQzDHsSLcmQ,PLbF9OWJ9PNmbx3Mzqd7re6hdaEWonx3wI" );
 
 
-            /*if(VidsApplUtil.TYPE_CHANNEL.equals(vidsType)){
+            if(VidsApplUtil.TYPE_CHANNEL.equals(vidsType)){
                 youtubePlayListEntity = a.intiateAPICallPlayList("playlist",vidsIds );
 
             }
             else if(VidsApplUtil.TYPE_PLAYLIST.equals(vidsType)){
                 youtubePlayListEntity = a.intiateAPICallPlayListCustom("playlistcustom",vidsIds );
 
-            }*/
+            }
             return youtubePlayListEntity;
         }
 

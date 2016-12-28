@@ -57,8 +57,21 @@ public class VideoListActivity extends BaseActivity  {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        setActionbarTitle("VideoList",false,R.id.toolbar);
-//        toolbar.setLogo(R.drawable.icon);
+        if (getIntent().getStringExtra(APITags.TYPE) != null) {
+
+           vidsType=getIntent().getStringExtra(APITags.TYPE);
+        }
+        if (getIntent().getStringExtra(APITags.FORMATEDLIST) != null) {
+           vidsIds=getIntent().getStringExtra(APITags.FORMATEDLIST);
+        }
+        if (getIntent().getStringExtra(APITags.TITLE) != null) {
+
+            setActionbarTitle(getIntent().getStringExtra(APITags.TITLE),false,R.id.toolbar);
+        }
+        else{
+            setActionbarTitle("VideoList",false,R.id.toolbar);
+
+        }//        toolbar.setLogo(R.drawable.icon);
         mContext=VideoListActivity.this;
         mMainCoordinatorLayout=(CoordinatorLayout)findViewById(R.id.coordinatelayout);
 
@@ -108,9 +121,9 @@ public class VideoListActivity extends BaseActivity  {
     private class YoutubeTask extends AsyncTask<String, Integer, YoutubeNtOVideosListEntity> {
         protected YoutubeNtOVideosListEntity doInBackground(String... urls) {
             ApiYoutube a=new ApiYoutube();
-            YoutubeNtOVideosListEntity   youtubeNtOVideosListEntity=  a.intiateAPICall("video","cQcSkiOX4c8,wspLLHypZ4M,qYCIci0BHc4,hYorcTW9apA");
+           // YoutubeNtOVideosListEntity   youtubeNtOVideosListEntity=  a.intiateAPICall("video","cQcSkiOX4c8,wspLLHypZ4M,qYCIci0BHc4,hYorcTW9apA");
             //YoutubeNtOVideosListEntity   youtubeNtOVideosListEntity=  a.intiateAPICall("channel","UCDS9hpqUEXsXUIcf0qDcBIA");
-           // YoutubeNtOVideosListEntity youtubeNtOVideosListEntity = a.intiateAPICall(vidsType, vidsIds);
+            YoutubeNtOVideosListEntity youtubeNtOVideosListEntity = a.intiateAPICall(vidsType, vidsIds);
 
             return youtubeNtOVideosListEntity;
         }

@@ -12,33 +12,13 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary" />
 
-    <TextView
-        android:id="@+id/video_count"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:shadowColor="@color/white"
-        android:shadowDx="1"
-        android:shadowDy="3"
-        android:shadowRadius="2"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginLeft="@dimen/margin_20dp"
-        android:layout_marginTop="@dimen/margin_20dp"
-        android:ellipsize="end"
-        android:lines="1"
-        android:maxLines="1"
-        android:singleLine="true"
-        android:text="@string/videos"
-        android:textColor="@android:color/holo_red_light"
-        android:visibility="visible"/>
 
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/youtube_videolists_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/video_count"
+        android:layout_below="@+id/toolbar"
         android:layout_marginTop="@dimen/margin_15dp" />
 
     <ProgressBar
