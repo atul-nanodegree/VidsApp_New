@@ -58,7 +58,7 @@ public class ApiYoutube {
         if (type != null) {
             if (type.equals("video")) {
                 youtubeNtOVideosListEntity = videosFromArrayList(requestValue);
-            } else if (type.equals("channel")) {
+            } else if (type.equals("searchVideos")) {
                 youtubeNtOVideosListEntity = videosNewToOld(requestValue);
             }
 
@@ -135,13 +135,13 @@ public class ApiYoutube {
             mQueryNtOVideoList = mYoutube.search().list("id,snippet");
             mQueryNtOVideoList.setKey(ApplicationConstants.YOUTUBE_DEVELOPER_BROWSER_KEY);
             mQueryNtOVideoList.setType("video");
-            mQueryNtOVideoList.setChannelId(requestValue);
+           // mQueryNtOVideoList.setChannelId(requestValue);
             //mQueryNtOVideoList.setQ("Mindtree Ltd.");
             mQueryNtOVideoList.setOrder("date");
           //  mQueryNtOVideoList.setPageToken(pageToken);
           //  mQueryNtOVideoList.setFields("items(id/playlistId,snippet/title,snippet/description,snippet/publishedAt,snippet/liveBroadcastContent,snippet/thumbnails/medium/url)");
             mQueryNtOVideoList.setMaxResults((long) 50);
-          //  mQueryNtOVideoList.setQ(query);
+            mQueryNtOVideoList.setQ(requestValue);
             response = mQueryNtOVideoList.execute();
             playListItems = parseSearchListNtOVideosData(response);
         }catch(IOException e){

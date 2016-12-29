@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/forgot_password_bg"
+    tools:context="com.vidsapp.VideosListFragment">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary" />
+
+    <EditText
+        android:id="@+id/searchText"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:shadowColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginLeft="@dimen/margin_20dp"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:ellipsize="end"
+        android:lines="1"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textColor="@android:color/holo_red_light"
+        android:visibility="visible"/>
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_below="@+id/toolbar"
+        android:layout_width="88dp"
+        android:layout_height="35dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="22dp"
+        android:src="@android:drawable/ic_menu_search"
+        android:visibility="visible"
+        android:clickable="true"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/youtube_videolists_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/searchText"
+        android:layout_marginTop="@dimen/margin_15dp" />
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        style="@android:style/Widget.ProgressBar.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone">
+    </ProgressBar>
+
+</RelativeLayout>

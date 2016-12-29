@@ -1123,6 +1123,12 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
             startActivity(i);
             return true;
         }
+       else if (id == R.id.action_addvideos) {
+            Intent myIntent = new Intent(VidsActivity.this, VideoSearchListActivity.class);
+            myIntent.putExtra(APITags.TYPE, VidsApplUtil.TYPE_SEARCH_VIDEO);
+            startActivity(myIntent);
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
