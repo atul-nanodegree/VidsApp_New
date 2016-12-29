@@ -513,6 +513,10 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.bhajans_playlist));
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Chalisa")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.chalisa_vids));
+                        videoType = VidsApplUtil.TYPE_VIDEO;
                     } else if (selectedSubCategory.equalsIgnoreCase("TV serials")) {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.serials_playlist));
