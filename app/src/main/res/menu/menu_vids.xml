@@ -8,6 +8,11 @@
         android:title="@string/action_favorite"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_my_videos"
+        android:orderInCategory="100"
+        android:title="@string/action_my_videos"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_feedback"
         android:orderInCategory="100"
         android:title="@string/action_feedback"
@@ -28,10 +33,5 @@
         android:orderInCategory="100"
         android:title="@string/action_about"
         app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_addvideos"
-        android:orderInCategory="100"
-        android:title="@string/action_addvideos"
-        app:showAsAction="never" />
+]
 </menu>

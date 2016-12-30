@@ -1,6 +1,7 @@
 package com.vidsapp;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
@@ -10,12 +11,19 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,26 +31,50 @@ import com.vidsapp.util.VidsAppAds;
 import com.vidsapp.util.VidsApplUtil;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class VidsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-//    private Spinner categorySpinner, subCategorySpinner;
-    private  CoordinatorLayout mMainCoordinatorLayout;
+    //    private Spinner categorySpinner, subCategorySpinner;
+    private CoordinatorLayout mMainCoordinatorLayout;
     private VideosListFragment mVideoFragment;
-    private Fragment mPlayListFragment;
+//    private Fragment mPlayListFragment;
 
     // Grid view
+    private RelativeLayout mMainGridLayout;
     private GridView gridView;
     private ArrayList<VidsSubCategoryItem> gridArray = new ArrayList<VidsSubCategoryItem>();
     private VidsSubCategoryGridAdapter gridAdapter;
     private TextView catTitle;
     private VidsAppAds vidsAppAds;
 
+    // My video view
+    private RecyclerView mRecyclerView;
+    private VidsMyVideoAdapter mMyVideoListAdapter;
+
+    private ProgressBar pBar;
+    private RelativeLayout myVideoViewLayout;
+    private RelativeLayout emptyMyVideoViewLayout;
+    private Button addButton;
+
+    private YoutubeNtOVideosListEntity videoListEntity = null;
+    private List<YoutubeNtOVideosListItemEntity> videoListItmeArrayList = null;
+    String formatedMyVidsIds = "";
+
+    // option menu items - add dynamically
+
+    private static final int MENU_FAVORITE = Menu.FIRST;
+    private static final int MENU_MY_VIDEOS = Menu.FIRST + 1;
+    private static final int MENU_FEEDBACK = Menu.FIRST + 2;
+    private static final int MENU_SHARE_APP = Menu.FIRST + 3;
+    private static final int MENU_RATE_APP = Menu.FIRST + 4;
+    private static final int MENU_ABOUT = Menu.FIRST + 5;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+
         //Displaying banner ads at bottom of screen
         vidsAppAds = new VidsAppAds(this);
         vidsAppAds.bannerAds(getResources().getString(R.string.banner_home_footer_video));
@@ -52,12 +84,12 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close){
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
 
             /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
-                if(vidsAppAds!=null){
+                if (vidsAppAds != null) {
                     vidsAppAds.makingVisibleAdview();
                 }
             }
@@ -65,7 +97,7 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
             /** Called when a drawer has settled in a completely open state. */
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                if(vidsAppAds!=null){
+                if (vidsAppAds != null) {
                     vidsAppAds.makingInvisibleAdview();
                 }
             }
@@ -77,11 +109,11 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
 //        toolbar.setLogo(R.drawable.icon);
-        mMainCoordinatorLayout=(CoordinatorLayout)findViewById(R.id.coordinatelayout);
+        mMainCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatelayout);
 
-        initializeVidsCategory();
+//        initializeVidsCategory();
         mVideoFragment = new VideosListFragment();
-        mPlayListFragment = new PlayListFragment();
+//        mPlayListFragment = new PlayListFragment();
 
 //        getSupportFragmentManager().beginTransaction()
 //                .add(R.id.fragment_frame, mPlayListFragment, mPlayListFragment.getClass().getSimpleName()).commit();
@@ -90,9 +122,12 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
 
         // init grid
         initializeGridView();
+        initializeMyVideoView();
     }
 
     private void initializeGridView() {
+        mMainGridLayout = (RelativeLayout) findViewById(R.id.main_grid_layout);
+        mMainGridLayout.setVisibility(View.GONE);
         gridView = (GridView) findViewById(R.id.gridView);
         catTitle = (TextView) findViewById(R.id.cat_title);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -100,10 +135,9 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
                 String selectedSubCategory = ((TextView) v.findViewById(R.id.item_text)).getText().toString();
-                Toast.makeText(VidsActivity.this, "" + position +" " + selectedSubCategory, Toast.LENGTH_SHORT).show();
 
                 if (selectedSubCategory != null) {
-                    if(!NetworkUtil.isConnected(VidsActivity.this)) {
+                    if (!NetworkUtil.isConnected(VidsActivity.this)) {
                         Snackbar.make(mMainCoordinatorLayout, "No internet connection.Check your connection and try again", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
                         return;
@@ -220,7 +254,8 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
                                 "PLgh_EjxPZ7fqwFgMvixpGOq1ndnz3tgJs,PLARm22A77n4N9sMd_AeI9AOCOY3rCkWKP," +
                                 "PLD6DB477019E5F012,PLShHEGqasFSzx81JoKnDUtfFUokISYA3F";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    } if (selectedSubCategory.equalsIgnoreCase("Rock the dance floor")) {
+                    }
+                    if (selectedSubCategory.equalsIgnoreCase("Rock the dance floor")) {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.dance_florr_playlist));
                         videoType = VidsApplUtil.TYPE_VIDEO;
@@ -242,79 +277,69 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
                     } else if (selectedSubCategory.equalsIgnoreCase("Hits of the week")) {
                         formatedVidsList = "UCzBeabhpibZNOecCvw3nUKA";
                         videoType = VidsApplUtil.TYPE_CHANNEL;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Hindi Hot Item Songs")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Hindi Hot Item Songs")) {
                         formatedVidsList = "PLHEnjnT8-WbLm_kxHT4Pbm5XGFCkUvnL_,PLAerbFI-NKthxQsIN8SnpCezDg57sB1X0,PL0Wy1yLrrfpb0-fUbzbFX8NT1tvwG_Jd_," +
                                 "PLAerbFI-NKthU8pkpUnrgGZykeJJVy-Fc,PLg94EwI1kNbkUcCdSLFsa9l2P5wXShxK3";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("A. R. Rahman Hit Tamil Songs")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("A. R. Rahman Hit Tamil Songs")) {
                         formatedVidsList = "PLo-rZP7UP-Fmhaxktws5YXUoVPXImE6rK,PL4QNnZJr8sROExTFqbu-4OJIWS4XHZbng,";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Ilayaraja Hit Tamil Songs")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Ilayaraja Hit Tamil Songs")) {
                         formatedVidsList = "PL8yOO2xYRcZtV9MerodXVdl2YIx60F87Y,PLNAG_jXQnh0J6WMVQTikNQ4ll53w0SPka";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("RajniKant Special")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("RajniKant Special")) {
                         formatedVidsList = "PLjity7Lwv-zpveZTZw7bcYKOwR1btkgl2,PLl97Be7_Hy_OQkeWTqdlt_7QbT4KlrK_u,PLjity7Lwv-zoZvasd7XbXzGWNcdwJnf6c";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Kamal Hasan Special")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Kamal Hasan Special")) {
                         formatedVidsList = "PL38A1F533861A4528,PLGgcJv7ZxqrU5iHgpORIYVoAjrqC3pBqk";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Tamil Movies")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Tamil Movies")) {
                         formatedVidsList = "PLFAwfSsckJkQkhYY_4CNsHvKk2gSb9zKB,PLthizvY3wuX8KHZaynRSG61pbNY4JO_0m," +
                                 "PLpsfNoniec7yl7AGshjrr_lUXsMAxZE0C," +
                                 "PLV6iX0NmV9IhSupxYo_mYdBYGbiJAkvYM,PLx8w5arTJ_r-G28ItZVbUJcj05iRIGkPG,PLobdrPwSOEBzVMjnmxvruKS8T50qVb0xE," +
                                 "PLvd-Pw0LMeSVyBQCyciYRSv4GdCXUfNB2,PLUFNI2g6uaW6qLO1A7qiBwQu5E7hwRr3X";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-
-                    else if (selectedSubCategory.equalsIgnoreCase("Tamil Hot Item Songs")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Tamil Hot Item Songs")) {
                         formatedVidsList = "PLjity7Lwv-zo-9PYexEaeJWFRkeZhKiJd,PL_eVpGrJ2tRZwFtsTuPMoVkBmJZTHnHZC";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("S. P. Balasubrahmanyam Songs")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("S. P. Balasubrahmanyam Songs")) {
                         formatedVidsList = "PLnKSZ48XMs3vafEfcBWHAH4HihSxlagtA,PLpZ-VVUqFU70GvGczMGNonpPQbfEXfPQ5,PLDA50F45B27E2BA2B,PL6A2EC60A87F71FCD";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Telugu Songs")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Telugu Songs")) {
                         formatedVidsList = "PLamAR1afoIYHbwn9h4jJziV_EOa86yhmV,PLWG3kwozwBkdlonVOSMInAO-D9cwQB1jL,PLhJ7IoDMF96meL-muoQ1bBUTogM2e6Owu,PL9D80C36288186633,PL1F8DE5C3B4588783,PLzTiNL8wJzyD_82WrvvtcPc5xgcRwIhmc,PL0__z7c1lf8vLX7A7ourdKLpBmJXqqqvu,PLoBDkJXxnuE4MYAMNKjryc5yvD8L2zXyR," +
                                 "PL0ZpYcTg19EF1niHfDu6oyPj40BHPr5gh,PL0ZpYcTg19EFYP_oDBwRsUGPYJoipkJpA,PLZ6CIf9zpADTic6OZ1zTaw5Sg3ySgeRHS,PLE1HL7ydDnKP4MF3ejvOcT5sCtm2tWkIi";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Telugu Movies")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Telugu Movies")) {
                         formatedVidsList = "PLoBDkJXxnuE66Hi8GBRCF9KNBWNo_TlDW,PLXBHKlMRm_yw3uUcxtmFuYPWOORr37oxK,PLMHbK5ZCEE8UI5TTGV46h2KjN7Y71xLmG,PLzTiNL8wJzyBdNAE4F8nE7Mf3kK7TwAh-,PLXBHKlMRm_yzK8djuuIJB-lAAA2WmXImb";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Telugu Hot Item Songs")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Telugu Hot Item Songs")) {
                         formatedVidsList = "PLRSX77yV8Wsbr5u8Cld7tyi4dw2lCA3oc,PLj2XdQjbrSEGel_04JVuxjLrElvMo5jnn";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Telugu Dance Special Songs")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Telugu Dance Special Songs")) {
                         formatedVidsList = "PLoP3X4JX-s1S0f81XfnsBrlnv4ru9rH1d,PLHwuF0yy3RxWdDERguZ91QgwCeqLAOA4a,PLf5Bhjwoj6B-bpkD-xK1EyVewMs8ifr46";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Romantic")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Romantic")) {
                         formatedVidsList = "PLURHF8ZY2Y56kupEqz3TVLD__Zj-tlPSd,PLAE95D5B634195317,PLURHF8ZY2Y54V-lQ4zE5ToS4gyALjjTJx," +
                                 "PLeo6eDZGP-ml04Y1IH-vrOq7KkB8yIBxn,PLFFyMei_d85UcDVoD2H98jCc9Mbem7hGZ";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    } if (selectedSubCategory.equalsIgnoreCase("Action")) {
+                    }
+                    if (selectedSubCategory.equalsIgnoreCase("Action")) {
                         formatedVidsList = "PLURHF8ZY2Y556Mnr_-LqpySgTVmVBvjaQ,PLd-JGjCltpgBhO1b3il2bmQeeaz-H8Ed5," +
                                 "PL661Qfv7ujynpiEq6dWx50K6Cf9qr_vnp,PLntSKD8vRcxarqz_ouzsPIcLvOmAvVSEE,PL2D9E09B8E804DC1F";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    } if (selectedSubCategory.equalsIgnoreCase("Thriller / suspense")) {
+                    }
+                    if (selectedSubCategory.equalsIgnoreCase("Thriller / suspense")) {
                         formatedVidsList = "PLURHF8ZY2Y54gw4qX3uleIgUCUmjlG08g,PLG5YDXfHgllYslpZCJAyllnz4PwmdKxlv," +
                                 "PLIbm8PMCgsLRgZlAWMd_AIxz4k5FP2fuZ,PLjXbLTS058MrrUNfJieKoyxCAUxNWjDgV," +
                                 "PLF2sIvUHDxJ5f8iUkRz46pdZ_5OpFrpFx";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    } if (selectedSubCategory.equalsIgnoreCase("Horror")) {
+                    }
+                    if (selectedSubCategory.equalsIgnoreCase("Horror")) {
                         formatedVidsList = "PLOFbEV8DRegRvGpbfRsnZJYPKLGNa-Q5S,PL4_uBMZhIS8I3OSl8mHQ7WMWOrutfIQCa," +
                                 "PLv2b4SmNyK3snoB1oIvvmQYogs458Pkaq,PLnOjHXskqOEaz-Vr3di8Kk31O1oYEw75p";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    } if (selectedSubCategory.equalsIgnoreCase("Comedy")) {
+                    }
+                    if (selectedSubCategory.equalsIgnoreCase("Comedy")) {
                         formatedVidsList = "PL0iajqfMHtYmTO2VunNO1fy5ErPtzkhii,PLURHF8ZY2Y55xZTpilq5fPTMlWMorkGBP," +
                                 "PL0FE8gBGxbQmTmgYcACJDNF_7mq4as9vZ,PL24DPWlf6HgmXN0I6eKSEXhiZu5pMLKTC," +
                                 "PL0CaUqi81mPmybMiWGxqh8mkfMbgpPaOc,PL4ABBC887A886A9AC,PLvdrEOxqEIXx3zjbNLdPh5L_trN53PelA," +
@@ -334,18 +359,14 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.news_vids));
                         videoType = VidsApplUtil.TYPE_VIDEO;
-                    }
-
-                    else if (selectedSubCategory.equalsIgnoreCase("FoodFood")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("FoodFood")) {
                         formatedVidsList = "PLI-l1OOUnVtOcrO0MP0Qn67bvaGYS5-QS,PLI-l1OOUnVtMhpmj1HzNXg1qd0ByTrihB," +
                                 "PLI-l1OOUnVtM5p90oI4Rw7D09znrQRoZN," + "PLI-l1OOUnVtNOY4uWnfa2nHIAbC8elqId,PLI-l1OOUnVtP0Gf2y4Ugc-EycGxO0rOZx," +
                                 "PLI-l1OOUnVtNhMBIQlX839aTOMH4mV6Gs," +
                                 "PLI-l1OOUnVtMTN8AA9RIJYxXuh1WFfwtu,PLI-l1OOUnVtPQstzp1gNQYEjZzZxliYW6," +
                                 "PLI-l1OOUnVtNDOcpleIxf9tzvoA5kMhny,PLI-l1OOUnVtP-0jnNXlwnVAPNC9ozhBzE";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-
-                    else if (selectedSubCategory.equalsIgnoreCase("Sanjeev Kapoor Khazana")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Sanjeev Kapoor Khazana")) {
                         formatedVidsList = "PLQlI5m713h7v42G_1FIWN5rQGatYA-O4G,PLQlI5m713h7uihKlOYmowOUZ2hlg4c7gw," +
                                 "PLQlI5m713h7t_2jt--yqIA5wFav6VX0dY,PLQlI5m713h7unbL24Qq4KZrV1E3E9WLzb,PLB4C07FAAE6FA5428," +
                                 "PL4267B4165D10C828,PLQlI5m713h7tkaNw-3zJIz-jo1Vfs9bFZ,PLQlI5m713h7spQLH0gfDxKJPHeoSNZTgv," +
@@ -358,9 +379,7 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
                                 "PLQlI5m713h7sT0VkGEH9Kjc6PnQxnzNKl,PLWmhiFviaXYi4LsS6NKpetIbFdlvZggNR," +
                                 "PLVK7OUj1rCtOTkC_qxC8gWmEmCJU-pnyJ";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-
-                    else if (selectedSubCategory.equalsIgnoreCase("Nisha Madhulika")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Nisha Madhulika")) {
                         formatedVidsList = "PLodB7SudGtZrkkBnSEYO_F-r51aIdb88E," +
                                 "PLodB7SudGtZrFhdcEfZf5cpBZ5CFzjlzn,PLHKsrffpkToERfAjXU9uqLk3zvRQSp_wh," +
                                 "PLHKsrffpkToE2qwQp8iaZfynoZ5PFSk5L,PLodB7SudGtZoRtq25D2FciPeQqY3vI1Xe," +
@@ -386,8 +405,7 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
                                 "PLHKsrffpkToFp3fDZfS8cNmBcql_J-ner,PLHKsrffpkToEJXUX7X042GxZi6a0fBT9w," +
                                 "PLHKsrffpkToFORIQ1heaTFYMh7uWG9OmM,PLHKsrffpkToHLR2QIzyQTq9jo19h4mqNr";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Kabita Kitchen")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Kabita Kitchen")) {
                         formatedVidsList = "\n" +
                                 "PLKorCs_pzToiYxdYOq0A59K-NwqRwfAWj,PLKorCs_pzTogEIKigT7hsMYU6FdgCjplb,PLKorCs_pzToiNFfviaPDQ5ZQG_SZdQ55H," +
                                 "PLKorCs_pzTog0F8XzwmX4nOPvPsD3dr_y," +
@@ -403,7 +421,7 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
                                 "PLjMg8wIdiWatUUedWR0j6xkE2qW0Adgsg,PLEAF0B48D2FF9CE50,PLjMg8wIdiWasxToaXOIlQyjzUfTsgULl1," +
                                 "PLjMg8wIdiWavnRT_WWOFkD43-qgXAjo1T,PLjMg8wIdiWauSGMdaok8FRUkRBIpMH4Jv";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }  else if (selectedSubCategory.equalsIgnoreCase("Rajshri Food")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Rajshri Food")) {
                         formatedVidsList = "\n" +
                                 "PLhQ0_mMdHj7_g7pIB1J6SOfcNzY0wQ8JT,PLhQ0_mMdHj7_sjHI0cuuF-vJdaXxaGSwf,PLhQ0_mMdHj7_nqT6m-Yk-LvfgzHjvbW8i," +
                                 "PLhQ0_mMdHj7-R9xN9q4BVo7nbr6o-tFPj,PLhQ0_mMdHj793PXy_9kmuwi4oJU7-YeIF," +
@@ -411,45 +429,38 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
                                 "LLdegm7Y2AePJhkkmWCyYEwg,PLhQ0_mMdHj7-qjKAGjGSq9c6dsebwGrd4,PLhQ0_mMdHj78vgaQqjqQm56dw5-z8_5Ld," +
                                 "PLhQ0_mMdHj7_wYuccgJfvh-YVtuk-HY00,PLhQ0_mMdHj7-ue-sPbDi9wIN_-EmowQfE";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Vikas Khanna")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Vikas Khanna")) {
                         formatedVidsList = "\n" +
                                 "PLqHo0TDtnNkQMJ2Iq6rvLz33MMbmQTxW8,PLqHo0TDtnNkSJxwTRqOKtEobR4ywa5MP5,PLqHo0TDtnNkT93memHq5a66xtfP35HXbr," +
                                 "PLqHo0TDtnNkQsAJf6eF3nM4YAmXNA8Hth,PLqHo0TDtnNkSLN1j8mOy2nLV3-99z8M0r,PLqHo0TDtnNkTV13MjsZPK8JlMjgd8_Fj3";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Pankaj Bhadouria")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Pankaj Bhadouria")) {
                         formatedVidsList = "\n" +
                                 "LLA34Z3lq8FozSQzDHsSLcmQ,PLbF9OWJ9PNmbx3Mzqd7re6hdaEWonx3wI";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Vahchef")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Vahchef")) {
                         formatedVidsList = "\n" +
                                 "PLecDmWZ6vbWS0bMyK6qzNfhki3cnfp2Wk,PLecDmWZ6vbWSQpU2uwB-nmJ5EHVfusJ5s," +
                                 "PLecDmWZ6vbWTjFPqyBd8w1APtlqLNofXh,PLecDmWZ6vbWQALPIfG-Ek9_J68OJY6KyD,PLecDmWZ6vbWSjlSWjt-QeT8e_o_vSTXxx," +
                                 "PLecDmWZ6vbWQhWwMu1sdFqptVama7sO5R,PLecDmWZ6vbWQghczJIOhwG27vC6TZKN8A," +
                                 "PLecDmWZ6vbWRyKbgCX3KybX1-cs-LxdvY,PLecDmWZ6vbWRGbF6e6giqFPC1teswBZbT,PLecDmWZ6vbWRfP52lP4B1QjHad9xbdBJ7";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("ChuChu TV")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("ChuChu TV")) {
                         formatedVidsList = "PLV-cxl3VSwWHa83pPHIealm1vg0Cdp3aZ,PLV-cxl3VSwWEZPb6yEvQaf68_yY8chu8U,PLV-cxl3VSwWFB3u4D6Vq5LsmiP3H-wGOS," +
                                 "PLV-cxl3VSwWHZz0NarV7B7fhYUkT0rAGX,PLV-cxl3VSwWFcpAjZsnDFgezlLOIzSCYo,PLV-cxl3VSwWHBvsggTtJOvg81wKFICLX_," +
                                 "PLV-cxl3VSwWHy3JvK-E9e944E_ci8j_g4,PLV-cxl3VSwWEiktlr-EJ9PhyvEkNL1gPD,PLV-cxl3VSwWHjyMYLoxmHWkzFenDzxZsV," +
                                 "PLV-cxl3VSwWFsBZwigZ71s0gxInr5Z1jT,PLV-cxl3VSwWG_opeAaq442N-6HrMyRyUC";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Animation Movies")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Animation Movies")) {
                         formatedVidsList = "PLVeGq8yvmEoZMwMu0ySPU5Lt3ltRRrNYd,PLkLWhpNfRRnFfUMTMxedLG-jCtbGQoGRE," +
                                 "PLra5p7VeoCdVIJHlaYTEs7h0gmvD-bifC";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Tom and Jerry")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Tom and Jerry")) {
                         formatedVidsList = "\n" +
                                 "PLOLEQVkmI9eugSKUsrQBH0rxMN-qBLUyV,PLwp8m9anCLK3jmItMyLTgfNpM-526z8Cl," +
                                 "PLTpHF7zUZcc0h3BLxEJuSEcG-GTsrtA85";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Doraemon")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Doraemon")) {
                         formatedVidsList = "\n" +
                                 "PL7AowHd5QvCq2dOzdHchSO7d4dR3oiOJP,PL7AowHd5QvCo2uz9xyU2Lof3_uz-LPGMG," +
                                 "PL7AowHd5QvCqYOdUZ2dPEfSeKxOdNwMvG,PLUJRY7F6BIGrUgrYuv_e0895iW97jnC-F";
@@ -458,48 +469,38 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
                         formatedVidsList = "\n" +
                                 "PLI-nQtOHVKRu0erW8Khquk1pRvEHDpR7i,PLrLu47k41a8QTEAgmldgX08HTiloFx8wC";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Chhota Bheem")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Chhota Bheem")) {
                         formatedVidsList = "\n" +
                                 "PL3A3Us6jIaWQkU6NAnAuGPyXJFZkIoqRs,PLFf9vSAD6FtpIXLY83wIS4CpRWxlAJZMO," +
                                 "PL0rMr_qVm_FLR09J5s3pqLFJf87bhRUKq,PLhPu2jwebYCmtyoS1KTQDANKcvPjqYRtg," +
                                 "PLmcXlFHrXrBCYHTXyeK4U9r96VuiAk_8d";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Very Funny Cartoons")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Very Funny Cartoons")) {
                         formatedVidsList = "PL1TtObLAkXskULDTZPY3C6E4RTAGs_AQv,PLC8DECF60FEEC2780";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Motu Patlu")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Motu Patlu")) {
                         formatedVidsList = "PLkffMCxtJZZRkHFE_Wp4GQiIPqgud3EZu,PL0Jedq5WL3qG_nPthRIzkBZSVLq0xAN72," +
                                 "PLFf9vSAD6FtrtZvesJqGQmHIxiw169Efp";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Oggy And The Cockroaches")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Oggy And The Cockroaches")) {
                         formatedVidsList = "PLkffMCxtJZZRKcKvMMhGZWp4ZwntQKSPt";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-
-                    else if (selectedSubCategory.equalsIgnoreCase("Baby TV")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Baby TV")) {
                         formatedVidsList = "PLakLrQJOovvm3w7JXI2hImYvfJKjGNiOa,PLakLrQJOovvm1p46BcwlpE23V5uym9fWr," +
                                 "PLakLrQJOovvmeMTnQsiugVGY4LI4VUoEB,PLakLrQJOovvlSC-gfT2UvCFU9qxLOXiN-," +
                                 "PLakLrQJOovvlpJzAuQuWN8yOszoycRTzz,PLakLrQJOovvl5VLQvckznxKOIWr5bJ-m5," +
                                 "PLakLrQJOovvmJocamFAquztsY3JLZbWWI,PLakLrQJOovvneB91lg4XW4L09T4fVTpVV";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Bob The Builder English")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Bob The Builder English")) {
                         formatedVidsList = "PLiluoe0QNL4EXc5qYPJWoqZ2iyBPk3ybk";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("Bob The Builder Hindi")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Bob The Builder Hindi")) {
                         formatedVidsList = "PLliauKz65-NiPx0PlS4PfdTVZM_fHQelx";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("NODDY in Hindi")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("NODDY in Hindi")) {
                         formatedVidsList = "PL4per263uEmD7aXLvUP8YpApycdAmVvP9";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
-                    else if (selectedSubCategory.equalsIgnoreCase("NODDY in English")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("NODDY in English")) {
                         formatedVidsList = "PLiluoe0QNL4EXc5qYPJWoqZ2iyBPk3ybk";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
                     } else if (selectedSubCategory.equalsIgnoreCase("Parenting tips/guidelines")) {
@@ -530,7 +531,7 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
                                 getResources().getStringArray(R.array.shayari_vids));
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
                     }
-                    if(VidsApplUtil.TYPE_VIDEO.equals(videoType)){
+                    if (VidsApplUtil.TYPE_VIDEO.equals(videoType)) {
                         //Starting video/playlist as per sub categary requirement
 
                         Intent myIntent = new Intent(VidsActivity.this, VideoListActivity.class);
@@ -540,16 +541,13 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
                         startActivity(myIntent);
 
 
-                    }
-                    else if(VidsApplUtil.TYPE_PLAYLIST.equals(videoType)){
+                    } else if (VidsApplUtil.TYPE_PLAYLIST.equals(videoType)) {
                         Intent myIntent = new Intent(VidsActivity.this, PlayListActivity.class);
                         myIntent.putExtra(APITags.TYPE, VidsApplUtil.TYPE_PLAYLIST);
                         myIntent.putExtra(APITags.FORMATEDLIST, formatedVidsList);
                         myIntent.putExtra(APITags.TITLE, selectedSubCategory);//Optional parameters
                         startActivity(myIntent);
-                    }
-
-                    else if(VidsApplUtil.TYPE_CHANNEL.equals(videoType)){
+                    } else if (VidsApplUtil.TYPE_CHANNEL.equals(videoType)) {
                         Intent myIntent = new Intent(VidsActivity.this, PlayListActivity.class);
                         myIntent.putExtra(APITags.TYPE, VidsApplUtil.TYPE_CHANNEL);
                         myIntent.putExtra(APITags.FORMATEDLIST, formatedVidsList);
@@ -566,15 +564,15 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
         if (gridArray.size() > 0) {
             gridArray.removeAll(gridArray);
         }
-        for (int i = 0; i < subCategory.length; i++ ) {
-            gridArray.add(new VidsSubCategoryItem(null,subCategory[i]));
+        for (int i = 0; i < subCategory.length; i++) {
+            gridArray.add(new VidsSubCategoryItem(null, subCategory[i]));
         }
         gridAdapter = new VidsSubCategoryGridAdapter(this, R.layout.row_grid, gridArray);
         gridView.setAdapter(gridAdapter);
     }
 
-    private void initializeVidsCategory() {
-        /*categorySpinner = (Spinner) findViewById(R.id.category);
+    /*private void initializeVidsCategory() {
+        categorySpinner = (Spinner) findViewById(R.id.category);
         ArrayAdapter<String> catAdapter = new ArrayAdapter<String>(this, R.layout.spinner_text,
                 getResources().getStringArray(R.array.vids_category));
         catAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -617,11 +615,11 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
                     }
                     public void onNothingSelected(AdapterView<?> parent) {
                     }
-                });*/
-    }
+                });
+    }*/
 
-    private void initializeVidsSubCategory(String[] subCategory) {
-        /*subCategorySpinner = (Spinner) findViewById(R.id.sub_category);
+    /*private void initializeVidsSubCategory(String[] subCategory) {
+        subCategorySpinner = (Spinner) findViewById(R.id.sub_category);
         ArrayAdapter<String> subCatAdapter = new ArrayAdapter<String>(this,
                 R.layout.spinner_text, subCategory);
         subCatAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -1073,14 +1071,14 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
                     }
                     public void onNothingSelected(AdapterView<?> parent) {
                     }
-                });*/
+                });
 
-    }
+    }*/
 
     @Override
     protected void onResume() {
         super.onResume();
-        if(!NetworkUtil.isConnected(this)) {
+        if (!NetworkUtil.isConnected(this)) {
             Snackbar.make(mMainCoordinatorLayout, "Uh oh! No internet connection. Try again later!", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         }
@@ -1102,10 +1100,20 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_vids, menu);
-        return true;
+    public boolean onPrepareOptionsMenu(Menu menu) {
+//         Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_vids, menu);
+//        return true;
+        menu.clear();
+        menu.add(0, MENU_FAVORITE, Menu.NONE, R.string.action_favorite);
+        if (myVideoViewLayout.getVisibility() == View.GONE) {
+            menu.add(0, MENU_MY_VIDEOS, Menu.NONE, R.string.action_my_videos);
+        }
+        menu.add(0, MENU_FEEDBACK, Menu.NONE, R.string.action_feedback);
+        menu.add(0, MENU_SHARE_APP, Menu.NONE, R.string.action_share);
+        menu.add(0, MENU_RATE_APP, Menu.NONE, R.string.action_rate);
+        menu.add(0, MENU_ABOUT, Menu.NONE, R.string.action_about);
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
@@ -1116,7 +1124,8 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_favorite) {
+//        if (id == R.id.action_favorite) {
+        if (id == MENU_FAVORITE) {
             Intent i = new Intent(VidsActivity.this, VidsFavoriteActivity.class);
             String favVidsIds = VidsApplUtil.readDataFromFile(this, VidsApplUtil.FAV_FILE_NAME);
             String formatedIds = "";
@@ -1126,30 +1135,29 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
             i.putExtra(VidsApplUtil.TYPE_VIDEO, formatedIds);
             startActivity(i);
             return true;
-        }
-       else if (id == R.id.action_addvideos) {
-            Intent myIntent = new Intent(VidsActivity.this, VideoSearchListActivity.class);
-            myIntent.putExtra(APITags.TYPE, VidsApplUtil.TYPE_SEARCH_VIDEO);
-            startActivity(myIntent);
-            return true;
+        } else if (id == MENU_MY_VIDEOS) {
+            myVideoViewLayout.setVisibility(View.VISIBLE);
+            mMainGridLayout.setVisibility(View.GONE);
         }
 
         return super.onOptionsItemSelected(item);
     }
+
     private FetchVidsListener listener;
     private FetchVidsListener listenerPl;
 
     public void setFetchVideoListener(FetchVidsListener fvListener) {
         this.listener = fvListener;
     }
+
     public void setFetchPlListener(FetchVidsListener fvListener) {
         this.listenerPl = fvListener;
     }
 
 
-
     public interface FetchVidsListener {
         public void onFetchVideo(String vidsType, String vidsIds);
+
         public void onFetchPl(String vidsType, String plIds);
 
     }
@@ -1157,12 +1165,20 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        // hide the my video layout if its visible
+        if (myVideoViewLayout.getVisibility() == View.VISIBLE) {
+            myVideoViewLayout.setVisibility(View.GONE);
+        }
+        // show the grid view layout if its hidde
+        if (mMainGridLayout.getVisibility() == View.GONE) {
+            mMainGridLayout.setVisibility(View.VISIBLE);
+        }
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         catTitle.setText(item.getTitle().toString());
         if (id == R.id.homeremedies) {
             loadSubCategory(getResources().getStringArray(R.array.home_remedies_list));
-        }  else if (id == R.id.beutytips) {
+        } else if (id == R.id.beutytips) {
             loadSubCategory(getResources().getStringArray(R.array.beauty_tips_list));
         } else if (id == R.id.motivational) {
             loadSubCategory(getResources().getStringArray(R.array.motivational_list));
@@ -1170,26 +1186,19 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
             loadSubCategory(getResources().getStringArray(R.array.mythological_list));
         } else if (id == R.id.bollysongs) {
             loadSubCategory(getResources().getStringArray(R.array.songs_list));
-        }
-        else if (id == R.id.tamilspecial) {
+        } else if (id == R.id.tamilspecial) {
             loadSubCategory(getResources().getStringArray(R.array.tamil_list));
-        }
-        else if (id == R.id.teluguspecial) {
+        } else if (id == R.id.teluguspecial) {
             loadSubCategory(getResources().getStringArray(R.array.telugu_list));
-        }
-        else if (id == R.id.shayari) {
+        } else if (id == R.id.shayari) {
             loadSubCategory(getResources().getStringArray(R.array.shayari_poetry_list));
-        }
-        else if (id == R.id.bollymovie) {
+        } else if (id == R.id.bollymovie) {
             loadSubCategory(getResources().getStringArray(R.array.movies_list));
-        }
-        else if (id == R.id.kids) {
+        } else if (id == R.id.kids) {
             loadSubCategory(getResources().getStringArray(R.array.kids_section));
-        }
-        else if (id == R.id.foodrecipes) {
+        } else if (id == R.id.foodrecipes) {
             loadSubCategory(getResources().getStringArray(R.array.food_recepies));
-        }
-        else if (id == R.id.newschannels) {
+        } else if (id == R.id.newschannels) {
             loadSubCategory(getResources().getStringArray(R.array.live_news_channels));
         }
 
@@ -1198,5 +1207,88 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    private void initializeMyVideoView() {
+        myVideoViewLayout = (RelativeLayout) findViewById(R.id.my_video_layout);
+        mRecyclerView = (RecyclerView) findViewById(R.id.my_video_recycleview);
+        pBar = (ProgressBar) findViewById(R.id.progressbar);
+        mMyVideoListAdapter = new VidsMyVideoAdapter(this);
+        emptyMyVideoViewLayout = (RelativeLayout) findViewById(R.id.empty_my_video_layout);
+        addButton = (Button) findViewById(R.id.add_button);
 
+        if (VidsApplUtil.isTablet(this)) {
+            mRecyclerView.setLayoutManager(new GridLayoutManager(this, ApplicationConstants.PLAYLIST_NUM_COLUMNS));
+            ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(this, R.dimen.margin_10dp);
+            mRecyclerView.addItemDecoration(itemDecoration);
+            mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        } else {
+            mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+            mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        }
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(VidsActivity.this, VideoSearchListActivity.class);
+                myIntent.putExtra(APITags.TYPE, VidsApplUtil.TYPE_SEARCH_VIDEO);
+                startActivity(myIntent);
+            }
+        });
+
+//            initializeFavTextInfo();
+
+        String myVidsIds = VidsApplUtil.readDataFromFile(this, VidsApplUtil.MY_VIDEO_FILE_NAME);
+        if (myVidsIds != null && myVidsIds.startsWith(",")) {
+            formatedMyVidsIds = myVidsIds.substring(1, myVidsIds.length());
+        }
+        if (formatedMyVidsIds.equals("")) {
+            emptyMyVideoViewLayout.setVisibility(View.VISIBLE);
+        } else {
+            emptyMyVideoViewLayout.setVisibility(View.GONE);
+            new MyVidsListTask().execute();
+        }
+    }
+
+    public RelativeLayout getEmptyMyVideoViewLayout() {
+        return emptyMyVideoViewLayout;
+    }
+
+    private class MyVidsListTask extends AsyncTask<String, Integer, YoutubeNtOVideosListEntity> {
+        protected YoutubeNtOVideosListEntity doInBackground(String... urls) {
+            ApiYoutube a = new ApiYoutube();
+            YoutubeNtOVideosListEntity youtubeNtOVideosListEntity = a.intiateAPICall(VidsApplUtil.TYPE_VIDEO, formatedMyVidsIds);
+            return youtubeNtOVideosListEntity;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pBar.setVisibility(View.VISIBLE);
+        }
+
+        protected void onProgressUpdate(Integer... progress) {
+
+        }
+
+        protected void onPostExecute(YoutubeNtOVideosListEntity result) {
+            videoListEntity = result;
+            pBar.setVisibility(View.GONE);
+            if (videoListEntity != null) {
+                videoListItmeArrayList = videoListEntity.getItems();
+
+                if (videoListItmeArrayList != null && videoListItmeArrayList.size() > 0) {
+
+                    mMyVideoListAdapter.setDataList(videoListItmeArrayList);
+
+                    mRecyclerView.setAdapter(mMyVideoListAdapter);
+
+                } else {
+                    Toast.makeText(VidsActivity.this, "videoListItmeArrayList is null", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(VidsActivity.this, "videoListEntity is null", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+    }
 }

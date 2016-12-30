@@ -15,6 +15,7 @@ public class VidsApplUtil {
     public static String TYPE_CHANNEL = "channel";
     public static String TYPE_PLAYLIST = "playlist";
     public static String FAV_FILE_NAME = "FavFile";
+    public static String MY_VIDEO_FILE_NAME = "MyVidsFile";
     public static String TYPE_SEARCH_VIDEO = "searchVideos";
 
 
