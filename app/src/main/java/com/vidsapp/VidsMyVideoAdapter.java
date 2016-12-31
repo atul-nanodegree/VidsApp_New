@@ -32,7 +32,7 @@ public class VidsMyVideoAdapter  extends RecyclerView.Adapter<VidsMyVideoAdapter
     }
     @Override
     public VidsMyVideoAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mLayoutInflater.inflate(R.layout.vids_favorite_item, null, false);
+        View view = mLayoutInflater.inflate(R.layout.vids_my_video_item, null, false);
         return new ViewHolder(view);
     }
 
@@ -59,7 +59,7 @@ public class VidsMyVideoAdapter  extends RecyclerView.Adapter<VidsMyVideoAdapter
         private TextView mYoutubePlaySubTitle = null;
         private ImageView mYoutubeThumb = null;
         private ImageView mPlay = null;
-        private ImageView mYoutubeFavRemove = null;
+        private ImageView mYoutubeMyVideoRemove = null;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -68,10 +68,10 @@ public class VidsMyVideoAdapter  extends RecyclerView.Adapter<VidsMyVideoAdapter
             mYoutubePlaySubTitle = (TextView) itemView.findViewById(R.id.youtube_sub_title);
             mYoutubeThumb = (ImageView) itemView.findViewById(R.id.youtube_playlist_thumb);
             mPlay = (ImageView) itemView.findViewById(R.id.play);
-            mYoutubeFavRemove = (ImageView) itemView.findViewById(R.id.fav_remove);
+            mYoutubeMyVideoRemove = (ImageView) itemView.findViewById(R.id.my_vid_remove);
             mPlay.setOnClickListener(this);
             mYoutubeShare.setOnClickListener(this);
-            mYoutubeFavRemove.setOnClickListener(this);
+            mYoutubeMyVideoRemove.setOnClickListener(this);
         }
 
         @Override
@@ -87,21 +87,21 @@ public class VidsMyVideoAdapter  extends RecyclerView.Adapter<VidsMyVideoAdapter
                 shareIntent.setType("text/plain");
                 mContext.startActivity(Intent.createChooser(shareIntent, "Share this Video with..."));
 
-            } else if (v.getId() == R.id.fav_remove) {
+            } else if (v.getId() == R.id.my_vid_remove) {
                 // remove the video from internal file storage and from list
-                removeFromFavorite();
+                removeFromMyVideo();
             }
         }
 
-        private void removeFromFavorite() {
+        private void removeFromMyVideo() {
             String videoId = mYoutubePlaylistsList.get(getAdapterPosition()).getId();
-            String currentData = VidsApplUtil.readDataFromFile(mContext, VidsApplUtil.FAV_FILE_NAME);
+            String currentData = VidsApplUtil.readDataFromFile(mContext, VidsApplUtil.MY_VIDEO_FILE_NAME);
             String finalData = currentData.replace("," + videoId, "");
-            VidsApplUtil.writeDataInFile(mContext, VidsApplUtil.FAV_FILE_NAME,
+            VidsApplUtil.writeDataInFile(mContext, VidsApplUtil.MY_VIDEO_FILE_NAME,
                     finalData);
             Toast.makeText(mContext, mContext.getResources().getString(
-                    R.string.remove_favorite), Toast.LENGTH_SHORT).show();
-            Log.i("VidsActivity", "Fav file data = " + VidsApplUtil.readDataFromFile(mContext, VidsApplUtil.FAV_FILE_NAME));
+                    R.string.remove_my_videos), Toast.LENGTH_SHORT).show();
+            Log.i("VidsActivity", "My Video file data = " + VidsApplUtil.readDataFromFile(mContext, VidsApplUtil.MY_VIDEO_FILE_NAME));
             mYoutubePlaylistsList.remove(getAdapterPosition());
             notifyItemRemoved(getAdapterPosition());
             notifyItemRangeChanged(getAdapterPosition(), mYoutubePlaylistsList.size());
@@ -109,6 +109,7 @@ public class VidsMyVideoAdapter  extends RecyclerView.Adapter<VidsMyVideoAdapter
             if (mYoutubePlaylistsList.size() == 0) {
                 VidsActivity vidsActivity = (VidsActivity) mContext;
                 vidsActivity.getEmptyMyVideoViewLayout().setVisibility(View.VISIBLE);
+                vidsActivity.getAddMyVideoGenericButton().setVisibility(View.GONE);
             }
         }
 

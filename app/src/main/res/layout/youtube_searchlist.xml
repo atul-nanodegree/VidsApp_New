@@ -14,31 +14,32 @@
 
     <EditText
         android:id="@+id/searchText"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
         android:shadowColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:textSize="16sp"
         android:layout_below="@+id/toolbar"
-        android:layout_marginLeft="@dimen/margin_20dp"
+        android:layout_marginLeft="@dimen/margin_10dp"
+        android:layout_marginRight="95dp"
         android:layout_marginTop="@dimen/margin_20dp"
         android:ellipsize="end"
         android:lines="1"
         android:maxLines="1"
         android:singleLine="true"
-        android:textColor="@android:color/holo_red_light"
-        android:visibility="visible"/>
+        android:textColor="@android:color/black"
+        android:background="@drawable/search_bg"/>
 
     <Button
         android:id="@+id/searchButton"
         android:layout_below="@+id/toolbar"
-        android:layout_width="88dp"
-        android:layout_height="35dp"
+        android:layout_width="80dp"
+        android:layout_height="28dp"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="22dp"
-        android:src="@android:drawable/ic_menu_search"
-        android:visibility="visible"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Search"
+        android:textColor="@color/white"
+        android:background="@drawable/button_bg"
         android:clickable="true"
         />
 
@@ -47,7 +48,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/searchText"
-        android:layout_marginTop="@dimen/margin_15dp" />
+        android:layout_marginTop="@dimen/margin_15dp"
+        android:layout_marginBottom="@dimen/margin_25dp"/>
 
     <ProgressBar
         android:id="@+id/progressbar"

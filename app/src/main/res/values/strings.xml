@@ -17,6 +17,8 @@
     <string name="play_all">Play all</string>
     <string name="add_favorite">Added to favorite</string>
     <string name="remove_favorite">Removed from favorite</string>
+    <string name="add_my_video">Added to my videos</string>
+    <string name="remove_my_videos">Removed from my videos</string>
 
     <string-array name="vids_category">
         <item>Home remedies</item>

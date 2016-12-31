@@ -56,6 +56,7 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
     private RelativeLayout myVideoViewLayout;
     private RelativeLayout emptyMyVideoViewLayout;
     private Button addButton;
+    private Button addButtonGeneric;
 
     private YoutubeNtOVideosListEntity videoListEntity = null;
     private List<YoutubeNtOVideosListItemEntity> videoListItmeArrayList = null;
@@ -1086,7 +1087,7 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
         if (adapter != null) {
             adapter.notifyDataSetChanged();
         }
-
+        refreshMyVideoViewVisibility();
     }
 
     @Override
@@ -1138,6 +1139,7 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == MENU_MY_VIDEOS) {
             myVideoViewLayout.setVisibility(View.VISIBLE);
             mMainGridLayout.setVisibility(View.GONE);
+            refreshMyVideoViewVisibility();
         }
 
         return super.onOptionsItemSelected(item);
@@ -1214,6 +1216,7 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
         mMyVideoListAdapter = new VidsMyVideoAdapter(this);
         emptyMyVideoViewLayout = (RelativeLayout) findViewById(R.id.empty_my_video_layout);
         addButton = (Button) findViewById(R.id.add_button);
+        addButtonGeneric = (Button) findViewById(R.id.add_button_generic);
 
         if (VidsApplUtil.isTablet(this)) {
             mRecyclerView.setLayoutManager(new GridLayoutManager(this, ApplicationConstants.PLAYLIST_NUM_COLUMNS));
@@ -1234,23 +1237,40 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(myIntent);
             }
         });
+        addButtonGeneric.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(VidsActivity.this, VideoSearchListActivity.class);
+                myIntent.putExtra(APITags.TYPE, VidsApplUtil.TYPE_SEARCH_VIDEO);
+                startActivity(myIntent);
+            }
+        });
 
 //            initializeFavTextInfo();
 
+    }
+
+    private void refreshMyVideoViewVisibility() {
         String myVidsIds = VidsApplUtil.readDataFromFile(this, VidsApplUtil.MY_VIDEO_FILE_NAME);
         if (myVidsIds != null && myVidsIds.startsWith(",")) {
             formatedMyVidsIds = myVidsIds.substring(1, myVidsIds.length());
         }
         if (formatedMyVidsIds.equals("")) {
             emptyMyVideoViewLayout.setVisibility(View.VISIBLE);
+            addButtonGeneric.setVisibility(View.GONE);
         } else {
             emptyMyVideoViewLayout.setVisibility(View.GONE);
+            addButtonGeneric.setVisibility(View.VISIBLE);
             new MyVidsListTask().execute();
         }
     }
 
     public RelativeLayout getEmptyMyVideoViewLayout() {
         return emptyMyVideoViewLayout;
+    }
+
+    public Button getAddMyVideoGenericButton() {
+        return addButtonGeneric;
     }
 
     private class MyVidsListTask extends AsyncTask<String, Integer, YoutubeNtOVideosListEntity> {

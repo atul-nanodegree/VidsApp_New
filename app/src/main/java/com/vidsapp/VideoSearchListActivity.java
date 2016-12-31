@@ -33,7 +33,7 @@ public class VideoSearchListActivity extends BaseActivity  {
     public static String                         pageToken              = null;
 
     private RecyclerView mRecyclerView;
-    private YoutubeNewTOldVideosListAdapter      mDoclevelListAdapter;
+    private VideoSearchsListAdapter      mDoclevelListAdapter;
 
     private Context mContext;
     private static final String                  TAG                    = "VideoListF.class";
@@ -60,29 +60,29 @@ public class VideoSearchListActivity extends BaseActivity  {
         setSupportActionBar(toolbar);
         if (getIntent().getStringExtra(APITags.TYPE) != null) {
 
-           vidsType=getIntent().getStringExtra(APITags.TYPE);
+            vidsType = getIntent().getStringExtra(APITags.TYPE);
         }
 
         if (getIntent().getStringExtra(APITags.TITLE) != null) {
 
            // setActionbarTitle(getIntent().getStringExtra(APITags.TITLE),false,R.id.toolbar);
-            setActionbarTitle("SearchedVideoList",false,R.id.toolbar);
+            setActionbarTitle("Search And Add",false,R.id.toolbar);
 
         }
         else{
-            setActionbarTitle("SearchedVideoList",false,R.id.toolbar);
+            setActionbarTitle("Search And Add",false,R.id.toolbar);
 
         }//        toolbar.setLogo(R.drawable.icon);
-        mContext=VideoSearchListActivity.this;
-        mMainCoordinatorLayout=(CoordinatorLayout)findViewById(R.id.coordinatelayout);
-        mSearchButton=(Button) findViewById(R.id.searchButton);
-        mSearchEdit=(EditText) findViewById(R.id.searchText);
+        mContext = VideoSearchListActivity.this;
+        mMainCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatelayout);
+        mSearchButton = (Button) findViewById(R.id.searchButton);
+        mSearchEdit = (EditText) findViewById(R.id.searchText);
 
 
         mRecyclerView = (RecyclerView) findViewById(R.id.youtube_videolists_recyclerview);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
 
-        mDoclevelListAdapter = new YoutubeNewTOldVideosListAdapter(mContext);
+        mDoclevelListAdapter = new VideoSearchsListAdapter(mContext);
         if (VidsApplUtil.isTablet(getBaseContext())) {
             mRecyclerView.setLayoutManager(new GridLayoutManager(mContext, ApplicationConstants.PLAYLIST_NUM_COLUMNS));
             ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(mContext, R.dimen.margin_10dp);
@@ -174,7 +174,7 @@ public class VideoSearchListActivity extends BaseActivity  {
         }
     }
 
-    public YoutubeNewTOldVideosListAdapter getAdapter() {
+    public VideoSearchsListAdapter getAdapter() {
         return mDoclevelListAdapter;
     }
     @Override
