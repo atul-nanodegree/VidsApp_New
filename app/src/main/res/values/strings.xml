@@ -523,6 +523,9 @@
         <item>Chalisa</item>
         <item>Aarti</item>
         <item>Mantr</item>
+        <item>Vrat katha</item>
+        <item>Pooja vidhi</item>
+        <item>Upaay / Totke</item>
         <item>TV serials</item>
     </string-array>
 
@@ -557,6 +560,7 @@
         <item>PL74AC69874C1AE70E</item>
         <item>PLC174CB059566ACC4</item>
         <item>PLF5CD1684AA5767CA</item>
+        <item>PLM3TSQaW_spOm4NSx874cBATozXHYd8oC</item>
         <item>PLdOHwWWJhcjf0QbkWY6ZOLV51-Geax9AS</item>
         <item>PLYhK5iekh44K5-yL2XkVbqlD-KUK31CB6</item>
         <item>PLEqBALZ4udy7C5RgbeX5KjZcBT6KSupNU</item>
@@ -689,6 +693,125 @@
         <item>6itxDwwzo0</item>
         <item>dEebvNf3Hxg</item>
         <item>7uwEEWxjJlw</item>
+    </string-array>
+
+    <string-array name="aarti_vids">
+        <item>PL972A635ACEBCD4E7</item>
+        <item>PL5229529F76D2C702</item>
+        <item>PL1284D0B106BB0B39</item>
+        <item>PL5089ED425927B2BF</item>
+        <item>PL212976DB7976121F</item>
+        <item>PL7A102478E66F4A1D</item>
+        <item>PLA40E452401BB7290</item>
+        <item>PLDD90D62A04FC049F</item>
+        <item>PL58426228B23AD37F</item>
+        <item>PL1ZUIZzs7AtuDC8u-TgB9p4oYnjd_ZKJ0</item>
+        <item>PLKANtD8e14g2ekU7G1AH9nMuc-47JdiKM</item>
+        <item>PLC2F84011E8B9E0F9</item>
+        <item>PL02D8FEEFBC428883</item>
+        <item>PL7B9585EC7DA5E45C</item>
+        <item>PL93CD3F5C1EE9D1A8</item>
+        <item>PL136F04FBD1DC7848</item>
+        <item>PLEe0CC3yD6dZ8p7UXfSEsucqhrpKhe8NH</item>
+        <item>PL1DE4908A24664E6F</item>
+    </string-array>
+
+    <string-array name="mantr_vids">
+        <item>PLf9bSy1KKXcJJP0f2QPKfhrw-U8kmJnuV</item>
+        <item>PLBervZz9a17uCWt-tS90KTZ-fNmPwETkL</item>
+        <item>PL4E478E7031715AE6</item>
+        <item>PLqKfO8peuae0Bzp2KpC8YIJt-baAUcGPk</item>
+        <item>PLqKfO8peuae0Bzp2KpC8YIJt-baAUcGPk</item>
+        <item>PLzz9KpK4CcMMfy2gANYreFasbwd8DdX0C</item>
+        <item>PL6BO7XVGb1Wowsd5Id-CEqT3v_tqnvJl_</item>
+        <item>PLdXD5ymjVKLmc0LcKAekyOZa07E1bBI2f</item>
+        <item>PL3DFFBB971ACD2A32</item>
+        <item>PLA078C60A6325C567</item>
+        <item>PL286C5D371361FAA5</item>
+        <item>PL68jztgGoStnhkDRQjO9QsBDyX4C8PgGT</item>
+        <item>PLWn8QRqY8ySz6ytowzasG0TIuBrpArX_Q</item>
+        <item>PLx-mA3l2sGi7vb7s5iserBULi-YKRZ_K9</item>
+        <item>PLsuCfYXzi5DLkTfhVV0SU8znmNJZlHLbs</item>
+        <item>PLpZDnqavjqfjnb-TbgWj-lOkSQn4pZENx</item>
+        <item>PLsUxhNQI87ut05kOrZirCfrAZHczXxeIW</item>
+        <item>PLBze_9Wq6WiGAeaUretfyOkwLf4U_561t</item>
+        <item>PLm3ybOkQtqiRzaY2LYN9ZGTdxZEeBscUi</item>
+        <item>PLSPuWFya-Y7vKDz1oDYUDfxN1vaBGjmNQ</item>
+        <item>PL5B3961BAF33FE331</item>
+        <item>PL54F94B9D8A925FD4</item>
+        <item>PLqYfFW19a7i4htnItulHZ1Q6B61MabJmp</item>
+        <item>PL5CCEE93CE50512AD</item>
+    </string-array>
+
+    <string-array name="vratkatha_vids">
+        <item>PLtGgJeNHYd6HgscypsH66ysZ5b9se3iLv</item>
+        <item>PLBpnod8KeEXQrBsWgukxC3bmPvIep3WW2</item>
+        <item>PLN5FOYxrlbIM4pKKKETLC72E3g_pYaecR</item>
+        <item>PLzz9KpK4CcMO5m_lOxuv3nHkNX8bCjpRj</item>
+        <item>PL52cK-8xD1wp7FbGdtvf2WOcr1txCdHhK</item>
+        <item>PLBB907BBF4AA34B5C</item>
+        <item>PL-4scAD7lQBx5vWBeb6b8XFAYYogFc3_U</item>
+        <item>PLV_5eq7MC2L6Q2MEHCCiIcMsj2-sGi2ep</item>
+        <item>PLDNOMnNp8ICt4tX-c0LbiIzY2A2Aw5gz0</item>
+        <item>PLrxOFgxszPSMspB68DKkdJStP73nA_TC_</item>
+        <item>PLGe4kJxWArOS5_xgBthepFSOsmYtDlWa3</item>
+        <item>PLyXHXSHxLqKwCXJxSo1WI17LQP9JO0Ajo</item>
+        <item>PLUcG1c6HoD830TfdaJDCUA8L0m5Af8Hd7</item>
+        <item>PLx0Bu9VagqZjX81lVVKqKXvoj5FLHurTb</item>
+        <item>PL0033F8C7420004D4</item>
+        <item>PL25fMsMJxsODPmp3yR21kvadvhrA15lSS</item>
+        <item>PLfx6o81oSA-pDN0rr_HouEH-_HeOadnEO</item>
+        <item>PLoFurfViZOIWC6sebDuIIArTJtTU0yX0B</item>
+        <item>PL3EC64594BF9C31BA</item>
+        <item>PL2zs3ufxuDEIzS6sbu6TmQ6tM_vVIqU1o</item>
+        <item>PLKHWBV5KSkDaWgHncyS1Zpyk63NuGgLZZ</item>
+        <item>PLOLTd9psvDiMkHHU94QaISvNWiwjtC1FA</item>
+    </string-array>
+
+    <string-array name="poojan_vids">
+        <item>PLGwteiO0CDCQZGpZm4IdOB2wt9aHpxeO1</item>
+        <item>PLbPDSY72rekBrsVCZF1mYjHyUAs546fEc</item>
+        <item>PLGwteiO0CDCTx2SSjwpIDQX_VS8jO0C60</item>
+        <item>PLGwteiO0CDCRwK60MRfmWf5iUbw_PTJhl</item>
+        <item>PLGwteiO0CDCQhfc3a9mH8Xfkikf4t31MO</item>
+        <item>PLv6Mv0MemDPnkx7E9055exfjRUY4Uvpdb</item>
+        <item>PLQ76MGWKfHPX22xfDogMq2VBnI6xJuVj8</item>
+    </string-array>
+
+    <string-array name="upaay_vids">
+        <item>PLYcCKfJtIRF2DKsdwZSwlYKy89a6ZEKk5</item>
+        <item>PLt0_vQkHJyqeK3jOPcGZe-8ctPYFCR0My</item>
+        <item>PL9E0DBBE68E5A85B6</item>
+        <item>PLYcCKfJtIRF3cUWMz2hAKOPsw9OQxgAfI</item>
+        <item>PLYcCKfJtIRF1HpayCYJnysCBB_vdv3utf</item>
+        <item>PLYcCKfJtIRF3RuUTR1REfAdbxgrvx9Huf</item>
+        <item>PL3AUMiF5kAdG1Z1yMiT-vxM4t5K0IjW15</item>
+        <item>PLSrgTbcfKvAG7s7apQEtGpI1CsNuVR_qj</item>
+        <item>PL8XE_LCKXqgn1JvpvKS67wj6u0uXh2osJ</item>
+        <item>PLYcCKfJtIRF1kFhXpO6TOWOp4AS5Mzuc_</item>
+        <item>PLYcCKfJtIRF0SbHwwqhbcGHb3FsWopfOg</item>
+        <item>PLSrgTbcfKvAFe2wMDNgDWBDfV2s4WRznW</item>
+        <item>PL8XE_LCKXqgnY-uOo12zVjdjK_UCtYZzT</item>
+        <item>PLM3c7ilm8gMCsxO9bpNz-TbIdvnIORapX</item>
+        <item>PLruySqbqSthNVxFasJ4qFlJ-V77LVaTRJ</item>
+        <item>PL3rtV5CDZIgJzOWR01I_QDRof44bWuDmb</item>
+        <item>PL0hHzn2YYpwn_rjpcGlY4m16OOC8wJSaQ</item>
+        <item>PL6GwAm8WvjGbU391EuNsW2MsnDMFf0ZRQ</item>
+        <item>PLv6Mv0MemDPn7_FC9HIk0dn6w67BU6Vdf</item>
+        <item>PLKijT0cWybXkAksyxnz-mWjq2Mlih0dF_</item>
+        <item>PLxJl4OUyCGks7tgwPEBdibqA8fhqzF9SB</item>
+        <item>PLxJl4OUyCGku05FswxLlUzlmCP2vFyrS0</item>
+        <item>PLIyq_7luokRY-udxJJ33AJ-BvuGwGSY4F</item>
+        <item>PLIpf5TPEmmGcZDFPO6IC1jrYUng8bd8Au</item>
+        <item>PLOyS7vkHyZuXj7bhi3901tMqBjr9V7t8J</item>
+        <item>PLrirrWSYR1QEIYLLcoBcPAEpF9uIJni0Y</item>
+        <item>PLvPHv9wrLvCmYg8GCszlJ11he9mOE4T1W</item>
+        <item>PLBdq_jFvdhiNlqXfPp1hI-mhJ9VVK5o6I</item>
+        <item>PL0hHzn2YYpwkZgTyQ7_ZpzEbQD7hTEunU</item>
+        <item>PLVUfSaNccm2lVqDSwjKovixQqgQx3jxBM</item>
+        <item>PLncf8ITx8uzDZhDPN06fWTBugGEIcepYq</item>
+        <item>PLoDi1jTfUJ-LOavsE7R-BGNqJ08FlPiMB</item>
+        <item>PLvPHv9wrLvClIs-gnHwE7XdVafOoGLH6r</item>
     </string-array>
 
     <string name="banner_home_footer_video">ca-app-pub-3233306799941518/2558410588</string>

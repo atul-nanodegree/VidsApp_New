@@ -519,6 +519,26 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.chalisa_vids));
                         videoType = VidsApplUtil.TYPE_VIDEO;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Aarti")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.aarti_vids));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Mantr")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.mantr_vids));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Vrat katha")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.vratkatha_vids));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Pooja vidhi")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.poojan_vids));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Upaay / Totke")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.upaay_vids));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
                     } else if (selectedSubCategory.equalsIgnoreCase("TV serials")) {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.serials_playlist));
