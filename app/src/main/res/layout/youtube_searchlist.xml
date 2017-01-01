@@ -49,7 +49,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/searchText"
         android:layout_marginTop="@dimen/margin_15dp"
-        android:layout_marginBottom="@dimen/margin_25dp"/>
+        android:layout_marginBottom="@dimen/margin_30dp"/>
 
     <ProgressBar
         android:id="@+id/progressbar"

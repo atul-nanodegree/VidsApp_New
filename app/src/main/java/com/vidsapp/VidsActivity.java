@@ -60,7 +60,7 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
 
     private YoutubeNtOVideosListEntity videoListEntity = null;
     private List<YoutubeNtOVideosListItemEntity> videoListItmeArrayList = null;
-    String formatedMyVidsIds = "";
+    String formatedMyVidsIds;
 
     // option menu items - add dynamically
 
@@ -1251,6 +1251,7 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void refreshMyVideoViewVisibility() {
+        formatedMyVidsIds= "";
         String myVidsIds = VidsApplUtil.readDataFromFile(this, VidsApplUtil.MY_VIDEO_FILE_NAME);
         if (myVidsIds != null && myVidsIds.startsWith(",")) {
             formatedMyVidsIds = myVidsIds.substring(1, myVidsIds.length());
