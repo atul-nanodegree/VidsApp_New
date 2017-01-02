@@ -120,7 +120,7 @@
                 android:layout_below="@id/text1"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:text="Hey! Here you can add the videos of your choice!\nStart adding your videos here by searching from millions of videos available \n\nOR \n\nWatch the best in class videos categorized by VidsApp choosing from left navigation menu"
+                android:text="Hey! Here you can add the videos of your choice!\nStart adding your videos here by searching from millions of videos available \n\nWatch the best in class videos categorized by VidsApp choosing from left navigation menu"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
