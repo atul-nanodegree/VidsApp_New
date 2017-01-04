@@ -1,6 +1,7 @@
 package com.vidsapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -19,9 +20,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -30,10 +34,11 @@ import android.widget.Toast;
 import com.vidsapp.util.VidsAppAds;
 import com.vidsapp.util.VidsApplUtil;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VidsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class VidsActivity extends AppCompatActivity {
 
     //    private Spinner categorySpinner, subCategorySpinner;
     private CoordinatorLayout mMainCoordinatorLayout;
@@ -70,6 +75,10 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
     private static final int MENU_SHARE_APP = Menu.FIRST + 3;
     private static final int MENU_RATE_APP = Menu.FIRST + 4;
     private static final int MENU_ABOUT = Menu.FIRST + 5;
+    private ListView mDrawerList;
+    private String[] mPlanetTitles;
+    private boolean mFlag=false;
+    private ArrayAdapter<String> mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,11 +88,36 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
         //Displaying banner ads at bottom of screen
         vidsAppAds = new VidsAppAds(this);
         vidsAppAds.bannerAds(getResources().getString(R.string.banner_home_footer_video));
-
+        mPlanetTitles=getResources().getStringArray(R.array.vids_category);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerList = (ListView) findViewById(R.id.left_drawer);
+        // Set the adapter for the list view
+        mAdapter =
+                new ArrayAdapter<String>(this,
+                        android.R.layout.simple_list_item_1,
+                        mPlanetTitles) {
+
+                    @Override
+                    public View getView(int position, View convertView, ViewGroup parent) {
+
+                        View view = super.getView(position, convertView, parent);
+                        TextView text = (TextView) view.findViewById(android.R.id.text1);
+
+
+                        text.setTextColor(getResources().getColor(R.color.white));
+                        view.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+
+                        return view;
+                    }
+                };
+
+
+        mDrawerList.setAdapter(mAdapter);
+        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
 
@@ -106,8 +140,8 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+       /* NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);*/
 
 //        toolbar.setLogo(R.drawable.icon);
         mMainCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatelayout);
@@ -1184,50 +1218,6 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // hide the my video layout if its visible
-        if (myVideoViewLayout.getVisibility() == View.VISIBLE) {
-            myVideoViewLayout.setVisibility(View.GONE);
-        }
-        // show the grid view layout if its hidde
-        if (mMainGridLayout.getVisibility() == View.GONE) {
-            mMainGridLayout.setVisibility(View.VISIBLE);
-        }
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        catTitle.setText(item.getTitle().toString());
-        if (id == R.id.homeremedies) {
-            loadSubCategory(getResources().getStringArray(R.array.home_remedies_list));
-        } else if (id == R.id.beutytips) {
-            loadSubCategory(getResources().getStringArray(R.array.beauty_tips_list));
-        } else if (id == R.id.motivational) {
-            loadSubCategory(getResources().getStringArray(R.array.motivational_list));
-        } else if (id == R.id.mythological) {
-            loadSubCategory(getResources().getStringArray(R.array.mythological_list));
-        } else if (id == R.id.bollysongs) {
-            loadSubCategory(getResources().getStringArray(R.array.songs_list));
-        } else if (id == R.id.tamilspecial) {
-            loadSubCategory(getResources().getStringArray(R.array.tamil_list));
-        } else if (id == R.id.teluguspecial) {
-            loadSubCategory(getResources().getStringArray(R.array.telugu_list));
-        } else if (id == R.id.shayari) {
-            loadSubCategory(getResources().getStringArray(R.array.shayari_poetry_list));
-        } else if (id == R.id.bollymovie) {
-            loadSubCategory(getResources().getStringArray(R.array.movies_list));
-        } else if (id == R.id.kids) {
-            loadSubCategory(getResources().getStringArray(R.array.kids_section));
-        } else if (id == R.id.foodrecipes) {
-            loadSubCategory(getResources().getStringArray(R.array.food_recepies));
-        } else if (id == R.id.newschannels) {
-            loadSubCategory(getResources().getStringArray(R.array.live_news_channels));
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
 
     private void initializeMyVideoView() {
         myVideoViewLayout = (RelativeLayout) findViewById(R.id.my_video_layout);
@@ -1332,4 +1322,73 @@ public class VidsActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+
+    private class DrawerItemClickListener implements ListView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            for (int i=0;i<mDrawerList.getCount();i++)
+            {
+                if(position!=i){
+                    View wantedView = mDrawerList.getChildAt(i);
+                    TextView text = (TextView) wantedView.findViewById(android.R.id.text1);
+                    text.setTextColor(getResources().getColor(R.color.white));
+                    wantedView.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                }
+            }
+            TextView text = (TextView) view.findViewById(android.R.id.text1);
+            text.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+            view.setBackgroundColor(getResources().getColor(R.color.white));
+            selectItem(position);
+
+
+        }
+    }
+
+    /** Swaps fragments in the main content view */
+    private void selectItem(int position) {
+        // Create a new fragment and specify the planet to show based on position
+        // hide the my video layout if its visible
+
+        if (myVideoViewLayout.getVisibility() == View.VISIBLE) {
+            myVideoViewLayout.setVisibility(View.GONE);
+        }
+        // show the grid view layout if its hidde
+        if (mMainGridLayout.getVisibility() == View.GONE) {
+            mMainGridLayout.setVisibility(View.VISIBLE);
+        }
+        // Handle navigation view item clicks here.
+        int id = position;
+        catTitle.setText(mPlanetTitles[id].toString());
+        if (id == 0) {
+            loadSubCategory(getResources().getStringArray(R.array.home_remedies_list));
+        } else if (id == 1) {
+            loadSubCategory(getResources().getStringArray(R.array.beauty_tips_list));
+        } else if (id == 2) {
+            loadSubCategory(getResources().getStringArray(R.array.motivational_list));
+        } else if (id == 3) {
+            loadSubCategory(getResources().getStringArray(R.array.mythological_list));
+        } else if (id == 4) {
+            loadSubCategory(getResources().getStringArray(R.array.songs_list));
+        } else if (id == 5) {
+            loadSubCategory(getResources().getStringArray(R.array.tamil_list));
+        } else if (id == 6) {
+            loadSubCategory(getResources().getStringArray(R.array.telugu_list));
+        } else if (id == 7) {
+            loadSubCategory(getResources().getStringArray(R.array.shayari_poetry_list));
+        } else if (id == 8) {
+            loadSubCategory(getResources().getStringArray(R.array.movies_list));
+        } else if (id == 9) {
+            loadSubCategory(getResources().getStringArray(R.array.kids_section));
+        } else if (id == 10) {
+            loadSubCategory(getResources().getStringArray(R.array.food_recepies));
+        } else if (id == 11) {
+            loadSubCategory(getResources().getStringArray(R.array.live_news_channels));
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+    }
+
+
 }
