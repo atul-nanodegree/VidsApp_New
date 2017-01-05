@@ -108,7 +108,7 @@ public class VidsActivity extends AppCompatActivity {
 
 
                         text.setTextColor(getResources().getColor(R.color.white));
-                        view.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                        view.setBackgroundColor(getResources().getColor(R.color.black));
 
                         return view;
                     }
@@ -1333,11 +1333,11 @@ public class VidsActivity extends AppCompatActivity {
                     View wantedView = mDrawerList.getChildAt(i);
                     TextView text = (TextView) wantedView.findViewById(android.R.id.text1);
                     text.setTextColor(getResources().getColor(R.color.white));
-                    wantedView.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                    wantedView.setBackgroundColor(getResources().getColor(R.color.black));
                 }
             }
             TextView text = (TextView) view.findViewById(android.R.id.text1);
-            text.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+            text.setTextColor(getResources().getColor(R.color.colorPrimary));
             view.setBackgroundColor(getResources().getColor(R.color.white));
             selectItem(position);
 

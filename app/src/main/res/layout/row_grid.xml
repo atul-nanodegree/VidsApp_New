@@ -22,11 +22,11 @@
         android:layout_marginLeft="5dp"
         android:textSize="14sp"
         android:layout_centerInParent="true"
-        android:shadowColor="@color/white"
+        android:shadowColor="@color/colorPrimary"
         android:shadowDx="1"
         android:shadowDy="3"
         android:shadowRadius="2"
-        android:textColor="@android:color/white">
+        android:textColor="@color/colorPrimary">
     </TextView>
 
 </RelativeLayout>
