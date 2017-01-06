@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="62dp"
     android:padding="5dp"
-    android:background="@drawable/grid_item_bg">
+    android:background="#80ffffff">
 
     <ImageView
         android:id="@+id/item_image"
@@ -22,9 +22,9 @@
         android:layout_marginLeft="5dp"
         android:textSize="14sp"
         android:layout_centerInParent="true"
-        android:shadowColor="@color/colorPrimary"
+        android:shadowColor="@color/black"
         android:shadowDx="1"
-        android:shadowDy="3"
+        android:shadowDy="1"
         android:shadowRadius="2"
         android:textColor="@color/colorPrimary">
     </TextView>
