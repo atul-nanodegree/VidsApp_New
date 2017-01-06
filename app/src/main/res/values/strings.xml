@@ -32,7 +32,7 @@
         <item>Bollywood movies</item>
         <item>Kids</item>
         <item>Food recipes</item>
-        <item>News channels</item>
+        <item>Live channels</item>
     </string-array>
 
     <string-array name="home_remedies_list">
@@ -401,8 +401,9 @@
         <item>Hindi dubbed</item>
     </string-array>
 
-    <string-array name="live_news_channels">
+    <string-array name="live_channels">
         <item>Live News</item>
+        <item>Live Music</item>
     </string-array>
 
     <string-array name="food_recepies">
@@ -447,6 +448,22 @@
         <item>kZZIdA0TsBo</item>
         <item>kuY_VoVbAgA</item>
         <item>y60wDzZt8yg</item>
+        <item>gFMaxP6cHh8</item>
+        <item>kg48DXa4bKE</item>
+        <item>ZcgjH9MNtI</item>
+
+    </string-array>
+
+    <string-array name="live_music_vids">
+        <item>jknffoDyzWY</item>
+        <item>cDHFUC5zMx8</item>
+        <item>uNN6Pj06Cj8</item>
+        <item>ZE--LVvzi2E</item>
+        <item>7_k5TsjMQAM</item>
+        <item>TzZRzCLInCk</item>
+        <item>gmv54pfxk0Q</item>
+        <item>P6xY1p2cPss</item>
+        <item>v6NTX2gH_uM</item>
     </string-array>
 
     <string-array name="ghazals_vids">

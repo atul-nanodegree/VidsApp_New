@@ -394,6 +394,10 @@ public class VidsActivity extends AppCompatActivity {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.news_vids));
                         videoType = VidsApplUtil.TYPE_VIDEO;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Live Music")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.live_music_vids));
+                        videoType = VidsApplUtil.TYPE_VIDEO;
                     } else if (selectedSubCategory.equalsIgnoreCase("FoodFood")) {
                         formatedVidsList = "PLI-l1OOUnVtOcrO0MP0Qn67bvaGYS5-QS,PLI-l1OOUnVtMhpmj1HzNXg1qd0ByTrihB," +
                                 "PLI-l1OOUnVtM5p90oI4Rw7D09znrQRoZN," + "PLI-l1OOUnVtNOY4uWnfa2nHIAbC8elqId,PLI-l1OOUnVtP0Gf2y4Ugc-EycGxO0rOZx," +
@@ -1383,7 +1387,7 @@ public class VidsActivity extends AppCompatActivity {
         } else if (id == 10) {
             loadSubCategory(getResources().getStringArray(R.array.food_recepies));
         } else if (id == 11) {
-            loadSubCategory(getResources().getStringArray(R.array.live_news_channels));
+            loadSubCategory(getResources().getStringArray(R.array.live_channels));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
