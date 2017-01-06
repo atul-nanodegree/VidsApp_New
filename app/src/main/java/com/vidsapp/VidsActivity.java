@@ -75,6 +75,8 @@ public class VidsActivity extends AppCompatActivity {
     private static final int MENU_SHARE_APP = Menu.FIRST + 3;
     private static final int MENU_RATE_APP = Menu.FIRST + 4;
     private static final int MENU_ABOUT = Menu.FIRST + 5;
+    private static final int MENU_RADIO = Menu.FIRST + 6;
+
     private ListView mDrawerList;
     private String[] mPlanetTitles;
     private boolean mFlag=false;
@@ -1172,6 +1174,8 @@ public class VidsActivity extends AppCompatActivity {
         menu.add(0, MENU_SHARE_APP, Menu.NONE, R.string.action_share);
         menu.add(0, MENU_RATE_APP, Menu.NONE, R.string.action_rate);
         menu.add(0, MENU_ABOUT, Menu.NONE, R.string.action_about);
+        menu.add(0, MENU_RADIO, Menu.NONE, R.string.action_radio);
+
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -1198,6 +1202,12 @@ public class VidsActivity extends AppCompatActivity {
             myVideoViewLayout.setVisibility(View.VISIBLE);
             mMainGridLayout.setVisibility(View.GONE);
             refreshMyVideoViewVisibility();
+        }
+
+        else if (id == MENU_RADIO) {
+            Intent i = new Intent(VidsActivity.this, RadioFmActivity.class);
+            startActivity(i);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -1336,13 +1346,13 @@ public class VidsActivity extends AppCompatActivity {
                 if(position!=i){
                     View wantedView = mDrawerList.getChildAt(i);
                     TextView text = (TextView) wantedView.findViewById(android.R.id.text1);
-                    text.setTextColor(getResources().getColor(R.color.white));
+                    text.setTextColor(getResources().getColor(R.color.list_backg));
                     wantedView.setBackgroundColor(getResources().getColor(R.color.black));
                 }
             }
             TextView text = (TextView) view.findViewById(android.R.id.text1);
             text.setTextColor(getResources().getColor(R.color.colorPrimary));
-            view.setBackgroundColor(getResources().getColor(R.color.white));
+            view.setBackgroundColor(getResources().getColor(R.color.list_backg));
             selectItem(position);
 
 
