@@ -209,6 +209,10 @@ public class VidsActivity extends AppCompatActivity {
                                 "PLQtlDeMxHkRi00saV53BiREAspJTYZSFu," +
                                 "PL2pHEdOz05rUzcL4nlpMR_iEocBuHUAkz";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Liver disorders")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.liver_problems_list));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
                     } else if (selectedSubCategory.equalsIgnoreCase("Dandruff")) {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.dandruff_vids));
