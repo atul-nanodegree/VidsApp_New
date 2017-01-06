@@ -70,8 +70,6 @@
         <item>HKuQM8ZzJDI</item>
         <item>RQNAa-tqr8</item>
         <item>h_lIuEZeKoo</item>
-        <item>Gastric</item>
-        <item>Fever</item>
         <item>Giddiness</item>
         <item>FCk1agpTPTk</item>
         <item>hcKOpv5-8rI</item>
@@ -214,6 +212,17 @@
         <item>mU3DqaJuzIw</item>
         <item>IxTR5h-Dh9M</item>
         <item>29qes9BlpEk</item>
+    </string-array>
+
+    <string-array name="liver_problems_list">
+        <item>PL3VNq9vJiHYjXJq0ReWyUsXZSSm-1rv38</item>
+        <item>PLVm_aahZ3lRBv_JDLScvnA8gs8y0t9n3t</item>
+        <item>PL3Tf85x-ZJmi6motFYCRWknkRWIh6oz4A</item>
+        <item>PLaJTme3RqCdOwl-45gmMPiPeOhDJKKp6C</item>
+        <item>PL1EBC4957B4875A57</item>
+        <item>PL3VNq9vJiHYi6MKKDoVd47D0xaVUh8V5l</item>
+        <item>PL64k_IPYhHIUTX1ObIKjz8E9TzJwJeUJ8</item>
+        <item>PLAxA1WWA73nu-nueyvrLopWUVV6NYhabR</item>
     </string-array>
 
     <string-array name="beauty_tips_list">
