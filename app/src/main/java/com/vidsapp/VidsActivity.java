@@ -109,7 +109,7 @@ public class VidsActivity extends AppCompatActivity {
                         TextView text = (TextView) view.findViewById(android.R.id.text1);
 
 
-                        text.setTextColor(getResources().getColor(R.color.white));
+                        text.setTextColor(getResources().getColor(R.color.list_backg));
                         view.setBackgroundColor(getResources().getColor(R.color.black));
 
                         return view;
