@@ -1212,6 +1212,10 @@ public class VidsActivity extends AppCompatActivity {
             Intent i = new Intent(VidsActivity.this, RadioFmActivity.class);
             startActivity(i);
             return true;
+        } else if (id == MENU_ABOUT) {
+            Intent i = new Intent(VidsActivity.this, AboutActivity.class);
+            startActivity(i);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
