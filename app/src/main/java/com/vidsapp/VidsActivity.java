@@ -71,11 +71,11 @@ public class VidsActivity extends AppCompatActivity {
 
     private static final int MENU_FAVORITE = Menu.FIRST;
     private static final int MENU_MY_VIDEOS = Menu.FIRST + 1;
-    private static final int MENU_FEEDBACK = Menu.FIRST + 2;
-    private static final int MENU_SHARE_APP = Menu.FIRST + 3;
-    private static final int MENU_RATE_APP = Menu.FIRST + 4;
-    private static final int MENU_ABOUT = Menu.FIRST + 5;
-    private static final int MENU_RADIO = Menu.FIRST + 6;
+    private static final int MENU_RADIO = Menu.FIRST + 2;
+    private static final int MENU_FEEDBACK = Menu.FIRST + 3;
+    private static final int MENU_SHARE_APP = Menu.FIRST + 4;
+    private static final int MENU_RATE_APP = Menu.FIRST + 5;
+    private static final int MENU_ABOUT = Menu.FIRST + 6;
 
     private ListView mDrawerList;
     private String[] mPlanetTitles;
@@ -1174,11 +1174,11 @@ public class VidsActivity extends AppCompatActivity {
         if (myVideoViewLayout.getVisibility() == View.GONE) {
             menu.add(0, MENU_MY_VIDEOS, Menu.NONE, R.string.action_my_videos);
         }
+        menu.add(0, MENU_RADIO, Menu.NONE, R.string.action_radio);
         menu.add(0, MENU_FEEDBACK, Menu.NONE, R.string.action_feedback);
         menu.add(0, MENU_SHARE_APP, Menu.NONE, R.string.action_share);
         menu.add(0, MENU_RATE_APP, Menu.NONE, R.string.action_rate);
         menu.add(0, MENU_ABOUT, Menu.NONE, R.string.action_about);
-        menu.add(0, MENU_RADIO, Menu.NONE, R.string.action_radio);
 
         return super.onPrepareOptionsMenu(menu);
     }

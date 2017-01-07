@@ -18,6 +18,7 @@
         android:layout_height="30dp"
         android:shadowColor="@color/white"
         android:textSize="16sp"
+        android:hint=" Search videos..."
         android:layout_below="@+id/toolbar"
         android:layout_marginLeft="@dimen/margin_10dp"
         android:layout_marginRight="95dp"
