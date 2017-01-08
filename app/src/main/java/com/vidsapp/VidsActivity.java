@@ -213,7 +213,23 @@ public class VidsActivity extends AppCompatActivity {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.liver_problems_list));
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    } else if (selectedSubCategory.equalsIgnoreCase("Dandruff")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Improving eyesight")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.eyesight_list));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Sinus")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.sinus_list));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Gastric")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.gastric_list));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Dizziness / Vomiting")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.dizziness_list));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Dandruff / Hair fall")) {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.dandruff_vids));
                         videoType = VidsApplUtil.TYPE_VIDEO;
@@ -249,6 +265,9 @@ public class VidsActivity extends AppCompatActivity {
                         videoType = VidsApplUtil.TYPE_CHANNEL;
                     } else if (selectedSubCategory.equalsIgnoreCase("Herbal beauty tips")) {
                         formatedVidsList = "UCbEVwbYCJpmJ0Kb69WOVD0w";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Beauty secrets")) {
+                        formatedVidsList = "UC3eNbBaooHCJ-hMWEK4UWAQ";
                         videoType = VidsApplUtil.TYPE_CHANNEL;
                     } else if (selectedSubCategory.equalsIgnoreCase("Romantic melodies")) {
                         formatedVidsList = "PL9833A9778A6BB457,PLCD0BBCF0821C9084,PL5dxFpVs9q2mZxqWNNLsNdQEEhO9ilR6J," +
