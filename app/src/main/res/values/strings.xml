@@ -414,6 +414,8 @@
     <string-array name="live_channels">
         <item>Live News</item>
         <item>Live Music</item>
+        <item>Latest Movies Trailers</item>
+        <item>New Mobile Reviews</item>
     </string-array>
 
     <string-array name="food_recepies">
@@ -450,17 +452,14 @@
 
     <string-array name="news_vids">
         <item>oMETNh3Tr0Q</item>
-        <item>yCWbiLZqTyM</item>
-        <item>nAFBhWQPMU8</item>
-        <item>vdBesFFdgDs</item>
-        <item>Msgo-R3zZuM</item>
-        <item>1YnlX4CkPDY</item>
-        <item>kZZIdA0TsBo</item>
-        <item>kuY_VoVbAgA</item>
-        <item>y60wDzZt8yg</item>
         <item>gFMaxP6cHh8</item>
+        <item>bZfUzAvgmcY</item>
+        <item>wXwYCWGpprc</item>
+        <item>PpKnYzPNtuU</item>
+        <item>1YnlX4CkPDY</item>
+        <item>y60wDzZt8yg</item>
         <item>kg48DXa4bKE</item>
-        <item>ZcgjH9MNtI</item>
+        <item>35_6fRXqNtY</item>
 
     </string-array>
 

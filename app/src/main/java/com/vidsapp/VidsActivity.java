@@ -301,7 +301,7 @@ public class VidsActivity extends AppCompatActivity {
                                 getResources().getStringArray(R.array.dance_florr_playlist));
                         videoType = VidsApplUtil.TYPE_VIDEO;
                     } else if (selectedSubCategory.equalsIgnoreCase("Latest jukebox")) {
-                        formatedVidsList = "UCFdfwBIBO0t8u06PvApgnPg";
+                        formatedVidsList = "UCq-Fj5jknLsUf-MWSy4_brA";
                         videoType = VidsApplUtil.TYPE_CHANNEL;
                     } else if (selectedSubCategory.equalsIgnoreCase("Remix jukebox")) {
                         formatedVidsList = "UCbMtyOUNOQKWOGyoCAlNicw";
@@ -404,6 +404,12 @@ public class VidsActivity extends AppCompatActivity {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.live_music_vids));
                         videoType = VidsApplUtil.TYPE_VIDEO;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Latest Movies Trailers")) {
+                        formatedVidsList = "UCRO8NtRko0BDO_67f9MDbUw";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    } else if (selectedSubCategory.equalsIgnoreCase("New Mobile Reviews")) {
+                        formatedVidsList = "UCO2WJZKQoDW4Te6NHx4KfTg";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
                     } else if (selectedSubCategory.equalsIgnoreCase("FoodFood")) {
                         formatedVidsList = "PLI-l1OOUnVtOcrO0MP0Qn67bvaGYS5-QS,PLI-l1OOUnVtMhpmj1HzNXg1qd0ByTrihB," +
                                 "PLI-l1OOUnVtM5p90oI4Rw7D09znrQRoZN," + "PLI-l1OOUnVtNOY4uWnfa2nHIAbC8elqId,PLI-l1OOUnVtP0Gf2y4Ugc-EycGxO0rOZx," +
