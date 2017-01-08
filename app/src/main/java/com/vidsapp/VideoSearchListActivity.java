@@ -66,11 +66,11 @@ public class VideoSearchListActivity extends BaseActivity  {
         if (getIntent().getStringExtra(APITags.TITLE) != null) {
 
            // setActionbarTitle(getIntent().getStringExtra(APITags.TITLE),false,R.id.toolbar);
-            setActionbarTitle("Search And Add",false,R.id.toolbar);
+            setActionbarTitle("Add Videos",false,R.id.toolbar);
 
         }
         else{
-            setActionbarTitle("Search And Add",false,R.id.toolbar);
+            setActionbarTitle("Add Videos",false,R.id.toolbar);
 
         }//        toolbar.setLogo(R.drawable.icon);
         mContext = VideoSearchListActivity.this;

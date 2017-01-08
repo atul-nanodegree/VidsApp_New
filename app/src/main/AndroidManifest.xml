@@ -101,6 +101,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.vidsapp.VidsActivity" />
         </activity>
+        <activity
+            android:name="com.vidsapp.AboutActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
+            android:parentActivityName="com.vidsapp.AboutActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.vidsapp.VidsActivity" />
+        </activity>
         <!--Include the AdActivity configChanges and theme. -->
         <meta-data
             android:name="com.google.android.gms.version"

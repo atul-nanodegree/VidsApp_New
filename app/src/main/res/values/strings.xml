@@ -12,7 +12,7 @@
     <string name="action_share">Share App</string>
     <string name="action_rate">Rate App</string>
     <string name="action_about">About</string>
-    <string name="action_radio">Radio</string>
+    <string name="action_radio">FM Radio</string>
     <string name="empty">empty</string>
     <string name="videos">Videos</string>
     <string name="play_all">Play all</string>
@@ -839,4 +839,5 @@
     <string name="banner_home_footer_playlistvideo">ca-app-pub-3233306799941518/2921350587</string>
     <string name="banner_home_footer_favouritevideo">ca-app-pub-3233306799941518/4398083781</string>
     <string name="interstitial_full_screen">ca-app-pub-3233306799941518/9512940982</string>
+    <string name="contact_info">For support or queries, please contact at\nwowappsforyou@gmail.com </string>
 </resources>
