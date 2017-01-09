@@ -49,9 +49,10 @@
         <item>Sinus</item>
         <item>Gastric</item>
         <item>Dizziness / Vomiting</item>
-        <item>Loose motion</item>
-        <item>Constipation</item>
         <item>Dandruff / Hair fall</item>
+        <item>F3 health care</item>
+        <item>Naturopathy helth care</item>
+        <item>Jiva Ayurveda</item>
     </string-array>
 
 
@@ -223,6 +224,13 @@
         <item>PLAxA1WWA73nu-nueyvrLopWUVV6NYhabR</item>
     </string-array>
 
+    <string-array name="migraine_list">
+        <item>PLhVU_VQZwXjADnq9I0kC-SkjTnhCVpB6a</item>
+        <item>PLhVU_VQZwXjDEpaiR2lRLAC21DrGAfH-W</item>
+        <item>PLhVU_VQZwXjADO9MlLI3eemVDyRI_40G5</item>
+        <item>PLxM09lUf-68QtakZl7wPcMuhezYt-lexr</item>
+    </string-array>
+
     <string-array name="eyesight_list">
         <item>PL25fMsMJxsOAAGzxIjDA8o-Apgil-lYEm</item>
         <item>PL4SNjs-3PQCyBID-FbfhkTNIqsKlDW-NQ</item>
@@ -264,6 +272,7 @@
         <item>Ujjwal Patni</item>
         <item>TS Madaan</item>
         <item>Other motivational</item>
+        <item>Public speaking</item>
     </string-array>
 
     <string-array name="motiv_sandeep_m_vids">
@@ -388,6 +397,13 @@
         <item>zSZUFr26H7M</item>
         <item>2dSs2CeYH2Y</item>
         <item>38ejk8Kl1c8</item>
+    </string-array>
+
+    <string-array name="public_speaking_list">
+        <item>PL73D8C8E4435DAA07</item>
+        <item>PL51B13391A176E8F5</item>
+        <item>PLWj1BNzDwv3vDLk3o_31Yhm7pEWRksUN_</item>
+        <item>PLATeFdECzJp7YSD2MFbkgfYCHo-aVefLx</item>
     </string-array>
 
     <string-array name="songs_list">

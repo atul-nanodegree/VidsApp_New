@@ -209,6 +209,10 @@ public class VidsActivity extends AppCompatActivity {
                                 "PLQtlDeMxHkRi00saV53BiREAspJTYZSFu," +
                                 "PL2pHEdOz05rUzcL4nlpMR_iEocBuHUAkz";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    } if (selectedSubCategory.equalsIgnoreCase("Headache / Migraine")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.migraine_list));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
                     } else if (selectedSubCategory.equalsIgnoreCase("Liver disorders")) {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.liver_problems_list));
@@ -233,6 +237,15 @@ public class VidsActivity extends AppCompatActivity {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.dandruff_vids));
                         videoType = VidsApplUtil.TYPE_VIDEO;
+                    } else if (selectedSubCategory.equalsIgnoreCase("F3 health care")) {
+                        formatedVidsList = "UCUOVV1-PWb7S45XmQx05rwQ";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Naturopathy helth care")) {
+                        formatedVidsList = "UCrPdi5n5TsvyetOd5pAUH9w";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Jiva Ayurveda")) {
+                        formatedVidsList = "UCmV9qrqreEniFqYNOBzt2FA";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
                     } else if (selectedSubCategory.equalsIgnoreCase("Sandeep Maheshwari")) {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.motiv_sandeep_m_vids));
@@ -251,6 +264,10 @@ public class VidsActivity extends AppCompatActivity {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.motiv_others_vids));
                         videoType = VidsApplUtil.TYPE_VIDEO;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Public speaking")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.public_speaking_list));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
                     } else if (selectedSubCategory.equalsIgnoreCase("Arushi Jain")) {
                         formatedVidsList = "UClg1BK5TSUqbepZH4PU_coQ";
                         videoType = VidsApplUtil.TYPE_CHANNEL;
