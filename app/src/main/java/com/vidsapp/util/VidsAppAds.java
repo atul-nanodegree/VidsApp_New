@@ -24,7 +24,6 @@ public class VidsAppAds {
     private Activity mActivity;
     private InterstitialAd mInterstitialAd;
 
-
     public VidsAppAds(Activity activity) {
         mAdView = new AdView(activity);
         mActivity = activity;
@@ -37,7 +36,11 @@ public class VidsAppAds {
 
     public void bannerAds(String bannerId) {
         if (mAdView != null) {
-            mAdView.setAdSize(AdSize.BANNER);
+            if (VidsApplUtil.isTablet(mActivity)) {
+                mAdView.setAdSize(AdSize.SMART_BANNER);
+            } else {
+                mAdView.setAdSize(AdSize.BANNER);
+            }
             mAdView.setAdUnitId(bannerId);
 
             final FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(
