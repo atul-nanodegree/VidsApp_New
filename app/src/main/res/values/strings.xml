@@ -45,16 +45,13 @@
         <item>Dengue / Fever</item>
         <item>Headache / Migraine</item>
         <item>Liver disorders</item>
-        <item>Improving eye sights</item>
-        <item>Cough and cold</item>
-        <item>Sinusitis</item>
+        <item>Improving eyesight</item>
+        <item>Sinus</item>
         <item>Gastric</item>
-        <item>Giddiness</item>
+        <item>Dizziness / Vomiting</item>
         <item>Loose motion</item>
-        <item>Vomiting</item>
         <item>Constipation</item>
-        <item>Dandruff</item>
-        <item>Hair fall</item>
+        <item>Dandruff / Hair fall</item>
     </string-array>
 
 
@@ -226,12 +223,39 @@
         <item>PLAxA1WWA73nu-nueyvrLopWUVV6NYhabR</item>
     </string-array>
 
+    <string-array name="eyesight_list">
+        <item>PL25fMsMJxsOAAGzxIjDA8o-Apgil-lYEm</item>
+        <item>PL4SNjs-3PQCyBID-FbfhkTNIqsKlDW-NQ</item>
+        <item>PLhRAWFx_C6CdY3PYASkFvzTeYr6WuRkA_</item>
+        <item>PLgHNqeHBnDS_IHX2SiZFcpbSBe16bXvVu</item>
+    </string-array>
+
+    <string-array name="sinus_list">
+        <item>PLBPOLwHgBLKzsmXFavTY8LFqXj6JMB-U9</item>
+        <item>PL9A3SMYeJInfJ7LsLktEX6NERjvQGFTeg</item>
+        <item>PLG-EaVnwseCb-Yz1GILowb8d-CGIWzECP</item>
+    </string-array>
+
+    <string-array name="gastric_list">
+        <item>PLNh87uAgxbMdZ4pY7ceoHToSDwlCPBtME</item>
+        <item>PLZrcHkXOW3CH2J0KbSi14HdApig-oz99w</item>
+        <item>PLMM8BqCVIjISVhemyyfP9_NOVlpFQ2k7m</item>
+    </string-array>
+
+    <string-array name="dizziness_list">
+        <item>PL3VNq9vJiHYgZEVkKv9Dqb0yUD4X_s-cI</item>
+        <item>PL0ZUlpKB-hejeF5-EZ_FS7kmvy3j1clqW</item>
+        <item>PLJb1UMyTMNXsbAzEXgLw8Qc7h4O3KGe-_</item>
+        <item>PLqoDsJLqM0JPQ6Ai1qDgFJfZm8LvhESOv</item>
+    </string-array>
+
     <string-array name="beauty_tips_list">
         <item>Arushi Jain</item>
         <item>Sneha</item>
         <item>Rani</item>
         <item>Trisha</item>
         <item>Herbal beauty tips</item>
+        <item>Beauty secrets</item>
     </string-array>
 
     <string-array name="motivational_list">
@@ -414,6 +438,8 @@
     <string-array name="live_channels">
         <item>Live News</item>
         <item>Live Music</item>
+        <item>Latest Movies Trailers</item>
+        <item>New Mobile Reviews</item>
     </string-array>
 
     <string-array name="food_recepies">
@@ -450,17 +476,14 @@
 
     <string-array name="news_vids">
         <item>oMETNh3Tr0Q</item>
-        <item>yCWbiLZqTyM</item>
-        <item>nAFBhWQPMU8</item>
-        <item>vdBesFFdgDs</item>
-        <item>Msgo-R3zZuM</item>
-        <item>1YnlX4CkPDY</item>
-        <item>kZZIdA0TsBo</item>
-        <item>kuY_VoVbAgA</item>
-        <item>y60wDzZt8yg</item>
         <item>gFMaxP6cHh8</item>
+        <item>bZfUzAvgmcY</item>
+        <item>wXwYCWGpprc</item>
+        <item>PpKnYzPNtuU</item>
+        <item>1YnlX4CkPDY</item>
+        <item>y60wDzZt8yg</item>
         <item>kg48DXa4bKE</item>
-        <item>ZcgjH9MNtI</item>
+        <item>35_6fRXqNtY</item>
 
     </string-array>
 
@@ -688,6 +711,12 @@
         <item>I0lOsrty5t8</item>
         <item>chKreZrBU7I</item>
         <item>eD3-4rLPq8k</item>
+        <item>8v1QVtVGxk</item>
+        <item>fIhV3Wt9kTs</item>
+        <item>w3Le-EMXH3E</item>
+        <item>_5WRYmKcILQ</item>
+        <item>qZC_diR8iaI</item>
+
     </string-array>
 
     <string-array name="chalisa_vids">
