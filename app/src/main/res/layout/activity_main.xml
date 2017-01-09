@@ -28,6 +28,6 @@
         android:choiceMode="singleChoice"
         android:divider="@color/colorPrimary"
         android:dividerHeight="3dp"
-        android:background="#E53935"/>
+        android:background="#000000"/>
 
 </android.support.v4.widget.DrawerLayout>
