@@ -11,7 +11,8 @@
 -dontwarn com.google.common.cache.**
 -dontwarn com.google.common.primitives.**
 -dontwarn com.squareup.picasso.**
-
+-dontwarn org.apache.**
+-keep class com.google.api.services.** { *;}
 # If your project uses WebView with JS, uncomment the following
 # and specify the fully qualified class name to the JavaScript interface
 # class:
