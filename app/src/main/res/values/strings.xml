@@ -51,7 +51,6 @@
         <item>Dizziness / Vomiting</item>
         <item>Dandruff / Hair fall</item>
         <item>F3 health care</item>
-        <item>Naturopathy helth care</item>
         <item>Jiva Ayurveda</item>
     </string-array>
 
@@ -216,7 +215,6 @@
     <string-array name="liver_problems_list">
         <item>PL3VNq9vJiHYjXJq0ReWyUsXZSSm-1rv38</item>
         <item>PLVm_aahZ3lRBv_JDLScvnA8gs8y0t9n3t</item>
-        <item>PL3Tf85x-ZJmi6motFYCRWknkRWIh6oz4A</item>
         <item>PLaJTme3RqCdOwl-45gmMPiPeOhDJKKp6C</item>
         <item>PL1EBC4957B4875A57</item>
         <item>PL3VNq9vJiHYi6MKKDoVd47D0xaVUh8V5l</item>
@@ -449,6 +447,8 @@
         <item>Thriller / suspense</item>
         <item>Horror</item>
         <item>Hindi dubbed</item>
+        <item>Hollywood dubbed</item>
+        <item>Devotional movies</item>
     </string-array>
 
     <string-array name="live_channels">
@@ -468,6 +468,7 @@
         <item>Vikas Khanna</item>
         <item>Pankaj Bhadouria</item>
         <item>Vahchef</item>
+        <item>Dr Shalini Pradhan</item>
 
     </string-array>
 
@@ -486,6 +487,7 @@
         <item>Bob The Builder English</item>
         <item>NODDY in Hindi</item>
         <item>NODDY in English</item>
+        <item>Kids world</item>
         <item>Parenting tips/guidelines</item>
 
     </string-array>
@@ -593,6 +595,10 @@
         <item>Pooja vidhi</item>
         <item>Upaay / Totke</item>
         <item>TV serials</item>
+        <item>Devotional world</item>
+        <item>Shabad Gurbani</item>
+        <item>Bhakti Sagar</item>
+        <item>Islamic devotional</item>
     </string-array>
 
     <string-array name="bhajans_playlist">
