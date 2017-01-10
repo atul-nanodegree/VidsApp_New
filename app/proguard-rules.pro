@@ -8,6 +8,9 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Add any project specific keep options here:
+-dontwarn com.google.common.cache.**
+-dontwarn com.google.common.primitives.**
+-dontwarn com.squareup.picasso.**
 
 # If your project uses WebView with JS, uncomment the following
 # and specify the fully qualified class name to the JavaScript interface
