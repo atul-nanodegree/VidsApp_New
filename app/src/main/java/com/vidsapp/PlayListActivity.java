@@ -147,10 +147,10 @@ public class PlayListActivity extends BaseActivity  {
                     mRecyclerView.setAdapter(mDoclevelListAdapter);
 
                 } else {
-                    Toast.makeText(mContext, "videoListItmeArrayList is null", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "Something went wrong. Please try later", Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(mContext, "videoListEntity is null", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "Something went wrong. Please try later", Toast.LENGTH_SHORT).show();
             }
 
             //  Log.i("logs for youtube",result.getNextPageToken());

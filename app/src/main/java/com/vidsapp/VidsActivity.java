@@ -1402,10 +1402,10 @@ public class VidsActivity extends AppCompatActivity {
                     mRecyclerView.setAdapter(mMyVideoListAdapter);
 
                 } else {
-                    Toast.makeText(VidsActivity.this, "videoListItmeArrayList is null", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(VidsActivity.this, "Something went wrong. Please try later", Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(VidsActivity.this, "videoListEntity is null", Toast.LENGTH_SHORT).show();
+                Toast.makeText(VidsActivity.this, "Something went wrong. Please try later", Toast.LENGTH_SHORT).show();
             }
 
         }
