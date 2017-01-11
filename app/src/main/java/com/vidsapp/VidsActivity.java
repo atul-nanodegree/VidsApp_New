@@ -160,6 +160,21 @@ public class VidsActivity extends AppCompatActivity {
         // init grid
         initializeGridView();
         initializeMyVideoView();
+
+        if (myVideoViewLayout.getVisibility() == View.VISIBLE) {
+            myVideoViewLayout.setVisibility(View.GONE);
+        }
+        // show the grid view layout if its hidde
+        if (mMainGridLayout.getVisibility() == View.GONE) {
+            mMainGridLayout.setVisibility(View.VISIBLE);
+        }
+        catTitle.setText(mPlanetTitles[0].toString());
+       /* View wantedView = mDrawerList.getChildAt(0);
+        TextView text = (TextView) wantedView.findViewById(android.R.id.text1);
+        text.setTextColor(getResources().getColor(R.color.colorPrimary));
+        wantedView.setBackgroundColor(getResources().getColor(R.color.list_backg));*/
+        loadSubCategory(getResources().getStringArray(R.array.home_remedies_list));
+
     }
 
     private void initializeGridView() {
