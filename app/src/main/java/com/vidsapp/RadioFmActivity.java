@@ -1,5 +1,6 @@
 package com.vidsapp;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -32,7 +33,7 @@ public class RadioFmActivity extends BaseActivity {
 
     private WebView webView;
     private ProgressBar pBar;
-
+    private Context ctx;
 
 
 
@@ -41,10 +42,12 @@ public class RadioFmActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.radiofm);
-
+        this.ctx = this;
        //Displaying banner ads at bottom of screen
         VidsAppAds vidsAppAds=new VidsAppAds(this);
         vidsAppAds.bannerAds(getResources().getString(R.string.banner_home_footer_favouritevideo));
+        VidsAppAds iAds=new VidsAppAds(ctx);
+        iAds.initInterstialAds(getResources().getString(R.string.interstitial_full_screen));
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -74,7 +77,13 @@ public class RadioFmActivity extends BaseActivity {
 
         webView.loadUrl("http://www.onlineradios.in");
 
-
+        // check for radio ad display count
+        int count = VidsPreference.getInstance(this).getRadioAdCounter();
+        if (count == 3) {
+            iAds.loadInterstialAds();
+            // reset the radio ad count to 0
+            VidsPreference.getInstance(this).setRadioAdCounter(0);
+        }
 
     }
 

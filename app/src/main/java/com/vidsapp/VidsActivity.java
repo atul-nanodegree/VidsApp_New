@@ -1290,6 +1290,10 @@ public class VidsActivity extends AppCompatActivity {
         }
 
         else if (id == MENU_RADIO) {
+            // increment the radio ad counter here
+            int count = VidsPreference.getInstance(this).getRadioAdCounter();
+            VidsPreference.getInstance(this).setRadioAdCounter(count + 1);
+            // start radio activity here
             Intent i = new Intent(VidsActivity.this, RadioFmActivity.class);
             startActivity(i);
             return true;
