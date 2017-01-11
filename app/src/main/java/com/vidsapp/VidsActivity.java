@@ -196,7 +196,7 @@ public class VidsActivity extends AppCompatActivity {
 
                 if (selectedSubCategory != null) {
                     if (!NetworkUtil.isConnected(VidsActivity.this)) {
-                        Snackbar.make(mMainCoordinatorLayout, "No internet connection.Check your connection and try again", Snackbar.LENGTH_LONG)
+                        Snackbar.make(mMainCoordinatorLayout, "No internet connection. Check your connection and try again", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
                         return;
                     }
