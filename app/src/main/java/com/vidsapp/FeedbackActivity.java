@@ -5,6 +5,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -22,7 +23,7 @@ public class FeedbackActivity extends BaseActivity {
 
 
     private EditText mEditText;
-    private Button mFeedbackButton;
+    private FloatingActionButton mFeedbackButton;
 
 
     @Override
@@ -38,7 +39,8 @@ public class FeedbackActivity extends BaseActivity {
         setActionbarTitle("Feedback", false, R.id.toolbar);
         mEditText = (EditText) findViewById(R.id.feedback_edit);
         mEditText.setSelection(mEditText.getText().length());
-        mFeedbackButton = (Button) findViewById(R.id.feedback_button);
+        mFeedbackButton = (FloatingActionButton) findViewById(R.id.feedback_button);
+
         mFeedbackButton.setOnClickListener(new View.OnClickListener() {
             //@Override
             public void onClick(View v) {
@@ -53,7 +55,6 @@ public class FeedbackActivity extends BaseActivity {
                     emailIntent.putExtra(Intent.EXTRA_TEXT, "Feedback goes here!!" + "\n" + "\n" + mEditText.getText().toString());
                     try {
                         startActivityForResult(Intent.createChooser(emailIntent, "Send Feedback to VidsApp..."), 101);
-                        finish();
                     } catch (ActivityNotFoundException ex) {
                         Snackbar.make(mFeedbackButton, "There is no email client installed.", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
@@ -76,6 +77,8 @@ public class FeedbackActivity extends BaseActivity {
                 Toast.makeText(FeedbackActivity.this, "Order not sent.Please check your Internet settings", Toast.LENGTH_SHORT).show();
 
             }*/
+            finish();
+
         }
 
     }
