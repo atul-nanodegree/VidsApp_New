@@ -109,9 +109,15 @@ public class VidsActivity extends AppCompatActivity {
                         TextView text = (TextView) view.findViewById(android.R.id.text1);
 
 
-                        text.setTextColor(getResources().getColor(R.color.list_backg));
-                        view.setBackgroundColor(getResources().getColor(R.color.black));
 
+                        if(position==0)
+                        {
+                            text.setTextColor(getResources().getColor(R.color.colorPrimary));
+                            view.setBackgroundColor(getResources().getColor(R.color.list_backg));                       }
+                        else{
+                            text.setTextColor(getResources().getColor(R.color.list_backg));
+                            view.setBackgroundColor(getResources().getColor(R.color.black));
+                        }
                         return view;
                     }
                 };
@@ -169,7 +175,7 @@ public class VidsActivity extends AppCompatActivity {
             mMainGridLayout.setVisibility(View.VISIBLE);
         }
         catTitle.setText(mPlanetTitles[0].toString());
-       /* View wantedView = mDrawerList.getChildAt(0);
+        /*View wantedView =(View) mDrawerList.getAdapter().getItem(0);
         TextView text = (TextView) wantedView.findViewById(android.R.id.text1);
         text.setTextColor(getResources().getColor(R.color.colorPrimary));
         wantedView.setBackgroundColor(getResources().getColor(R.color.list_backg));*/
@@ -1287,6 +1293,16 @@ public class VidsActivity extends AppCompatActivity {
             myVideoViewLayout.setVisibility(View.VISIBLE);
             mMainGridLayout.setVisibility(View.GONE);
             refreshMyVideoViewVisibility();
+            if(mDrawerList!=null){
+                for(int i=0;i<mDrawerList.getCount();i++){
+                    View wantedView = mDrawerList.getChildAt(i);
+                    TextView text = (TextView) wantedView.findViewById(android.R.id.text1);
+                    text.setTextColor(getResources().getColor(R.color.list_backg));
+                    wantedView.setBackgroundColor(getResources().getColor(R.color.black));
+                }
+            }
+
+
         }
 
         else if (id == MENU_RADIO) {
