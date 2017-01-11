@@ -127,10 +127,10 @@ public class VidsFavoriteActivity extends BaseActivity {
                     mRecyclerView.setAdapter(mDoclevelListAdapter);
 
                 } else {
-                    Toast.makeText(VidsFavoriteActivity.this, "videoListItmeArrayList is null", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(VidsFavoriteActivity.this, "Something went wrong. Please try later", Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(VidsFavoriteActivity.this, "videoListEntity is null", Toast.LENGTH_SHORT).show();
+                Toast.makeText(VidsFavoriteActivity.this, "Something went wrong. Please try later", Toast.LENGTH_SHORT).show();
             }
 
         }

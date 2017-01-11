@@ -102,7 +102,7 @@ public class YoutubePlayListsAdapter extends RecyclerView.Adapter<YoutubePlayLis
         @Override
         public void onClick(View v) {
             if (v.getId() == R.id.play_all) {
-                if (mVidsAppAds != null) {
+                if (mVidsAppAds != null && (getAdapterPosition() != 0 && getAdapterPosition() % 3 == 0)) {
                     mVidsAppAds.loadInterstialAds();
                 }
                 Intent intent = new Intent(mContext, YoutubePlaylistActivity.class);

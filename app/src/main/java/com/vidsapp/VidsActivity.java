@@ -240,7 +240,7 @@ public class VidsActivity extends AppCompatActivity {
                     } else if (selectedSubCategory.equalsIgnoreCase("F3 health care")) {
                         formatedVidsList = "UCUOVV1-PWb7S45XmQx05rwQ";
                         videoType = VidsApplUtil.TYPE_CHANNEL;
-                    } else if (selectedSubCategory.equalsIgnoreCase("Naturopathy helth care")) {
+                    } else if (selectedSubCategory.equalsIgnoreCase("Dr Shalini Pradhan")) {
                         formatedVidsList = "UCrPdi5n5TsvyetOd5pAUH9w";
                         videoType = VidsApplUtil.TYPE_CHANNEL;
                     } else if (selectedSubCategory.equalsIgnoreCase("Jiva Ayurveda")) {
@@ -424,6 +424,15 @@ public class VidsActivity extends AppCompatActivity {
                                 "PL0CaUqi81mPmJx-X-2p17hf-7eaG-Cd-H,PLv1E6xGMdApdcVRdsrjQqs6nkGUiHpOqL," +
                                 "PLzRTv50jotmkaWb5agvR2y6RF8jnHDvsg,PLQXb3Gb48Rmh2VC1wQqNgQVTyrZcOtxDh";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Hindi dubbed")) {
+                        formatedVidsList = "UCjAw2rm3nmbdX46effqJqJg";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Hollywood dubbed")) {
+                        formatedVidsList = "UC8yxIP6lYhGBWmHoWmkn9NQ";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Devotional movies")) {
+                        formatedVidsList = "PLVeGq8yvmEoZEHnm7Q4ZDFAnN46pF8Oxo,PLNYyqpnlHnzJV7XBseYh9G5Bnqagw3BWQ";
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
                     } else if (selectedSubCategory.equalsIgnoreCase("Ghazals")) {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.ghazals_vids));
@@ -590,6 +599,9 @@ public class VidsActivity extends AppCompatActivity {
                     } else if (selectedSubCategory.equalsIgnoreCase("NODDY in English")) {
                         formatedVidsList = "PLiluoe0QNL4EXc5qYPJWoqZ2iyBPk3ybk";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Kids world")) {
+                        formatedVidsList = "UC8roODgXgpnswtM18nES83A";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
                     } else if (selectedSubCategory.equalsIgnoreCase("Parenting tips/guidelines")) {
                         formatedVidsList = "PL9sA8HKjDkC_TWnYbLPBo79XPtkcTZO8V," +
                                 "PLa0TAGDLF77orWYXhoEn2E3IeLQLQz8R5," +
@@ -629,6 +641,18 @@ public class VidsActivity extends AppCompatActivity {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.serials_playlist));
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Devotional world")) {
+                        formatedVidsList = "UC5xZ5UGbYUp5q6jwmdXy8Aw";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Shabad Gurbani")) {
+                        formatedVidsList = "UC884UDwNldmpdEiS1mgtijA";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Bhakti Sagar")) {
+                        formatedVidsList = "UCaayLD9i5x4MmIoVZxXSv_g";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Islamic devotional")) {
+                        formatedVidsList = "UCAmxwjxVB6RFnTUWx3HqOZQ";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
                     } else if (selectedSubCategory.equalsIgnoreCase("Kavi sammelan")) {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.kavi_sammelan_vids));
@@ -1383,10 +1407,10 @@ public class VidsActivity extends AppCompatActivity {
                     mRecyclerView.setAdapter(mMyVideoListAdapter);
 
                 } else {
-                    Toast.makeText(VidsActivity.this, "videoListItmeArrayList is null", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(VidsActivity.this, "Something went wrong. Please try later", Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(VidsActivity.this, "videoListEntity is null", Toast.LENGTH_SHORT).show();
+                Toast.makeText(VidsActivity.this, "Something went wrong. Please try later", Toast.LENGTH_SHORT).show();
             }
 
         }
