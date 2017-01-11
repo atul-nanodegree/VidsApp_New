@@ -128,7 +128,7 @@ public class YoutubeNewTOldVideosListAdapter extends RecyclerView.Adapter<Youtub
                 }
                 Intent shareIntent = new Intent();
                 shareIntent.setAction(Intent.ACTION_SEND);
-                shareIntent.putExtra(Intent.EXTRA_TEXT, "https://www.youtube.com/watch?v="+mYoutubePlaylistsList.get(getAdapterPosition()).getId());
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "https://www.youtube.com/watch?v="+mYoutubePlaylistsList.get(getAdapterPosition()).getId()+"\n"+"\n"+"VidsApp Link"+"\n"+"https://play.google.com/store/apps/details?id=com.whatsapp&hl=en");
                 shareIntent.setType("text/plain");
                 mContext.startActivity(Intent.createChooser(shareIntent, "Share this Video with..."));
 
