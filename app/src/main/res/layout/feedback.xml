@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/forgot_password_bg"
+    tools:context="com.vidsapp.YoutubePlaylistActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary" />
+
+
+
+    <EditText
+        android:id="@+id/feedback_edit"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="58dp"
+        android:inputType="textMultiLine"
+        android:hint="Comments.."
+        android:background="@drawable/edit_text_rounded_corner">
+
+    </EditText>
+
+    <Button
+        android:id="@+id/feedback_button"
+        android:layout_width="150dp"
+        android:layout_height="28dp"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:text="Send Feedback"
+        android:background="@drawable/button_bg"
+        android:textColor="@color/white"
+        android:layout_marginTop="48dp"
+        android:layout_below="@+id/feedback_edit"
+        android:layout_centerHorizontal="true">
+
+    </Button>
+
+</RelativeLayout>

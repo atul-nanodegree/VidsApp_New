@@ -1259,6 +1259,11 @@ public class VidsActivity extends AppCompatActivity {
             startActivity(i);
             return true;
         }
+        else if (id == MENU_FEEDBACK) {
+            Intent i = new Intent(VidsActivity.this, FeedbackActivity.class);
+            startActivity(i);
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
