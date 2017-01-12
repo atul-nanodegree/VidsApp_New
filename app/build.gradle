@@ -5,7 +5,7 @@ android {
     buildToolsVersion "24.0.1"
 
     defaultConfig {
-        applicationId "com.vidsapp"
+        applicationId "com.wowapps.vidsapp"
         minSdkVersion 14
         targetSdkVersion 23
     }
