@@ -30,6 +30,8 @@
         android:textStyle="bold"
         android:layout_below="@+id/toolbar"
         android:layout_marginTop="80dp"
+        android:layout_marginLeft="@dimen/margin_5dp"
+        android:layout_marginRight="@dimen/margin_5dp"
         android:inputType="textMultiLine"
         android:hint="Comments.."
         android:background="@drawable/edit_text_rounded_corner">

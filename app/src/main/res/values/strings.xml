@@ -52,6 +52,7 @@
         <item>Dandruff / Hair fall</item>
         <item>F3 health care</item>
         <item>Jiva Ayurveda</item>
+        <item>Homeveda</item>
         <item>Back pain</item>
         <item>Cervical spondylosis</item>
     </string-array>
@@ -273,6 +274,7 @@
         <item>TS Madaan</item>
         <item>Other motivational</item>
         <item>Public speaking</item>
+        <item>English vinglish</item>
     </string-array>
 
     <string-array name="motiv_sandeep_m_vids">
@@ -347,6 +349,34 @@
         <item>-66vTStoswc</item>
         <item>7r-gw2XGLPM</item>
         <item>FGzuX1FKrJ0</item>
+    </string-array>
+
+    <string-array name="tsmadan_list">
+        <item>PLR2GOVaoHO58Tos94uPT6uTQ8UFWlFQvv</item>
+        <item>PLR2GOVaoHO5-T0hq0H353gdElE1lkZJZp</item>
+        <item>PLR2GOVaoHO5-5NGrqqZsPB39XZZAjnzod</item>
+        <item>PLR2GOVaoHO59Ah-ON9UXcKgYIv2TVEilD</item>
+        <item>PLR2GOVaoHO59RwfEPlAZjdmyhaiqXp_hg</item>
+        <item>PLR2GOVaoHO59-37WJJ4yHqGUsIEJVGn20</item>
+        <item>PLR2GOVaoHO59gYIxALpL_WcAWXUAKhZR8</item>
+        <item>PLR2GOVaoHO5_od-tLByyLhAMl4q5l3fkq</item>
+        <item>PLR2GOVaoHO5_Ok_N1j2qF_2oYEoO9PGDH</item>
+        <item>PLR2GOVaoHO5_YGkbyrxiyTjYz2RAJe_wB</item>
+        <item>PLR2GOVaoHO5_uPjDXlzs-zrlGa0rLdnfO</item>
+        <item>PLR2GOVaoHO58i9q8Ob7oeA-be1itr0mP2</item>
+        <item>PLR2GOVaoHO5-iYs5_dnYr8keqfurAGgqs</item>
+        <item>PLR2GOVaoHO5_woCFGPuDzty4LD9Fxs0yH</item>
+        <item>PLR2GOVaoHO59a790ML9n3NdQml-AaCw-F</item>
+        <item>PLR2GOVaoHO58zQTLLE3pZi1nqrntZvKo2</item>
+        <item>PLR2GOVaoHO5_g0o529QxjDglXHF3HXQT0</item>
+        <item>PLR2GOVaoHO59JEnUGCCLwlkUHjvlPkcWe</item>
+        <item>PLR2GOVaoHO5-77FhkRPmWDdPnmccht0dW</item>
+        <item>PLR2GOVaoHO5_dD9a_f-_dP8USEH_Mff6l</item>
+        <item>PLD56AF8DAA24932FD</item>
+        <item>PLR2GOVaoHO5-0cQmbmPPuT712k0s44XcE</item>
+        <item>PLR2GOVaoHO59yems-m8r2TR2oVqGNu-LO</item>
+        <item>PLR2GOVaoHO5917eMPf86xvWh47F5TOTeQ</item>
+        <item>PLR2GOVaoHO58h49nmxbdA6bKS9w-Vh9ii</item>
     </string-array>
 
     <string-array name="motiv_others_vids">
@@ -835,6 +865,7 @@
         <item>PL54F94B9D8A925FD4</item>
         <item>PLqYfFW19a7i4htnItulHZ1Q6B61MabJmp</item>
         <item>PL5CCEE93CE50512AD</item>
+        <item>PLE91551D0EA381C82</item>
     </string-array>
 
     <string-array name="vratkatha_vids">

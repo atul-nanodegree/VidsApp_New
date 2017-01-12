@@ -267,6 +267,9 @@ public class VidsActivity extends AppCompatActivity {
                     } else if (selectedSubCategory.equalsIgnoreCase("Jiva Ayurveda")) {
                         formatedVidsList = "UCmV9qrqreEniFqYNOBzt2FA";
                         videoType = VidsApplUtil.TYPE_CHANNEL;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Homeveda")) {
+                        formatedVidsList = "UCvdBMMIL7hikEGRXDML1l3w";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
                     } else if (selectedSubCategory.equalsIgnoreCase("Back pain")) {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.backpain_list));
@@ -287,8 +290,9 @@ public class VidsActivity extends AppCompatActivity {
                                 getResources().getStringArray(R.array.motiv_ujjwal_patni_vids));
                         videoType = VidsApplUtil.TYPE_VIDEO;
                     } else if (selectedSubCategory.equalsIgnoreCase("TS Madaan")) {
-                        formatedVidsList = "UCKjJXmZxk1SiTUQUB28KHpw";
-                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.tsmadan_list));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
                     } else if (selectedSubCategory.equalsIgnoreCase("Other motivational")) {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.motiv_others_vids));
@@ -297,6 +301,9 @@ public class VidsActivity extends AppCompatActivity {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.public_speaking_list));
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    } else if (selectedSubCategory.equalsIgnoreCase("English vinglish")) {
+                        formatedVidsList = "UCicjynhfFw2LiIQFnoS1JTw";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
                     } else if (selectedSubCategory.equalsIgnoreCase("Arushi Jain")) {
                         formatedVidsList = "UClg1BK5TSUqbepZH4PU_coQ";
                         videoType = VidsApplUtil.TYPE_CHANNEL;
