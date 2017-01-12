@@ -1,7 +1,9 @@
 package com.vidsapp;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -689,6 +691,12 @@ public class VidsActivity extends AppCompatActivity {
                     } else if (selectedSubCategory.equalsIgnoreCase("Islamic devotional")) {
                         formatedVidsList = "UCAmxwjxVB6RFnTUWx3HqOZQ";
                         videoType = VidsApplUtil.TYPE_CHANNEL;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Sadhguru")) {
+                        formatedVidsList = "UCcYzLCs3zrQIBVHYA1sK2sw";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Brahma Kumari")) {
+                        formatedVidsList = "UCQdyCrZpGq4Bbu6V8LPUDWg";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
                     } else if (selectedSubCategory.equalsIgnoreCase("Kavi sammelan")) {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.kavi_sammelan_vids));
@@ -1337,6 +1345,12 @@ public class VidsActivity extends AppCompatActivity {
             Intent i = new Intent(VidsActivity.this, FeedbackActivity.class);
             startActivity(i);
             return true;
+        } else if (id == MENU_RATE_APP) {
+            rateApp();
+            return true;
+        } else if (id == MENU_SHARE_APP) {
+            shareApp();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -1533,5 +1547,28 @@ public class VidsActivity extends AppCompatActivity {
         drawer.closeDrawer(GravityCompat.START);
     }
 
+    private void rateApp() {
+        Uri uri = Uri.parse("market://details?id=" + this.getPackageName());
+        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+        goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+                Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET |
+                Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+        try {
+            this.startActivity(goToMarket);
+        } catch (ActivityNotFoundException e) {
+            this.startActivity(new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("http://play.google.com/store/apps/details?id=" + this.getPackageName())));
+        }
+    }
+
+    private void shareApp() {
+        final String appPackageName = this.getPackageName();
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Check out VidsApp at: " +
+                "https://play.google.com/store/apps/details?id=" + appPackageName);
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
+    }
 
 }
