@@ -267,6 +267,14 @@ public class VidsActivity extends AppCompatActivity {
                     } else if (selectedSubCategory.equalsIgnoreCase("Jiva Ayurveda")) {
                         formatedVidsList = "UCmV9qrqreEniFqYNOBzt2FA";
                         videoType = VidsApplUtil.TYPE_CHANNEL;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Back pain")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.backpain_list));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    }  else if (selectedSubCategory.equalsIgnoreCase("Cervical spondylosis")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.cervical_spondylosis_list));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
                     } else if (selectedSubCategory.equalsIgnoreCase("Sandeep Maheshwari")) {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.motiv_sandeep_m_vids));

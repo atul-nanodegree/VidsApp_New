@@ -90,7 +90,7 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/myvideo_title_layout"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="40dp"
             android:background="@android:color/transparent"/>
 
         <ProgressBar

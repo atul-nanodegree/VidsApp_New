@@ -52,6 +52,8 @@
         <item>Dandruff / Hair fall</item>
         <item>F3 health care</item>
         <item>Jiva Ayurveda</item>
+        <item>Back pain</item>
+        <item>Cervical spondylosis</item>
     </string-array>
 
 
@@ -739,6 +741,20 @@
         <item>_5WRYmKcILQ</item>
         <item>qZC_diR8iaI</item>
 
+    </string-array>
+
+    <string-array name="backpain_list">
+        <item>PL4hbZojqLwO0ke76mz7DlvPyEr5Mqi2Xi</item>
+        <item>PLvP8YsX0ebXbH40wCOKLFVcq9j_rph8tZ</item>
+        <item>PL6pPQP21hTP35_70Uxjekwar-BgX4-OBP</item>
+        <item>PL2D6821C56838FE16</item>
+        <item>PLP7Ou7uUiYzAo-48PkugdXQ8cD0xL-uPQ</item>
+    </string-array>
+
+    <string-array name="cervical_spondylosis_list">
+        <item>PLJGQIm5pbWkoyyOQQDUTxGV8KC0TMsDen</item>
+        <item>PLro-x3ZNnod6UCReZWssREKpqIghiGgWC</item>
+        <item>PL5rPA-Ze8Cnbx401lcyB-hMr3UPCgG7hd</item>
     </string-array>
 
     <string-array name="chalisa_vids">
