@@ -85,10 +85,13 @@ public class VidsActivity extends AppCompatActivity {
     private boolean mFlag=false;
     private ArrayAdapter<String> mAdapter;
 
+    public static String PACKAGE_NAME;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        PACKAGE_NAME = getApplicationContext().getPackageName();
 
         //Displaying banner ads at bottom of screen
         vidsAppAds = new VidsAppAds(this);

@@ -85,7 +85,8 @@ public class VidsFavoriteAdapter extends RecyclerView.Adapter<VidsFavoriteAdapte
             } else if (v.getId() == R.id.share) {
                 Intent shareIntent = new Intent();
                 shareIntent.setAction(Intent.ACTION_SEND);
-                shareIntent.putExtra(Intent.EXTRA_TEXT, "https://www.youtube.com/watch?v="+mYoutubePlaylistsList.get(getAdapterPosition()).getId()+"\n"+"\n"+"VidsApp Link"+"\n"+"https://play.google.com/store/apps/details?id=com.whatsapp&hl=en");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "https://www.youtube.com/watch?v="+mYoutubePlaylistsList.get(getAdapterPosition()).getId()+"\n"+"\n"+
+                        "For more such cool videos, install VidsApp"+"\n"+ "https://play.google.com/store/apps/details?id=" + VidsActivity.PACKAGE_NAME);
                 shareIntent.setType("text/plain");
                 mContext.startActivity(Intent.createChooser(shareIntent, "Share this Video with..."));
 
