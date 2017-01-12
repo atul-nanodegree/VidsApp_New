@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.vidsapp"
+    package="com.wowapps.vidsapp"
     android:versionCode="1"
     android:versionName="1.0.0" >
 
@@ -27,13 +27,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".VidsActivity"
+            android:name="com.wowapps.vidsapp.VidsActivity"
             android:screenOrientation="portrait"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
-        <activity android:name=".SplashActivity"
+        <activity android:name="com.wowapps.vidsapp.SplashActivity"
             android:screenOrientation="portrait"
             >
             <intent-filter>
@@ -43,55 +43,55 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".YoutubePlayerActivity"
+            android:name="com.wowapps.vidsapp.YoutubePlayerActivity"
             android:screenOrientation="landscape"
             android:configChanges="orientation"/>
         <activity
-            android:name="com.vidsapp.YoutubePlaylistActivity"
+            android:name="com.wowapps.vidsapp.YoutubePlaylistActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize"
-            android:parentActivityName="com.vidsapp.VidsActivity"
+            android:parentActivityName="com.wowapps.vidsapp.VidsActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.vidsapp.VidsActivity" />
+                android:value="com.wowapps.vidsapp.VidsActivity" />
         </activity>
 
         <activity
-            android:name="com.vidsapp.VideoListActivity"
+            android:name="com.wowapps.vidsapp.VideoListActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize"
-            android:parentActivityName="com.vidsapp.VidsActivity"
+            android:parentActivityName="com.wowapps.vidsapp.VidsActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.vidsapp.VidsActivity" />
+                android:value="com.wowapps.vidsapp.VidsActivity" />
         </activity>
 
         <activity
-            android:name="com.vidsapp.VideoSearchListActivity"
+            android:name="com.wowapps.vidsapp.VideoSearchListActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize"
-            android:parentActivityName="com.vidsapp.VidsActivity"
+            android:parentActivityName="com.wowapps.vidsapp.VidsActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.vidsapp.VidsActivity" />
+                android:value="com.wowapps.vidsapp.VidsActivity" />
         </activity>
 
         <activity
-            android:name="com.vidsapp.PlayListActivity"
+            android:name="com.wowapps.vidsapp.PlayListActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize"
-            android:parentActivityName="com.vidsapp.VidsActivity"
+            android:parentActivityName="com.wowapps.vidsapp.VidsActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.vidsapp.VidsActivity" />
+                android:value="com.wowapps.vidsapp.VidsActivity" />
         </activity>
 
         <activity
-            android:name="com.vidsapp.YoutubePlaylistPlayerActivity"
+            android:name="com.wowapps.vidsapp.YoutubePlaylistPlayerActivity"
             android:screenOrientation="landscape"
             android:configChanges="orientation"/>
         <meta-data
@@ -99,44 +99,44 @@
             android:value="c571a009232e5f2b1bd8c00fc7863ee455548434" />
 
         <activity
-            android:name="com.vidsapp.VidsFavoriteActivity"
+            android:name="com.wowapps.vidsapp.VidsFavoriteActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize"
-            android:parentActivityName="com.vidsapp.VidsActivity"
+            android:parentActivityName="com.wowapps.vidsapp.VidsActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.vidsapp.VidsActivity" />
+                android:value="com.wowapps.vidsapp.VidsActivity" />
         </activity>
         <activity
-            android:name="com.vidsapp.RadioFmActivity"
+            android:name="com.wowapps.vidsapp.RadioFmActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize"
-            android:parentActivityName="com.vidsapp.RadioFmActivity"
+            android:parentActivityName="com.wowapps.vidsapp.RadioFmActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.vidsapp.VidsActivity" />
+                android:value="com.wowapps.vidsapp.VidsActivity" />
         </activity>
         <activity
-            android:name="com.vidsapp.AboutActivity"
+            android:name="com.wowapps.vidsapp.AboutActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize"
-            android:parentActivityName="com.vidsapp.AboutActivity"
+            android:parentActivityName="com.wowapps.vidsapp.AboutActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.vidsapp.VidsActivity" />
+                android:value="com.wowapps.vidsapp.VidsActivity" />
         </activity>
         <activity
-            android:name="com.vidsapp.FeedbackActivity"
+            android:name="com.wowapps.vidsapp.FeedbackActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize"
-            android:parentActivityName="com.vidsapp.FeedbackActivity"
+            android:parentActivityName="com.wowapps.vidsapp.FeedbackActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.vidsapp.VidsActivity" />
+                android:value="com.wowapps.vidsapp.VidsActivity" />
         </activity>
         <!--Include the AdActivity configChanges and theme. -->
         <meta-data
