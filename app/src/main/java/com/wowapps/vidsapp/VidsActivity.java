@@ -710,6 +710,68 @@ public class VidsActivity extends AppCompatActivity {
                                 getResources().getStringArray(R.array.shayari_vids));
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
                     }
+
+                    else if (selectedSubCategory.equalsIgnoreCase("Kannada Latest Songs")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.kannada_latest_songs));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("Sonu Nigam Kannada Songs")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.sonu_songs));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    }
+
+                    else if (selectedSubCategory.equalsIgnoreCase("S. P. Balasubrahmanyam Songs")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.sp_songs));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    }
+
+                    else if (selectedSubCategory.equalsIgnoreCase("Vijay Prakash Songs")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.vp_songs));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    }
+
+                    else if (selectedSubCategory.equalsIgnoreCase("PJ Yesudas Songs")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.pjy_songs));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    }
+
+                    else if (selectedSubCategory.equalsIgnoreCase("Dr Raj Kumar Songs")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.rj_songs));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    }
+
+                    else if (selectedSubCategory.equalsIgnoreCase("T-Series Kannada")) {
+                        formatedVidsList = "UCovxnbWKPCA5iJDxa9zbBew";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    }
+
+                    else if (selectedSubCategory.equalsIgnoreCase("Kannada Devotional Songs")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.devotional_songs));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("Kannada Bhakti Sagar")) {
+                        formatedVidsList = "UCQX4SV8Fg0cD98K1VRBVPEw";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("Kannada Old Movies")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.kold_mv));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("Kannada Latest Movies")) {
+                        formatedVidsList = VidsApplUtil.formatVidsList(
+                                getResources().getStringArray(R.array.klt_mv));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    }
+
+
                     if (VidsApplUtil.TYPE_VIDEO.equals(videoType)) {
                         //Starting video/playlist as per sub categary requirement
 
@@ -1531,19 +1593,23 @@ public class VidsActivity extends AppCompatActivity {
             loadSubCategory(getResources().getStringArray(R.array.mythological_list));
         } else if (id == 4) {
             loadSubCategory(getResources().getStringArray(R.array.songs_list));
-        } else if (id == 5) {
+        }
+        else if (id == 5) {
+            loadSubCategory(getResources().getStringArray(R.array.kannada_list));
+        }
+        else if (id == 6) {
             loadSubCategory(getResources().getStringArray(R.array.tamil_list));
-        } else if (id == 6) {
-            loadSubCategory(getResources().getStringArray(R.array.telugu_list));
         } else if (id == 7) {
-            loadSubCategory(getResources().getStringArray(R.array.shayari_poetry_list));
+            loadSubCategory(getResources().getStringArray(R.array.telugu_list));
         } else if (id == 8) {
-            loadSubCategory(getResources().getStringArray(R.array.movies_list));
+            loadSubCategory(getResources().getStringArray(R.array.shayari_poetry_list));
         } else if (id == 9) {
-            loadSubCategory(getResources().getStringArray(R.array.kids_section));
+            loadSubCategory(getResources().getStringArray(R.array.movies_list));
         } else if (id == 10) {
-            loadSubCategory(getResources().getStringArray(R.array.food_recepies));
+            loadSubCategory(getResources().getStringArray(R.array.kids_section));
         } else if (id == 11) {
+            loadSubCategory(getResources().getStringArray(R.array.food_recepies));
+        } else if (id == 12) {
             loadSubCategory(getResources().getStringArray(R.array.live_channels));
         }
 

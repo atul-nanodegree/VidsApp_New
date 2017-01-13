@@ -27,6 +27,7 @@
         <item>Motivational</item>
         <item>Mythological</item>
         <item>Bollywood songs</item>
+        <item>Kannada special</item>
         <item>Tamil special</item>
         <item>Telugu special</item>
         <item>Shayari/Poetry</item>
@@ -462,6 +463,20 @@
         <item>Kamal Hasan Special</item>
         <item>Tamil Movies</item>
         <item>Tamil Hot Item Songs</item>
+    </string-array>
+
+    <string-array name="kannada_list">
+        <item>T-Series Kannada</item>
+        <item>Kannada Latest Songs</item>
+        <item>Sonu Nigam Kannada Songs</item>
+        <item>S. P. Balasubrahmanyam Songs</item>
+        <item>Vijay Prakash Songs</item>
+        <item>PJ Yesudas Songs</item>
+        <item>Dr Raj Kumar Songs</item>
+        <item>Kannada Devotional Songs</item>
+        <item>Kannada Bhakti Sagar</item>
+        <item>Kannada Old Movies</item>
+        <item>Kannada Latest Movies</item>
     </string-array>
 
     <string-array name="telugu_list">
@@ -933,6 +948,46 @@
         <item>PLncf8ITx8uzDZhDPN06fWTBugGEIcepYq</item>
         <item>PLoDi1jTfUJ-LOavsE7R-BGNqJ08FlPiMB</item>
         <item>PLvPHv9wrLvClIs-gnHwE7XdVafOoGLH6r</item>
+    </string-array>
+
+    <string-array name="kannada_latest_songs">
+        <item>PL-dy-pvQWdL5rkz6EAWxsE2t8nrC-sR6x</item>
+        <item>PLEA875158D4401ECF</item>
+        <item>PL6FD64B8559D2F005</item>
+        <item>PL78144EE9574AB479</item>
+    </string-array>
+    <string-array name="sonu_songs">
+        <item>PLW9apiC9tajtcwZO_Di9SUWikmJS5Fj6V</item>
+    </string-array>
+    <string-array name="sp_songs">
+        <item>PLxxvuxHLrEgm_pGvnc8erquI-QtF0ltBz</item>
+    </string-array>
+    <string-array name="vp_songs">
+        <item>PL7A9n1TybRSlj7sOqwHHYpMAcTMNNLzwy</item>
+        <item>PL2oAuKPZEOyYpTLUYMcArx0q_oguU3ioX</item>
+    </string-array>
+    <string-array name="pjy_songs">
+        <item>PLxxvuxHLrEgkVPsM1Jnd7KyZZimLxthMw</item>
+        <item>PL42wbJc8hMHHRQEy6IFr3PT1Cn1otWb0d</item>
+    </string-array>
+    <string-array name="rj_songs">
+        <item>PL73C70FFC5D49B6C8</item>
+    </string-array>
+    <string-array name="devotional_songs">
+        <item>PLVhSUgN_YlaHZvYLTin0cXn_Zcdj40NL3</item>
+        <item>PLszF2XPoPOFfJZC6WvLrxejLTJvPuFwkr</item>
+        <item>PLj6yONlnWdu4wCBp7CHzsHr1edsIyElVo</item>
+        <item>PLkHd7nlmn08MOtvwWNR1KNjQrMSau2GXC</item>
+        <item>PLj6yONlnWdu5oIyiclqsZbjUXmEqTNuLB</item>
+        <item>PL934B58945D27C72D</item>
+    </string-array>
+    <string-array name="kold_mv">
+        <item>PLFhy-I74VEPlpBZK7DaE5lYP0Wgi73dOe</item>
+        <item>PL0-qxerI39BZ5i4MqtJT_yjZxWy-XeyVB</item>
+
+    </string-array>
+    <string-array name="klt_mv">
+        <item>PLYwPlaIfAbWzmZNHehc11KkS2gged4Byo</item>
     </string-array>
 
     <string name="banner_home_footer_video">ca-app-pub-3233306799941518/2558410588</string>
