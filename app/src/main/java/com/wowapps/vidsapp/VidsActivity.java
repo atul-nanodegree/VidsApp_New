@@ -614,7 +614,9 @@ public class VidsActivity extends AppCompatActivity {
                                 "PLmcXlFHrXrBCYHTXyeK4U9r96VuiAk_8d";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
                     } else if (selectedSubCategory.equalsIgnoreCase("Very Funny Cartoons")) {
-                        formatedVidsList = "PL1TtObLAkXskULDTZPY3C6E4RTAGs_AQv,PLC8DECF60FEEC2780";
+                        formatedVidsList = "PLJHAODBevOR_U1m_3Z3CPHLf90Mj0fyBc,PL-8_jG7fOtd5A7vcy_3tHaywWarWGPnqq,PLtyW5dIGr6r4z8GceytSfTpE9IdI1pSj9," +
+                                "PLLO5cY8sxXtoQlR-h8gxzaaXWIz-Fvceg,PLCsBweb0jQ6S0WCu-JGnIED-YBsFE3-UP,PLhk8swWYNZTDZAD8QLZTMC0LpYz6192rt," +
+                                "PLWXU3Ixm9jOgBd3cSv6JO444k7Xp8zBNa";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
                     } else if (selectedSubCategory.equalsIgnoreCase("Motu Patlu")) {
                         formatedVidsList = "PLkffMCxtJZZRkHFE_Wp4GQiIPqgud3EZu,PL0Jedq5WL3qG_nPthRIzkBZSVLq0xAN72," +
