@@ -457,6 +457,7 @@
     </string-array>
 
     <string-array name="tamil_list">
+        <item>Tamil Latest jukebox</item>
         <item>A. R. Rahman Hit Tamil Songs</item>
         <item>Ilayaraja Hit Tamil Songs</item>
         <item>RajniKant Special</item>
@@ -466,8 +467,7 @@
     </string-array>
 
     <string-array name="kannada_list">
-        <item>T-Series Kannada</item>
-        <item>Kannada Latest Songs</item>
+        <item>Kannada Latest jukebox</item>
         <item>Sonu Nigam Kannada Songs</item>
         <item>S. P. Balasubrahmanyam Songs</item>
         <item>Vijay Prakash Songs</item>
@@ -480,6 +480,7 @@
     </string-array>
 
     <string-array name="telugu_list">
+        <item>Telugu Latest jukebox</item>
         <item>S. P. Balasubrahmanyam Songs</item>
         <item>Telugu Songs</item>
         <item>Telugu Movies</item>

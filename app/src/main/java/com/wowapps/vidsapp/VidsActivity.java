@@ -713,11 +713,6 @@ public class VidsActivity extends AppCompatActivity {
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
                     }
 
-                    else if (selectedSubCategory.equalsIgnoreCase("Kannada Latest Songs")) {
-                        formatedVidsList = VidsApplUtil.formatVidsList(
-                                getResources().getStringArray(R.array.kannada_latest_songs));
-                        videoType = VidsApplUtil.TYPE_PLAYLIST;
-                    }
                     else if (selectedSubCategory.equalsIgnoreCase("Sonu Nigam Kannada Songs")) {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.sonu_songs));
@@ -748,8 +743,16 @@ public class VidsActivity extends AppCompatActivity {
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
                     }
 
-                    else if (selectedSubCategory.equalsIgnoreCase("T-Series Kannada")) {
+                    else if (selectedSubCategory.equalsIgnoreCase("Kannada Latest jukebox")) {
                         formatedVidsList = "UCovxnbWKPCA5iJDxa9zbBew";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("Tamil Latest jukebox")) {
+                        formatedVidsList = "UCAEv0ANkT221wXsTnxFnBsQ";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("Telugu Latest jukebox")) {
+                        formatedVidsList = "UCjAs5MU1Smycs3wL0QdIz-A";
                         videoType = VidsApplUtil.TYPE_CHANNEL;
                     }
 
