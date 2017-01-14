@@ -214,8 +214,11 @@ public class VidsActivity extends AppCompatActivity {
 
                 if (selectedSubCategory != null) {
                     if (!NetworkUtil.isConnected(VidsActivity.this)) {
-                        Snackbar.make(mMainCoordinatorLayout, "No internet connection. Check your connection and try again", Snackbar.LENGTH_LONG)
-                                .setAction("Action", null).show();
+                        if(mMainGridLayout!=null){
+                            Snackbar.make(mMainGridLayout, "No internet connection. Check your connection and try again", Snackbar.LENGTH_LONG)
+                                    .setAction("Action", null).show();
+                        }
+
                         return;
                     }
                     String formatedVidsList = null;
@@ -1337,8 +1340,11 @@ public class VidsActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         if (!NetworkUtil.isConnected(this)) {
-            Snackbar.make(mMainCoordinatorLayout, "Uh oh! No internet connection. Try again later!", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
+            if(mMainGridLayout!=null){
+                Snackbar.make(mMainGridLayout, "Uh oh! No internet connection. Try again later!", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+
         }
         YoutubeNewTOldVideosListAdapter adapter = mVideoFragment.getAdapter();
         if (adapter != null) {
