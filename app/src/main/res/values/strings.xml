@@ -22,19 +22,19 @@
     <string name="remove_my_videos">Removed from my videos</string>
 
     <string-array name="vids_category">
-        <item>Home remedies</item>
-        <item>Beauty tips</item>
         <item>Motivational</item>
         <item>Mythological</item>
+        <item>Beauty tips</item>
+        <item>Home remedies</item>
+        <item>Food recipes</item>
+        <item>Live channels</item>
         <item>Bollywood songs</item>
+        <item>Bollywood movies</item>
+        <item>Shayari/Poetry</item>
+        <item>Kids</item>
         <item>Kannada special</item>
         <item>Tamil special</item>
         <item>Telugu special</item>
-        <item>Shayari/Poetry</item>
-        <item>Bollywood movies</item>
-        <item>Kids</item>
-        <item>Food recipes</item>
-        <item>Live channels</item>
     </string-array>
 
     <string-array name="home_remedies_list">

@@ -193,7 +193,7 @@ public class VidsActivity extends AppCompatActivity {
         TextView text = (TextView) wantedView.findViewById(android.R.id.text1);
         text.setTextColor(getResources().getColor(R.color.colorPrimary));
         wantedView.setBackgroundColor(getResources().getColor(R.color.list_backg));*/
-        loadSubCategory(getResources().getStringArray(R.array.home_remedies_list));
+        loadSubCategory(getResources().getStringArray(R.array.motivational_list));
         drawer.openDrawer(GravityCompat.START);
         if (vidsAppAds != null) {
             vidsAppAds.makingInvisibleAdview();
@@ -1591,7 +1591,9 @@ public class VidsActivity extends AppCompatActivity {
             TextView text = (TextView) view.findViewById(android.R.id.text1);
             text.setTextColor(getResources().getColor(R.color.colorPrimary));
             view.setBackgroundColor(getResources().getColor(R.color.list_backg));
-            selectItem(position);
+
+            String title = text.getText().toString();
+            selectItem(title);
 
 
         }
@@ -1641,6 +1643,56 @@ public class VidsActivity extends AppCompatActivity {
         } else if (id == 12) {
             loadSubCategory(getResources().getStringArray(R.array.live_channels));
         }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+    }
+
+    /** Swaps fragments in the main content view */
+    private void selectItem(String title) {
+
+        if (myVideoViewLayout.getVisibility() == View.VISIBLE) {
+            myVideoViewLayout.setVisibility(View.GONE);
+        }
+        // show the grid view layout if its hidde
+        if (mMainGridLayout.getVisibility() == View.GONE) {
+            mMainGridLayout.setVisibility(View.VISIBLE);
+        }
+
+        if (title != null) {
+            catTitle.setText(title);
+
+            if (title.equals("Home remedies")) {
+                loadSubCategory(getResources().getStringArray(R.array.home_remedies_list));
+            } else if (title.equals("Beauty tips")) {
+                loadSubCategory(getResources().getStringArray(R.array.beauty_tips_list));
+            } else if (title.equals("Motivational")) {
+                loadSubCategory(getResources().getStringArray(R.array.motivational_list));
+            } else if (title.equals("Mythological")) {
+                loadSubCategory(getResources().getStringArray(R.array.mythological_list));
+            } else if (title.equals("Bollywood songs")) {
+                loadSubCategory(getResources().getStringArray(R.array.songs_list));
+            }
+            else if (title.equals("Kannada special")) {
+                loadSubCategory(getResources().getStringArray(R.array.kannada_list));
+            }
+            else if (title.equals("Tamil special")) {
+                loadSubCategory(getResources().getStringArray(R.array.tamil_list));
+            } else if (title.equals("Telugu special")) {
+                loadSubCategory(getResources().getStringArray(R.array.telugu_list));
+            } else if (title.equals("Shayari/Poetry")) {
+                loadSubCategory(getResources().getStringArray(R.array.shayari_poetry_list));
+            } else if (title.equals("Bollywood movies")) {
+                loadSubCategory(getResources().getStringArray(R.array.movies_list));
+            } else if (title.equals("Kids")) {
+                loadSubCategory(getResources().getStringArray(R.array.kids_section));
+            } else if (title.equals("Food recipes")) {
+                loadSubCategory(getResources().getStringArray(R.array.food_recepies));
+            } else if (title.equals("Live channels")) {
+                loadSubCategory(getResources().getStringArray(R.array.live_channels));
+            }
+        }
+        // Handle navigation view item clicks here.
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
