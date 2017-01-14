@@ -69,6 +69,8 @@ public class VidsActivity extends AppCompatActivity {
     private YoutubeNtOVideosListEntity videoListEntity = null;
     private List<YoutubeNtOVideosListItemEntity> videoListItmeArrayList = null;
     String formatedMyVidsIds;
+    boolean mItemClicked=false;
+    int mPosition;
 
     // option menu items - add dynamically
 
@@ -99,7 +101,6 @@ public class VidsActivity extends AppCompatActivity {
         mPlanetTitles=getResources().getStringArray(R.array.vids_category);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
         // Set the adapter for the list view
@@ -114,23 +115,30 @@ public class VidsActivity extends AppCompatActivity {
                         View view = super.getView(position, convertView, parent);
                         TextView text = (TextView) view.findViewById(android.R.id.text1);
 
-
-
-                        if(position==0)
-                        {
-                            text.setTextColor(getResources().getColor(R.color.colorPrimary));
-                            view.setBackgroundColor(getResources().getColor(R.color.list_backg));                       }
-                        else{
-                            text.setTextColor(getResources().getColor(R.color.list_backg));
-                            view.setBackgroundColor(getResources().getColor(R.color.black));
+                        if (mItemClicked) {
+                            if (position == mPosition) {
+                                text.setTextColor(getResources().getColor(R.color.colorPrimary));
+                                view.setBackgroundColor(getResources().getColor(R.color.list_backg));
+                            } else {
+                                text.setTextColor(getResources().getColor(R.color.list_backg));
+                                view.setBackgroundColor(getResources().getColor(R.color.black));
+                            }
+                        } else {
+                            if (position == 0) {
+                                text.setTextColor(getResources().getColor(R.color.colorPrimary));
+                                view.setBackgroundColor(getResources().getColor(R.color.list_backg));
+                            } else {
+                                text.setTextColor(getResources().getColor(R.color.list_backg));
+                                view.setBackgroundColor(getResources().getColor(R.color.black));
+                            }
                         }
+
                         return view;
                     }
                 };
-
-
         mDrawerList.setAdapter(mAdapter);
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+        mDrawerList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
@@ -186,6 +194,10 @@ public class VidsActivity extends AppCompatActivity {
         text.setTextColor(getResources().getColor(R.color.colorPrimary));
         wantedView.setBackgroundColor(getResources().getColor(R.color.list_backg));*/
         loadSubCategory(getResources().getStringArray(R.array.home_remedies_list));
+        drawer.openDrawer(GravityCompat.START);
+        if (vidsAppAds != null) {
+            vidsAppAds.makingInvisibleAdview();
+        }
 
     }
 
@@ -1384,15 +1396,20 @@ public class VidsActivity extends AppCompatActivity {
             startActivity(i);
             return true;
         } else if (id == MENU_MY_VIDEOS) {
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
             myVideoViewLayout.setVisibility(View.VISIBLE);
             mMainGridLayout.setVisibility(View.GONE);
             refreshMyVideoViewVisibility();
             if(mDrawerList!=null){
                 for(int i=0;i<mDrawerList.getCount();i++){
                     View wantedView = mDrawerList.getChildAt(i);
-                    TextView text = (TextView) wantedView.findViewById(android.R.id.text1);
-                    text.setTextColor(getResources().getColor(R.color.list_backg));
-                    wantedView.setBackgroundColor(getResources().getColor(R.color.black));
+                    if(wantedView!=null){
+                        TextView text = (TextView) wantedView.findViewById(android.R.id.text1);
+                        text.setTextColor(getResources().getColor(R.color.list_backg));
+                        wantedView.setBackgroundColor(getResources().getColor(R.color.black));
+                    }
+
                 }
             }
 
@@ -1554,14 +1571,21 @@ public class VidsActivity extends AppCompatActivity {
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+            mItemClicked=true;
+            mPosition=position;
             for (int i=0;i<mDrawerList.getCount();i++)
             {
                 if(position!=i){
                     View wantedView = mDrawerList.getChildAt(i);
-                    TextView text = (TextView) wantedView.findViewById(android.R.id.text1);
-                    text.setTextColor(getResources().getColor(R.color.list_backg));
-                    wantedView.setBackgroundColor(getResources().getColor(R.color.black));
+                    if(wantedView!=null){
+
+                        TextView text = (TextView) wantedView.findViewById(android.R.id.text1);
+                        text.setTextColor(getResources().getColor(R.color.list_backg));
+                        wantedView.setBackgroundColor(getResources().getColor(R.color.black));
+
+
+                    }
+
                 }
             }
             TextView text = (TextView) view.findViewById(android.R.id.text1);
