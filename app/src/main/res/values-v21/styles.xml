@@ -18,7 +18,7 @@
 
     </style>
     <style name="CMOptionsMenu" parent="Widget.AppCompat.PopupMenu.Overflow">
-        <item name="android:popupBackground">#BEB8A3</item>
+        <item name="android:popupBackground">#000000</item>
 
     </style>
 
