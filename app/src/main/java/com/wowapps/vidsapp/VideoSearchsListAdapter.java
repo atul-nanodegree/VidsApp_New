@@ -107,7 +107,7 @@ public class VideoSearchsListAdapter extends RecyclerView.Adapter<VideoSearchsLi
 
 
             } else if (v.getId() == R.id.share) {
-                if (getAdapterPosition() % 2 != 0) {
+                if (getAdapterPosition() != 0 && getAdapterPosition() % 4 == 0) {
                     if (mVidsAppAds != null) {
                         mVidsAppAds.loadInterstialAds();
                     }
@@ -120,7 +120,7 @@ public class VideoSearchsListAdapter extends RecyclerView.Adapter<VideoSearchsLi
                 mContext.startActivity(Intent.createChooser(shareIntent, "Share this Video with..."));
 
             } else if (v.getId() == R.id.add_no) {
-                if (getAdapterPosition() % 4 == 0) {
+                if (getAdapterPosition() != 0 && getAdapterPosition() % 5 == 0) {
                     if (mVidsAppAds != null) {
                         mVidsAppAds.loadInterstialAds();
                     }
@@ -128,11 +128,11 @@ public class VideoSearchsListAdapter extends RecyclerView.Adapter<VideoSearchsLi
                 // persist the video id in internal file storage
                 addToMyVideos();
             } else if (v.getId() == R.id.add_yes) {
-                if (getAdapterPosition() % 5 == 0) {
-                    if (mVidsAppAds != null) {
-                        mVidsAppAds.loadInterstialAds();
-                    }
-                }
+//                if (getAdapterPosition() % 5 == 0) {
+//                    if (mVidsAppAds != null) {
+//                        mVidsAppAds.loadInterstialAds();
+//                    }
+//                }
                 // remove the video from internal file storage
                 removeFromMyVideos();
             }

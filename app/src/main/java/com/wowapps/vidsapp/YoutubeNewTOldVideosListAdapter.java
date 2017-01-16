@@ -122,7 +122,7 @@ public class YoutubeNewTOldVideosListAdapter extends RecyclerView.Adapter<Youtub
 
 
             } else  if (v.getId() == R.id.share) {
-                if(getAdapterPosition()%2!=0){
+                if(getAdapterPosition() != 00 && getAdapterPosition() % 4 == 0){
                     if (mVidsAppAds != null) {
                         mVidsAppAds.loadInterstialAds();
                     }
@@ -135,7 +135,7 @@ public class YoutubeNewTOldVideosListAdapter extends RecyclerView.Adapter<Youtub
                 mContext.startActivity(Intent.createChooser(shareIntent, "Share this Video with..."));
 
             } else  if (v.getId() == R.id.fav_no) {
-                if(getAdapterPosition()%2==0){
+                if(getAdapterPosition() !=0 && getAdapterPosition() % 4 == 0){
                     if (mVidsAppAds != null) {
                         mVidsAppAds.loadInterstialAds();
                     }
@@ -144,9 +144,9 @@ public class YoutubeNewTOldVideosListAdapter extends RecyclerView.Adapter<Youtub
                 addToFavorite();
             } else  if (v.getId() == R.id.fav_yes) {
                 if(getAdapterPosition()%2==0){
-                    if (mVidsAppAds != null) {
-                        mVidsAppAds.loadInterstialAds();
-                    }
+//                    if (mVidsAppAds != null) {
+//                        mVidsAppAds.loadInterstialAds();
+//                    }
                 }
                 // remove the video from internal file storage
                 removeFromFavorite();
