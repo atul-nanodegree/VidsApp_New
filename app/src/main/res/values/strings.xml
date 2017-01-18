@@ -30,7 +30,7 @@
         <item>Live channels</item>
         <item>Bollywood songs</item>
         <item>Bollywood movies</item>
-        <item>Comedy On Tap</item>
+        <item>Comedy shows</item>
         <item>Indian Web Series</item>
         <item>Shayari/Poetry</item>
         <item>Kids</item>
@@ -679,6 +679,7 @@
         <item>Laugh Factory</item>
         <item>Aditi Mittal</item>
         <item>Biswa Kalyan Rath</item>
+        <item>Jai hind!</item>
     </string-array>
 
     <string-array name="bhajans_playlist">

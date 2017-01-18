@@ -840,6 +840,9 @@ public class VidsActivity extends AppCompatActivity {
                     else if (selectedSubCategory.equalsIgnoreCase("Biswa Kalyan Rath")) {
                         formatedVidsList = "UCyOyIUC4bBPjNWkd5gG30TA";
                         videoType = VidsApplUtil.TYPE_CHANNEL;
+                    } else if (selectedSubCategory.equalsIgnoreCase("Jai hind!")) {
+                        formatedVidsList = "UCYfMcbLm9HIMobD84oBvvng";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
                     }
 
                     else if (selectedSubCategory.equalsIgnoreCase("TVF")) {
@@ -1467,7 +1470,7 @@ public class VidsActivity extends AppCompatActivity {
         if (myVideoViewLayout.getVisibility() == View.GONE) {
             menu.add(0, MENU_MY_VIDEOS, Menu.NONE, R.string.action_my_videos);
         }
-        menu.add(0, MENU_RADIO, Menu.NONE, R.string.action_radio);
+//        menu.add(0, MENU_RADIO, Menu.NONE, R.string.action_radio);
         menu.add(0, MENU_FEEDBACK, Menu.NONE, R.string.action_feedback);
         menu.add(0, MENU_SHARE_APP, Menu.NONE, R.string.action_share);
         menu.add(0, MENU_RATE_APP, Menu.NONE, R.string.action_rate);
@@ -1785,7 +1788,7 @@ public class VidsActivity extends AppCompatActivity {
             } else if (title.equals("Bollywood movies")) {
                 loadSubCategory(getResources().getStringArray(R.array.movies_list));
             }
-            else if (title.equals("Comedy On Tap")) {
+            else if (title.equals("Comedy shows")) {
                 loadSubCategory(getResources().getStringArray(R.array.comedy_on_tap_list));
             }
             else if (title.equals("Indian Web Series")) {
