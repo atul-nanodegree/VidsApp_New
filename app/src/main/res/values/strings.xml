@@ -30,6 +30,7 @@
         <item>Live channels</item>
         <item>Bollywood songs</item>
         <item>Bollywood movies</item>
+        <item>Comedy On Tap</item>
         <item>Indian Web Series</item>
         <item>Shayari/Poetry</item>
         <item>Kids</item>
@@ -664,6 +665,20 @@
         <item>Ladies Room</item>
         <item>Love Shots</item>
         <item>Bang Baaja Baaraat</item>
+    </string-array>
+
+    <string-array name="comedy_on_tap_list">
+        <item>East India Comedy</item>
+        <item>AIB</item>
+        <item>The Lallantop</item>
+        <item>Ruseell Peters</item>
+        <item>SnG Comedy</item>
+        <item>The Great Indian Laughter Challenge</item>
+        <item>Kenny Sebastian</item>
+        <item>BB Ki Vines</item>
+        <item>Laugh Factory</item>
+        <item>Aditi Mittal</item>
+        <item>Biswa Kalyan Rath</item>
     </string-array>
 
     <string-array name="bhajans_playlist">

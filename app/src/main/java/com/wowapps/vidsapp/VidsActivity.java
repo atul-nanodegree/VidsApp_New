@@ -796,6 +796,52 @@ public class VidsActivity extends AppCompatActivity {
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
                     }
 
+                    else if (selectedSubCategory.equalsIgnoreCase("East India Comedy")) {
+                        formatedVidsList = "UCpU9EZn1Ll9kPpSuBsn4VyA";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("AIB")) {
+                        formatedVidsList = "UCzUYuC_9XdUUdrnyLii8WYg";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("The Lallantop")) {
+                        formatedVidsList = "UCx8Z14PpntdaxCt2hakbQLQ";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("Ruseell Peters")) {
+                        formatedVidsList = "UCek57Is95suO63uuW3iOGQw";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("SnG Comedy")) {
+                        formatedVidsList = "UC6xOVUMstTf08rUgOFbyPEA";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("The Great Indian Laughter Challenge")) {
+                        formatedVidsList = "PLT8WUcVr8VDGF7H0dOXNhaFPOdRn85TVQ";
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("Kenny Sebastian")) {
+
+                        formatedVidsList = "PLXdIy-dw1BNu0IYx780gkhIcENMG9zqxo";
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("BB Ki Vines")) {
+                        formatedVidsList = "UCqwUrj10mAEsqezcItqvwEw";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("Laugh Factory")) {
+                        formatedVidsList = "UCxyCzPY2pjAjrxoSYclpuLg";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("Aditi Mittal")) {
+                        formatedVidsList = "UCvdnX4xRyt3oTW4et446_Ow";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("Biswa Kalyan Rath")) {
+                        formatedVidsList = "UCyOyIUC4bBPjNWkd5gG30TA";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    }
+
                     else if (selectedSubCategory.equalsIgnoreCase("TVF")) {
                         formatedVidsList = "UCNJcSUSzUeFm8W9P7UUlSeQ";
                         videoType = VidsApplUtil.TYPE_CHANNEL;
@@ -1738,6 +1784,9 @@ public class VidsActivity extends AppCompatActivity {
                 loadSubCategory(getResources().getStringArray(R.array.shayari_poetry_list));
             } else if (title.equals("Bollywood movies")) {
                 loadSubCategory(getResources().getStringArray(R.array.movies_list));
+            }
+            else if (title.equals("Comedy On Tap")) {
+                loadSubCategory(getResources().getStringArray(R.array.comedy_on_tap_list));
             }
             else if (title.equals("Indian Web Series")) {
                 loadSubCategory(getResources().getStringArray(R.array.indian_web_series_list));
