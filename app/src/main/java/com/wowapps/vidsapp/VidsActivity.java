@@ -718,7 +718,12 @@ public class VidsActivity extends AppCompatActivity {
                     } else if (selectedSubCategory.equalsIgnoreCase("Brahma Kumari")) {
                         formatedVidsList = "UCQdyCrZpGq4Bbu6V8LPUDWg";
                         videoType = VidsApplUtil.TYPE_CHANNEL;
-                    } else if (selectedSubCategory.equalsIgnoreCase("Kavi sammelan")) {
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("The Art of Living")) {
+                        formatedVidsList = "UC4qz5w2M-Xmju7WC9ynqRtw";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("Kavi sammelan")) {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.kavi_sammelan_vids));
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
@@ -788,6 +793,49 @@ public class VidsActivity extends AppCompatActivity {
                     else if (selectedSubCategory.equalsIgnoreCase("Kannada Latest Movies")) {
                         formatedVidsList = VidsApplUtil.formatVidsList(
                                 getResources().getStringArray(R.array.klt_mv));
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    }
+
+                    else if (selectedSubCategory.equalsIgnoreCase("TVF")) {
+                        formatedVidsList = "UCNJcSUSzUeFm8W9P7UUlSeQ";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("The Aam Aadmi Family")) {
+                        formatedVidsList = "PLbZboRRHE3b09VvTwxoj_1uQ7h6ZWnmNR";
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("Life Sahi Hai")) {
+                        formatedVidsList = "UC_3-FjGTc-6T-X_fwob06Gw";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("BB Ki Vines")) {
+                        formatedVidsList = "UCqwUrj10mAEsqezcItqvwEw";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("Arre")) {
+                        formatedVidsList = "UC2O-N1R4x56XhndL4qqfKcw";
+                        videoType = VidsApplUtil.TYPE_CHANNEL;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("BAKED Season 1")) {
+                        formatedVidsList = "PL2BrJauH6oAQPPOIimPBaqNZel6TCwWRm";
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    }
+
+                    else if (selectedSubCategory.equalsIgnoreCase("BAKED Season 2")) {
+                        formatedVidsList = "PL2BrJauH6oAT9pZUDUJGYV-xnL-sElNtC";
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("Ladies Room")) {
+                        formatedVidsList = "PLEDnP0ud0ZBiS2kgW9-MKKnzZclgDpzgK";
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    }
+                    else if (selectedSubCategory.equalsIgnoreCase("Love Shots")) {
+                        formatedVidsList = "PLEDnP0ud0ZBhAmnLNQh827iQSGcVAfOsZ";
+                        videoType = VidsApplUtil.TYPE_PLAYLIST;
+                    }
+
+                    else if (selectedSubCategory.equalsIgnoreCase("Bang Baaja Baaraat")) {
+                        formatedVidsList = "PLEDnP0ud0ZBiajaBonFlCSnC4MMlEjm1K";
                         videoType = VidsApplUtil.TYPE_PLAYLIST;
                     }
 
@@ -1690,7 +1738,11 @@ public class VidsActivity extends AppCompatActivity {
                 loadSubCategory(getResources().getStringArray(R.array.shayari_poetry_list));
             } else if (title.equals("Bollywood movies")) {
                 loadSubCategory(getResources().getStringArray(R.array.movies_list));
-            } else if (title.equals("Kids")) {
+            }
+            else if (title.equals("Indian Web Series")) {
+                loadSubCategory(getResources().getStringArray(R.array.indian_web_series_list));
+            }
+            else if (title.equals("Kids")) {
                 loadSubCategory(getResources().getStringArray(R.array.kids_section));
             } else if (title.equals("Food recipes")) {
                 loadSubCategory(getResources().getStringArray(R.array.food_recepies));

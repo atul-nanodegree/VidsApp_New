@@ -30,6 +30,7 @@
         <item>Live channels</item>
         <item>Bollywood songs</item>
         <item>Bollywood movies</item>
+        <item>Indian Web Series</item>
         <item>Shayari/Poetry</item>
         <item>Kids</item>
         <item>Kannada special</item>
@@ -649,6 +650,20 @@
         <item>Islamic devotional</item>
         <item>Sadhguru</item>
         <item>Brahma Kumari</item>
+        <item>The Art of Living</item>
+    </string-array>
+
+    <string-array name="indian_web_series_list">
+        <item>TVF</item>
+        <item>The Aam Aadmi Family</item>
+        <item>Life Sahi Hai</item>
+        <item>BB Ki Vines</item>
+        <item>Arre</item>
+        <item>BAKED Season 1</item>
+        <item>BAKED Season 2</item>
+        <item>Ladies Room</item>
+        <item>Love Shots</item>
+        <item>Bang Baaja Baaraat</item>
     </string-array>
 
     <string-array name="bhajans_playlist">
