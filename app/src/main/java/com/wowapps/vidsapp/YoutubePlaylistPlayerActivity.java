@@ -1,5 +1,6 @@
 package com.wowapps.vidsapp;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -33,7 +34,10 @@ public class YoutubePlaylistPlayerActivity extends YouTubeBaseActivity implement
     @Override
     public void onInitializationFailure(YouTubePlayer.Provider provider,
                                         YouTubeInitializationResult result) {
-        Toast.makeText(this, "failed", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, result.toString(), Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(YoutubePlaylistPlayerActivity.this, ErrorActivity.class);
+        startActivity(intent);
+
     }
 
     @Override
