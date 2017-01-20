@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="66dp"
     android:padding="5dp"
-    android:background="#95ffffff">
+    android:background="@drawable/grid_item_bg">
 
     <ImageView
         android:id="@+id/item_image"

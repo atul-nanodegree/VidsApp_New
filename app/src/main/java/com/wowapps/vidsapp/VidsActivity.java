@@ -117,19 +117,19 @@ public class VidsActivity extends AppCompatActivity {
 
                         if (mItemClicked) {
                             if (position == mPosition) {
-                                text.setTextColor(getResources().getColor(R.color.colorPrimary));
+                                text.setTextColor(getResources().getColor(R.color.white));
                                 view.setBackgroundColor(getResources().getColor(R.color.list_backg));
                             } else {
-                                text.setTextColor(getResources().getColor(R.color.list_backg));
-                                view.setBackgroundColor(getResources().getColor(R.color.black));
+                                text.setTextColor(getResources().getColor(R.color.black));
+                                view.setBackgroundColor(Color.parseColor("#ffffff"));
                             }
                         } else {
                             if (position == 0) {
-                                text.setTextColor(getResources().getColor(R.color.colorPrimary));
+                                text.setTextColor(getResources().getColor(R.color.white));
                                 view.setBackgroundColor(getResources().getColor(R.color.list_backg));
                             } else {
-                                text.setTextColor(getResources().getColor(R.color.list_backg));
-                                view.setBackgroundColor(getResources().getColor(R.color.black));
+                                text.setTextColor(getResources().getColor(R.color.black));
+                                view.setBackgroundColor(Color.parseColor("#ffffff"));
                             }
                         }
 
@@ -1509,8 +1509,8 @@ public class VidsActivity extends AppCompatActivity {
                     View wantedView = mDrawerList.getChildAt(i);
                     if(wantedView!=null){
                         TextView text = (TextView) wantedView.findViewById(android.R.id.text1);
-                        text.setTextColor(getResources().getColor(R.color.list_backg));
-                        wantedView.setBackgroundColor(getResources().getColor(R.color.black));
+                        text.setTextColor(getResources().getColor(R.color.black));
+                        wantedView.setBackgroundColor(Color.parseColor("#ffffff"));
                     }
 
                 }
@@ -1683,8 +1683,8 @@ public class VidsActivity extends AppCompatActivity {
                     if(wantedView!=null){
 
                         TextView text = (TextView) wantedView.findViewById(android.R.id.text1);
-                        text.setTextColor(getResources().getColor(R.color.list_backg));
-                        wantedView.setBackgroundColor(getResources().getColor(R.color.black));
+                        text.setTextColor(getResources().getColor(R.color.black));
+                        wantedView.setBackgroundColor(Color.parseColor("#ffffff"));
 
 
                     }
@@ -1692,7 +1692,7 @@ public class VidsActivity extends AppCompatActivity {
                 }
             }
             TextView text = (TextView) view.findViewById(android.R.id.text1);
-            text.setTextColor(getResources().getColor(R.color.colorPrimary));
+            text.setTextColor(getResources().getColor(R.color.white));
             view.setBackgroundColor(getResources().getColor(R.color.list_backg));
 
             String title = text.getText().toString();
