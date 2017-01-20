@@ -54,9 +54,5 @@ public class YoutubePlayerActivity extends YouTubeBaseActivity implements YouTub
             player.cueVideo(getIntent().getStringExtra("VIDEO_ID"));
             player.setFullscreen(true);
         }
-        /*if(VidsApplUtil.isVersionLess(this)){
-            Intent intent = new Intent(YoutubePlayerActivity.this, ErrorActivity.class);
-            startActivity(intent);
-        }*/
     }
 }

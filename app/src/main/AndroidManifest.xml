@@ -99,7 +99,7 @@
             android:value="c571a009232e5f2b1bd8c00fc7863ee455548434" />
         <activity
             android:name=".ErrorActivity"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:theme="@style/AppDialogTheme"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.wowapps.vidsapp.VidsFavoriteActivity"

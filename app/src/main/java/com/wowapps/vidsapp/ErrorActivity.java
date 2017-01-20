@@ -6,9 +6,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.wowapps.vidsapp.util.VidsApplUtil;
 
 
 /**
@@ -16,7 +19,6 @@ import android.widget.Toast;
  */
 public class ErrorActivity extends Activity {
 
-    private TextView dlgHeader, dlgBody;
     private Button dlgEnableBtn;
 
     @Override
@@ -25,8 +27,16 @@ public class ErrorActivity extends Activity {
 
         setContentView(R.layout.erroactivity);
 
-        dlgHeader = (TextView) findViewById(R.id.error_text1);
-        dlgBody = (TextView) findViewById(R.id.error_text2);
+        WindowManager.LayoutParams params = getWindow().getAttributes();
+//        params.x = VidsApplUtil.getScreenWidth(this);
+//        params.width = VidsApplUtil.getScreenWidth(this)
+//                - VidsApplUtil.getScreenWidth(this) / 3;
+        params.height = VidsApplUtil.getScreenHeight(this)
+                - (VidsApplUtil.getScreenHeight(this) * 40) /100; // reduce the height of activity by 40 percent
+        this.getWindow().setAttributes(params);
+
+        this.setFinishOnTouchOutside(false); // restrict to vanish by outside touch  as this is dialog activity as theme
+
         dlgEnableBtn = (Button) findViewById(R.id.error_button);
         dlgEnableBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +52,7 @@ public class ErrorActivity extends Activity {
                     startActivity(new Intent(Intent.ACTION_VIEW,
                             Uri.parse("http://play.google.com/store/apps/details?id=" + "com.google.android.youtube")));
                 }
+                finish();
             }
         });
     }

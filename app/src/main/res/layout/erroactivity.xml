@@ -6,41 +6,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
-    android:layout_marginTop="80dp"
-    android:background="#EBEBEB"
-   >
+    android:background="#EBEBEB">
 
     <TextView
-        android:id="@+id/error_text1"
+        android:id="@+id/error_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Header Goes Here"
+        android:text="Can't Play Video"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
         android:textColor="@color/black"
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/error_text2"
-        android:layout_width="wrap_content"
+        android:id="@+id/error_mesg"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Body Goes Here"
+        android:layout_below="@id/error_header"
+        android:layout_marginTop="20dp"
+        android:text="Opps! It looks your YouTube version is outdated. Make it up-to-date for video playback."
 
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp" />
 
     <Button
         android:id="@+id/error_button"
         android:layout_width="240dp"
         android:layout_height="35dp"
         android:background="@drawable/button_bg"
-        android:text="Update Youtube"
+        android:text="Let's update YouTube"
         android:textColor="@color/white"
-        android:textSize="14sp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="85dp" />
+        android:layout_marginBottom="30dp"
+        android:textSize="14sp"
+        android:layout_centerHorizontal="true"/>
 
 
 </RelativeLayout>

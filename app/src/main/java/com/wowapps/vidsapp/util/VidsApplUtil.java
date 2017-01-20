@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.util.DisplayMetrics;
 import android.widget.Toast;
 
 import java.io.FileInputStream;
@@ -74,7 +75,7 @@ public class VidsApplUtil {
             info = manager.getPackageInfo(
                     "com.google.android.youtube", 0);
             String version = info.versionName;
-            Toast.makeText(context, version, Toast.LENGTH_LONG).show();
+//            Toast.makeText(context, version, Toast.LENGTH_LONG).show();
             String version1 = version.split("\\.")[0];
             if (Integer.valueOf(version1) < 12) {
                 return true;
@@ -86,6 +87,18 @@ public class VidsApplUtil {
         }
 
         return false;
+    }
+
+    public static int getScreenWidth(Context ctx) {
+        DisplayMetrics displaymetrics = ctx.getResources().getDisplayMetrics();
+        int width = displaymetrics.widthPixels;
+        return width;
+    }
+
+    public static int getScreenHeight(Context ctx) {
+        DisplayMetrics displaymetrics = ctx.getResources().getDisplayMetrics();
+        int height = displaymetrics.heightPixels;
+        return height;
     }
 
 }
