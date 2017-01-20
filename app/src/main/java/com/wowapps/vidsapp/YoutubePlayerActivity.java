@@ -1,6 +1,8 @@
 package com.wowapps.vidsapp;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -9,6 +11,7 @@ import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
+import com.wowapps.vidsapp.util.VidsApplUtil;
 
 /**
  * Created by atul.
@@ -35,8 +38,12 @@ public class YoutubePlayerActivity extends YouTubeBaseActivity implements YouTub
     public void onInitializationFailure(YouTubePlayer.Provider provider,
                                         YouTubeInitializationResult result) {
         Toast.makeText(this, result.toString(), Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(YoutubePlayerActivity.this, ErrorActivity.class);
-        startActivity(intent);
+
+        if(VidsApplUtil.isVersionLess(this)){
+            Intent intent = new Intent(YoutubePlayerActivity.this, ErrorActivity.class);
+            startActivity(intent);
+        }
+
 
     }
 
@@ -47,7 +54,9 @@ public class YoutubePlayerActivity extends YouTubeBaseActivity implements YouTub
             player.cueVideo(getIntent().getStringExtra("VIDEO_ID"));
             player.setFullscreen(true);
         }
-       /* Intent intent = new Intent(YoutubePlayerActivity.this, ErrorActivity.class);
-        startActivity(intent);*/
+        /*if(VidsApplUtil.isVersionLess(this)){
+            Intent intent = new Intent(YoutubePlayerActivity.this, ErrorActivity.class);
+            startActivity(intent);
+        }*/
     }
 }

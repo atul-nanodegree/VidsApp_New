@@ -9,6 +9,7 @@ import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
+import com.wowapps.vidsapp.util.VidsApplUtil;
 
 /**
  * Created by atul.
@@ -35,8 +36,11 @@ public class YoutubePlaylistPlayerActivity extends YouTubeBaseActivity implement
     public void onInitializationFailure(YouTubePlayer.Provider provider,
                                         YouTubeInitializationResult result) {
         Toast.makeText(this, result.toString(), Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(YoutubePlaylistPlayerActivity.this, ErrorActivity.class);
-        startActivity(intent);
+        if(VidsApplUtil.isVersionLess(this)){
+            Intent intent = new Intent(YoutubePlaylistPlayerActivity.this, ErrorActivity.class);
+            startActivity(intent);
+        }
+
 
     }
 

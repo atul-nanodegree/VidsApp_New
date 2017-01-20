@@ -31,9 +31,6 @@ public class ErrorActivity extends Activity {
         dlgEnableBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                https:
-//play.google.com/store/apps/details?id=com.google.android.youtube&hl=en
-                Toast.makeText(ErrorActivity.this, "dialogue button click", Toast.LENGTH_LONG);
                 Uri uri = Uri.parse("market://details?id=" + "com.google.android.youtube");
                 Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
                 goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
